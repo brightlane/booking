@@ -362,3 +362,116 @@
     };
   })();
 </script>
+<script>
+  // Language detector + auto‑redirect
+  (function () {
+    const SUPPORTED_LANGS = ["en", "es", "fr", "de", "it", "pt"];
+    const DEFAULT_LANG = "en";
+
+    // Extract base language (e.g., "en" from "en-US")
+    function getBrowserLang() {
+      const lang = navigator.language || navigator.languages[0];
+      return lang ? lang.split("-")[0].toLowerCase() : DEFAULT_LANG;
+    }
+
+    const browserLang = getBrowserLang();
+    const langCode = SUPPORTED_LANGS.includes(browserLang) ? browserLang : DEFAULT_LANG;
+
+    // If you later add language subfolders:
+    //   en/index.html
+    //   es/index.html
+    //   fr/index.html
+    // Uncomment the line below and comment out the fake “multi” section
+    /*
+    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+      if (langCode !== DEFAULT_LANG) {
+        window.location.replace(`/${langCode}/`);
+      }
+    }
+    */
+
+    // For now: fake “multi‑lang” inside one page (no folders)
+    const translations = {
+      en: {
+        title: "Best Hotels Worldwide – HotelGuide26 (2026 Deals)",
+        slogan: "Best, cheap, and last‑minute hotel deals in 240+ cities.",
+        btnTop: "Check Top Hotels Worldwide",
+        btnCheap: "Find Cheap Hotels",
+        btnLast: "View Deals",
+        footer: "Affiliate Disclosure: We earn a commission from Booking.com for qualifying bookings at no extra cost to you.",
+      },
+      es: {
+        title: "Mejores Hoteles del Mundo – HotelGuide26 (Ofertas 2026)",
+        slogan: "Mejores, baratos y ofertas de último minuto en hoteles en más de 240 ciudades.",
+        btnTop: "Ver hoteles principales",
+        btnCheap: "Encontrar hoteles baratos",
+        btnLast: "Ver ofertas",
+        footer: "Aviso de afiliado: Ganamos una comisión de Booking.com por reservas calificadas sin costo adicional para usted.",
+      },
+      fr: {
+        title: "Meilleurs hôtels du monde – HotelGuide26 (Offres 2026)",
+        slogan: "Hôtels les meilleurs, économiques et offres de dernière minute dans plus de 240 villes.",
+        btnTop: "Voir les hôtels principaux",
+        btnCheap: "Trouver des hôtels pas chers",
+        btnLast: "Voir les offres",
+        footer: "Avertissement d’affiliation : Nous gagnons une commission de Booking.com pour les réservations admissibles, sans frais supplémentaires pour vous.",
+      },
+      de: {
+        title: "Beste Hotels weltweit – HotelGuide26 (2026 Angebote)",
+        slogan: "Beste, günstige und Last‑Minute‑Hotelangebote in über 240 Städten.",
+        btnTop: "Haupt‑Hotels anzeigen",
+        btnCheap: "Günstige Hotels finden",
+        btnLast: "Angebote anzeigen",
+        footer: "Affiliate‑Hinweis: Wir erhalten eine Provision von Booking.com für qualifizierte Buchungen ohne zusätzliche Kosten für Sie.",
+      },
+      it: {
+        title: "Migliori Hotel del Mondo – HotelGuide26 (Offerte 2026)",
+        slogan: "Hotel migliori, economici e offerte dell’ultimo minuto in più di 240 città.",
+        btnTop: "Vedi hotel principali",
+        btnCheap: "Trova hotel economici",
+        btnLast: "Vedi offerte",
+        footer: "Informativa sulle affiliazioni: guadagniamo una commissione da Booking.com per le prenotazioni qualificate senza costi aggiuntivi per te.",
+      },
+      pt: {
+        title: "Melhores Hotéis do Mundo – HotelGuide26 (Ofertas 2026)",
+        slogan: "Melhores, hotéis baratos e ofertas de última hora em mais de 240 cidades.",
+        btnTop: "Ver hotéis principais",
+        btnCheap: "Encontrar hotéis baratos",
+        btnLast: "Ver ofertas",
+        footer: "Aviso de afiliado: ganhamos uma comissão da Booking.com por reservas qualificadas sem custo extra para você.",
+      }
+    };
+
+    const lang = translations[langCode] || translations[DEFAULT_LANG];
+
+    // Update page content based on detected language
+    if (document.title) {
+      document.title = lang.title;
+    }
+
+    const slogan = document.querySelector("header p");
+    if (slogan) {
+      slogan.textContent = lang.slogan;
+    }
+
+    const btnTop = document.querySelector(".card:nth-child(1) .btn");
+    if (btnTop) {
+      btnTop.textContent = lang.btnTop;
+    }
+
+    const btnCheap = document.querySelector(".card:nth-child(2) .btn");
+    if (btnCheap) {
+      btnCheap.textContent = lang.btnCheap;
+    }
+
+    const btnLast = document.querySelector(".card:nth-child(3) .btn");
+    if (btnLast) {
+      btnLast.textContent = lang.btnLast;
+    }
+
+    const footerText = document.querySelector("footer p small");
+    if (footerText) {
+      footerText.textContent = lang.footer;
+    }
+  })();
+</script>
