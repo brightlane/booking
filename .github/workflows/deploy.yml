@@ -1,29 +1,48 @@
-name: Generate 5000 Hotel Pages
-on: [workflow_dispatch, push]
+name: Generate 5000 Hotel Pages DAILY
+on:
+  workflow_dispatch:     # Manual button
+  schedule:              # AUTO 10PM EDT daily
+    - cron: '0 2 * * *'  # 2AM UTC = 10PM EDT
+  push:
+    paths: ['scripts/generate.js']
 
 permissions:
-  contents: write  # ← CRITICAL: allows git push
+  contents: write
 
 jobs:
-  generate:
+  scale:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # Allow 25K pages
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0  # ← FIX: gets full history
+        fetch-depth: 0
     
-    - uses: actions/setup-node@v4
+    - name: Setup Node
+      uses: actions/setup-node@v4
       with:
         node-version: 20
     
-    - name: Generate pages
-      run: node scripts/generate.js
-    
-    - name: Commit & force push
+    - name: Generate 5000+ pages
       run: |
-        git config user.name "Hotel Bot"
+        echo "🚀 Scaling to 5000 pages..."
+        node scripts/generate.js
+    
+    - name: Deploy pages
+      run: |
+        git config user.name "Daily Scale Bot"
         git config user.email "bot@noreply.github.com"
         git add -A
-        git commit -m "Generated $(find slugs -name '*.html' | wc -l) hotel pages" || exit 0
-        git push --force-with-lease  # ← FIX: overrides conflicts
+        HTML_COUNT=$(find slugs -name '*.html' | wc -l)
+        git commit -m "Generated $HTML_COUNT pages (5000 x 5 langs) - aid=8132800" || exit 0
+        git push origin main --force-with-lease
+        echo "✅ Deployed $HTML_COUNT total pages"
+    
+    - name: Summary
+      run: |
+        echo "📊 STATS:"
+        echo "Pages: $(find slugs -name '*.html' | wc -l)"
+        echo "Languages: $(ls -d slugs/*/ 2>/dev/null | wc -l)"
+        echo "Next auto-run: Tomorrow 10PM EDT"
