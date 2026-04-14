@@ -1,23 +1,5 @@
-name: Generate 5000 Hotel Pages
-on:
-  schedule:
-    - cron: "0 9 * * *"
-  workflow_dispatch:
-permissions:
-  contents: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
-    - run: mkdir -p slugs/{en,fr,de,es,it}/hotel
-    - run: node scripts/generate.js
-    - run: |
-        git config user.name "bot"
-        git config user.email "bot@github.com"
-        git add .
-        git commit -m "5000 pages $(date)" || exit 0
-        git push
+const fs=require('fs');const path=require('path');
+const data=[['nyc','hotels','marriott'],['london','luxury','hilton'],['paris','cheap','hyatt']];
+for(let i=0;i<5000;i++){const[city,kw,brand]=data[i%3];const slug=`${city}-${kw}-${brand}`;fs.mkdirSync('slugs/en/hotel',{recursive:true});fs.writeFileSync(`slugs/en/hotel/${slug}-${i}.html`,`<!DOCTYPE html><html><head><title>${brand} ${kw} ${city}</title><meta name="description" content="aid=8132800"></head><body><h1>${brand} ${kw} Hotels ${city}</h1><a href="https://www.booking.com?aid=8132800">Book Now</a></body></html>`)}
+fs.writeFileSync('sitemap.xml','<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+Array.from({length:5000},(_,i)=>`  <url><loc>https://en/hotel/hotel-${i}</loc><lastmod>2026-04-13</lastmod></url>`).join('\n')+'</urlset>');
+console.log('✅ 5000 PAGES + SITEMAP DONE');
