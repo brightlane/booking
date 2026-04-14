@@ -1,35 +1,61 @@
-name: Generate 5000 Hotel Pages
+const fs = require('fs');
+const path = require('path');
 
-on:
-  schedule:
-    - cron: "0 9 * * *"     # Daily 9AM UTC
-  workflow_dispatch:        # Manual run button
+// Safe data arrays (no undefined)
+const KEYWORDS = ['hotels', 'booking', 'luxury', 'cheap', 'family', 'beach', 'airport', 'downtown'];
+const CITIES = ['NYC', 'London', 'Paris', 'Miami', 'Vegas', 'Cancun'];
+const BRANDS = ['Marriott', 'Hilton', 'Hyatt'];
 
-permissions:
-  contents: write
+const LANGS = [
+  {code: 'en'}, {code: 'fr'}, {code: 'de'}, {code: 'es'}, {code: 'it'}
+];
 
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      
-      - name: Create folders
-        run: mkdir -p slugs/{en,fr,de,es,it}/hotel data dist
-      
-      - name: Generate pages
-        run: node scripts/generate.js
-      
-      - name: Commit pages
-        run: |
-          git config user.name "Actions"
-          git config user.email "actions@github.com"
-          git add -A
-          git commit -m "Generated 5000 hotel pages $(date)" || exit 0
-          git push
+// Safe page generator
+function genPage(i) {
+  const city = CITIES[i % CITIES.length] || 'NYC';
+  const kw = KEYWORDS[i % KEYWORDS.length] || 'hotels';
+  const brand = BRANDS[i % BRANDS.length] || 'Marriott';
+  const lang = LANGS[i % LANGS.length] || LANGS[0];
+  
+  const slug = `${city.toLowerCase()}-${kw.toLowerCase()}-${brand.toLowerCase()}`;
+  
+  const html = `<!DOCTYPE html>
+<html lang="${lang.code}">
+<head>
+<title>${brand} ${kw} ${city} Hotels</title>
+<meta name="description" content="Book ${brand} ${kw} hotels in ${city}. aid=8132800">
+</head>
+<body>
+<h1>${brand} ${kw} Hotels in ${city}</h1>
+<p>Generated: ${new Date().toDateString()}</p>
+<a href="https://www.booking.com?aid=8132800">Book Now</a>
+</body>
+</html>`;
+  
+  return {html, slug, lang, url: `https://${lang.code}/hotel/${slug}`};
+}
+
+// Generate 5000 pages
+console.log('🚀 Generating 5000 hotel pages...');
+const urls = [];
+for(let i = 0; i < 5000; i++) {
+  const page = genPage(i);
+  
+  // Write to slugs/lang/hotel/slug.html
+  const dir = path.join('slugs', page.lang.code, 'hotel');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `${page.slug}.html`), page.html);
+  
+  urls.push(page.url);
+  
+  if(i % 1000 === 0) console.log(`${i} pages done`);
+}
+
+// Sitemap
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(u => `  <url><loc>${u}</loc><lastmod>${new Date().toISOString().split('T')[0]}</lastmod></url>`).join('\n')}
+</urlset>`;
+fs.writeFileSync('sitemap.xml', sitemap);
+
+console.log('🎉 5000 pages + sitemap.xml ✅ READY');
