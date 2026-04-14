@@ -475,3 +475,71 @@
     }
   })();
 </script>
+<script>
+  (function () {
+    // Light “share this page” helper
+    const urls = [
+      "https://www.facebook.com/sharer/sharer.php?u=",
+      "https://twitter.com/share?url=",
+      "https://www.linkedin.com/shareArticle?url=",
+      "https://wa.me/?text=",
+    ];
+
+    const hostname = window.location.origin;
+    const pagePath = window.location.pathname;
+    const shareUrl = encodeURIComponent(hostname + pagePath);
+
+    function addShareButtons() {
+      const card = document.createElement("div");
+      card.style.padding = "20px 0 0 0";
+      card.style.textAlign = "center";
+
+      urls.forEach((url) => {
+        const link = document.createElement("a");
+        link.href = url + shareUrl;
+        link.style.display = "inline-block";
+        link.style.margin = "0 4px";
+        link.style.color = "#4db8ff";
+        link.style.textDecoration = "underline";
+        link.target = "_blank";
+        link.innerText = url.includes("facebook.com") ? "Share on Facebook" :
+                         url.includes("twitter.com") ? "Tweet" :
+                         url.includes("linkedin.com") ? "Share on LinkedIn" :
+                         "Share on WhatsApp";
+        card.appendChild(link);
+      });
+
+      const container = document.querySelector(".container");
+      if (container) container.appendChild(card);
+    }
+
+    addShareButtons();
+  })();
+</script>
+<script>
+  (function () {
+    // Light “copy this page link” helper
+    const copyBtnHtml = `
+      <div style="text-align:center;margin:20px 0;">
+        <button id="copy-deal-url" style="
+          background:#003580;
+          color:#fff;
+          border:none;
+          padding:8px 16px;
+          border-radius:6px;
+          font-size:14px;
+        ">Copy this hotel deal link</button>
+      </div>
+    `;
+
+    const container = document.querySelector(".container");
+    if (container) container.insertAdjacentHTML("beforeend", copyBtnHtml);
+
+    document.getElementById("copy-deal-url")?.addEventListener("click", function () {
+      navigator.clipboard.writeText(window.location.href).then(
+        () => alert("Link copied! Share it with friends or in groups."),
+        () => alert("Could not copy link.")
+      );
+    });
+  })();
+</script>
