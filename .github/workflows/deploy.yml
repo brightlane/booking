@@ -1,21 +1,31 @@
 name: Generate 5000 Hotel Pages
 on:
-  workflow_dispatch:  # ← MANUAL RUN BUTTON
+  workflow_dispatch:
   push:
     paths: ['scripts/generate.js']
+
+permissions:
+  contents: write  # ← FIX: Allow git commit/push
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
     - uses: actions/setup-node@v4
-      with: { node-version: 20 }
-    - run: node scripts/generate.js
-    - name: Commit pages
+      with:
+        node-version: 20  # Ignore deprecation for now
+    
+    - name: Run generator
+      run: node scripts/generate.js
+    
+    - name: Commit & push pages
       run: |
-        git config user.name "Page Generator"
-        git config user.email "actions@github.com"
-        git add slugs/ sitemap.xml
-        git commit -m "Add 5000 hotel pages + sitemap" || exit 0
+        git config user.name "Hotel Page Bot"
+        git config user.email "bot@brightlane.com"
+        git add slugs/ sitemap.xml || true
+        git commit -m "Generated 5000 hotel pages + sitemap" || echo "No changes"
         git push
