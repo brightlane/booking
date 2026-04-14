@@ -13,9 +13,6 @@ const TEMPLATE_FILE = "page.html";
 // --- AFFILIATE LINKS ---
 const AFFILIATES = {
   booking: (city) => `https://www.booking.com/searchresults.html?ss=${city}&aid=8132800`,
-  // Add more if you want later:
-  // expedia: (city) => `https://www.expedia.com/...?city=${city}&affid=...`,
-  // hotelscom: (city) => `https://www.hotels.com/...?city=${city}&ref=...`,
 };
 
 // --- HELPERS ---
@@ -32,7 +29,7 @@ function ensureDir(dir) {
   }
 }
 
-// --- DUMMY 3000‑WORD CONTENT BUILDER ---
+// --- 3000+ WORD CONTENT BUILDER ---
 function generateContent(topic, city, subtopic) {
   const themes = [
     `Why stay in {{CITY}} for {{TOPIC}} travelers`,
@@ -44,20 +41,22 @@ function generateContent(topic, city, subtopic) {
 
   const paragraphs = [];
 
-  // Repeat themes multiple times to push text volume
-  for (let j = 0; j < 30; j++) {
-    const theme = themes[j % themes.length];
+  for (let i = 0; i < 30; i++) {
+    const theme = themes[i % themes.length];
 
-    const para = [
-      `{{THEME}}: In {{CITY}}, the key is choosing the right area and hotel type. For {{SUBTOPIC}}, focus on central districts with easy access to public transport and major attractions.`,
-      `Always compare prices across multiple networks and check recent reviews before confirming. Use filters for guest rating, breakfast included, and free cancellation.`,
-      `Consider the time of year, local events, and airport proximity when selecting your hotel. Early bookings often secure better rates, while last‑minute deals can surprise you.`,
-      `Read the cancellation policy carefully. Many Booking.com offers allow free cancellation, which gives you flexibility if plans change.`,
-      `National holidays and festivals can double prices; plan ahead or accept higher costs if you must travel during peak events.`,
-      `For business trips, prioritize location, WiFi quality, quiet rooms, and workspace. For families, look for spacious rooms, child‑friendly policies, and nearby parks or attractions.`,
-      `If you’re arriving late or leaving early, confirm check‑in and check‑out policies and ask about baggage storage. Many hotels provide this service for free.`,
-      `Finally, trust your instincts. If a deal looks too good to be true, double‑check photos, reviews, and the official site to avoid booking scams.`,
-    ].join(" ");
+    const para = `
+{{THEME}}: In {{CITY}}, the key is choosing the right area and hotel type.
+For {{SUBTOPIC}}, focus on central districts with easy access to public transport and attractions.
+Always compare prices across networks, check recent reviews, and read the description.
+Use filters for guest rating, breakfast included, and free cancellation.
+Consider the time of year, local events, and airport proximity.
+Early bookings often secure better rates, while last‑minute deals can surprise you.
+National holidays and festivals can double prices; plan ahead or accept higher costs.
+For business trips, prioritize location, WiFi quality, and quiet rooms.
+For families, look for spacious rooms, child‑friendly policies, and nearby parks or attractions.
+If you’re arriving late or leaving early, confirm check‑in and check‑out rules and ask about baggage storage.
+Finally, trust your instincts; if a deal looks too good to be true, double‑check photos and reviews.
+    `.trim();
 
     paragraphs.push(
       para
@@ -85,7 +84,6 @@ function generatePageHtml(template, row) {
 
   const content = generateContent(topic, city, subtopic);
   const booking = AFFILIATES.booking(encodeURIComponent(city));
-
   const link = `<a href="${booking}" class="btn">Check Hotels in ${city}</a>`;
 
   return template
@@ -116,13 +114,11 @@ function readKeywords() {
 // --- MAIN ---
 function run() {
   console.log("Starting 3000‑word page generator...");
-
   ensureDir(DATA_DIR);
   ensureDir(TEMPLATES_DIR);
   ensureDir(DIST_DIR);
 
   const rows = readKeywords();
-
   console.log(`Generating ${rows.length} pages (each ~3000+ words)...`);
 
   rows.forEach((row, i) => {
