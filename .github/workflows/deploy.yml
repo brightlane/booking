@@ -1,9 +1,10 @@
-name: Deploy static site to GitHub Pages
+name: Generate 3000+ Hotel Pages Daily
 
 on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:          # lets you run it manually in GitHub
+  schedule:
+    # Run every day at 9:00 UTC (~4:00 AM EDT)
+    - cron: "0 9 * * *"
+  workflow_dispatch:         # also lets you run it manually
 
 permissions:
   contents: read
@@ -15,23 +16,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          path: './'      # upload everything (index.html + assets)
+          fetch-depth: 0
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Restore cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.npm
+          key: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run generator (3000+ pages)
+        run: node scripts/generate.js
+
+      - name: Commit and push to main
+        continue-on-error: false
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add dist/
+          git commit -m "Generate 3000+ pages for $(date)" || echo "No changes to commit."
+          git push
