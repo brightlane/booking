@@ -27,7 +27,6 @@ jobs:
 
       - name: Run generator script
         run: |
-          ls -la
           mkdir -p dist
           mkdir -p dist/page
           mkdir -p dist/hotel
