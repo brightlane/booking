@@ -2,8 +2,8 @@ name: Generate 5000 Hotel Pages Per Day
 
 on:
   schedule:
-    - cron: "0 9 * * *"   # every day at 9:00 UTC
-  workflow_dispatch:
+    - cron: "0 9 * * *"   # Daily 9AM UTC
+  workflow_dispatch:     # Manual trigger
 
 permissions:
   contents: write
@@ -12,55 +12,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node.js 18
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Ensure data/ and slugs/ folders
+      - name: Create folders
         run: |
-          mkdir -p data
-          mkdir -p slugs
+          mkdir -p data slugs dist/{page,hotel,ads,article,story}
 
-      - name: List files to check data/ contents
+      - name: Generate 5000+ pages (top hotel keywords + auto-refresh)
         run: |
-          ls -la
-          ls -la data/
-          ls -la scripts/
-
-      - name: Install dependencies (no package-lock.json required)
-        run: npm install
-
-      - name: Run generator script (5000+ pages per day, self‑contained)
-        run: |
-          mkdir -p data
-          mkdir -p slugs
-          mkdir -p dist
-          mkdir -p dist/page
-          mkdir -p dist/hotel
-          mkdir -p dist/ads
-          mkdir -p dist/article
-          mkdir -p dist/story
-          ls -la
+          ls -la scripts/ || echo "scripts/ missing!"
           node scripts/generate.js
 
-      - name: Commit new / refreshed pages
+      - name: Check output
+        run: |
+          ls -la slugs/ || echo "slugs/ empty"
+          echo "sitemap.xml exists: $(ls sitemap.xml || echo no)"
+          head -20 sitemap.xml || echo "no sitemap"
+
+      - name: Commit everything
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add slugs/
-          git add data/
-          git add dist/
-          git add index.html
-          git add LEGAL.html
-          git add 404.html
-          git add sitemap.xml
-          git add robots.txt
-          git status
-          git commit -m "Generate 5000+ hotel pages for $(date)" || echo "No changes to commit."
+          git add -A
+          git commit -m "Auto-generate 5000+ hotel pages $(date +%Y-%m-%d)" || echo "No changes"
           git push
