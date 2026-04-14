@@ -1,10 +1,9 @@
-// scripts/generate.js
-// Generate static HTML pages using your Booking.com affiliate links
+// scripts/generate.js - uses your Booking.com affiliate links
 
 const fs = require("fs");
 const path = require("path");
 
-// 🌐 YOUR AFFILIATE LINKS — do not change these
+// 🌐 YOUR AFFILIATE LINKS (aid=8132800 used everywhere)
 const links = {
   home:          "https://www.booking.com/index.html?aid=8132800",
   apartments:    "https://www.booking.com/apartments/index.html?aid=8132800",
@@ -32,7 +31,7 @@ function layout(title, content) {
 </html>`;
 }
 
-// Generate main index page that uses your Booking.com home link
+// Generate main index page with your Booking.com home link
 function generateIndex() {
   const html = layout(
     "HotelHub",
@@ -56,7 +55,7 @@ function generateIndex() {
   console.log("✅ Generated main index:", outFile);
 }
 
-// Generate a simple city page for a given category (e.g., apartment, resort)
+// Generate a city page for a category (e.g., apartment, resort)
 function generateCityPage(city, category, bookingLink) {
   const label = category.charAt(0).toUpperCase() + category.slice(1);
   const html = layout(
@@ -77,10 +76,10 @@ function generateCityPage(city, category, bookingLink) {
   console.log("✅ Generated:", file);
 }
 
-// List of example cities (you can change this)
+// Example cities list (change this later if you want)
 const cities = ["Alice Springs", "Sydney", "Melbourne", "Brisbane", "Perth"];
 
-// Generate everything
+// Generate all pages
 function run() {
   // Main page
   generateIndex();
@@ -111,5 +110,5 @@ function run() {
   });
 }
 
-// Execute
+// Run generator
 run();
