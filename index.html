@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Best Hotels Worldwide – HotelHub (2026 Deals)</title>
-  <meta name="description" content="Best, cheap, and last‑minute hotel deals in 240+ cities. Compare all major hotel networks." />
+  <title>HotelHub – 3000+ Hotel Guides Daily</title>
+  <meta name="description" content="Best hotel deals in 240+ cities, updated with 3000+ word guides every day.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -33,7 +33,7 @@
 
     .container {
       max-width: 900px;
-      margin: auto;
+      margin: 20px auto;
       padding: 20px;
     }
 
@@ -74,20 +74,6 @@
       background: #e66e00;
     }
 
-    .small {
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 12px;
-      color: #999;
-      padding: 16px 0;
-      border-top: 1px solid #003580;
-    }
-
     .city-list {
       display: flex;
       flex-wrap: wrap;
@@ -109,65 +95,69 @@
     .city-link:hover {
       background: #003580;
     }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #999;
+      padding: 16px 0;
+      border-top: 1px solid #003580;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1 id="page-title">Best Hotels Worldwide – HotelHub</h1>
-  <p id="page-slogan">Compare all major hotel networks in one place.</p>
+  <h1>HotelHub – 3000+ Hotel Guides Daily</h1>
+  <p>Best, cheap, and last‑minute hotels in 240+ cities.</p>
 </header>
 
 <div class="container">
 
   <div class="card">
-    <h2>🔥 Top Hotels Worldwide</h2>
-    <p class="small">Best‑rated hotels in top cities right now</p>
-    <a class="btn" id="top-hotels" href="#">Check Top Hotels Worldwide</a>
-  </div>
-
-  <div class="card">
-    <h2>💰 Cheap Hotels Worldwide</h2>
-    <p class="small">Budget‑friendly stays under best prices</p>
-    <a class="btn" id="cheap-hotels" href="#">Find Cheap Hotels</a>
-  </div>
-
-  <div class="card">
-    <h2>⚡ Last‑Minute Deals</h2>
-    <p class="small">Discounts for quick bookings</p>
-    <a class="btn" id="last-deals" href="#">View Deals</a>
-  </div>
-
-  <div class="card">
-    <h2>🏨 Hotel Networks</h2>
-    <p class="small">Pick your preferred hotel platform</p>
-    <div id="hotel-network-buttons"></div>
+    <h2>🚀 What This Site Does</h2>
+    <p>
+      Every day, this site automatically generates <strong>3,000+ unique hotel‑travel guides</strong>,
+      each with 3000+ words of advice, all powered by Booking.com affiliate links.
+    </p>
+    <p>Use this page to jump into specific cities or browse the latest guides.</p>
   </div>
 
   <div class="card">
     <h2>🏙 Popular Cities</h2>
     <div class="city-list">
-      <a class="city-link" href="#" id="link-new-york">New York</a>
-      <a class="city-link" href="#" id="link-london">London</a>
-      <a class="city-link" href="#" id="link-paris">Paris</a>
-      <a class="city-link" href="#" id="link-tokyo">Tokyo</a>
-      <a class="city-link" href="#" id="link-rome">Rome</a>
-      <a class="city-link" href="#" id="link-barcelona">Barcelona</a>
-      <a class="city-link" href="#" id="link-sydney">Sydney</a>
-      <a class="city-link" href="#" id="link-berlin">Berlin</a>
+      <a class="city-link" href="/slugs/best-hotels-in-new-york/">New York</a>
+      <a class="city-link" href="/slugs/best-hotels-in-london/">London</a>
+      <a class="city-link" href="/slugs/best-hotels-in-paris/">Paris</a>
+      <a class="city-link" href="/slugs/best-hotels-in-tokyo/">Tokyo</a>
+      <a class="city-link" href="/slugs/best-hotels-in-rome/">Rome</a>
+      <a class="city-link" href="/slugs/best-hotels-in-barcelona/">Barcelona</a>
+      <a class="city-link" href="/slugs/best-hotels-in-sydney/">Sydney</a>
+      <a class="city-link" href="/slugs/best-hotels-in-berlin/">Berlin</a>
     </div>
   </div>
 
   <div class="card">
-    <h2>ℹ How This Works</h2>
+    <h2>💬 How It Works</h2>
     <p>
-      HotelHub helps you find the best, cheap, and last‑minute hotels in 240+ cities
-      across all major hotel networks.
+      Each link above points to a full 3000+‑word hotel‑travel guide.
+      The content is auto‑generated, then refreshes every day so it stays fresh for SEO.
     </p>
     <p>
       <strong>Affiliate Disclosure:</strong>
-      <span id="affiliate-disclosure">We earn a commission from Booking.com for qualifying bookings at no extra cost to you.</span>
+      We earn a commission from Booking.com for qualifying bookings at no extra cost to you.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🌐 Viral tips</h2>
+    <p>
+      Share this page or any city guide to help others discover the best hotel deals in these cities.
+    </p>
+    <p>
+      <a class="btn" href="https://www.booking.com/">Go to Booking.com homepage</a>
     </p>
   </div>
 
@@ -176,212 +166,9 @@
 <footer>
   <p>
     <strong>HotelHub</strong> – Best hotel deals in 240+ cities.<br>
-    <small id="footer-message">Updated for 2026 deals. All rights reserved.</small>
+    <small>Powered by auto‑generated 3,000‑word guides. Updated daily.</small>
   </p>
 </footer>
 
-<!-- Brand + Hotel Networks below -->
-<script>
-  /*******************************************************************************
-   * 1. HOTEL BRANDS & NETWORKS CONFIG (all hotels under one script)
-   *******************************************************************************/
-
-  const HOTEL_BRANDS = [
-    {
-      name: "HotelGuide26",
-      network: "Booking.com",
-      dark: { primary: "#003580", bg: "#0a192f", accent: "#ff7a00" },
-      btnText: "Check Hotels in {{CITY}} (via Booking.com)",
-      searchUrl: "https://www.booking.com/searchresults.html?ss={{CITY}}&aid=8132800",
-      description: "Best hotel deals on Booking.com in 240+ cities.",
-      location: "https://ben-palmo.github.io/hotelguide26/",
-    },
-    {
-      name: "HotelSwipe",
-      network: "Expedia",
-      dark: { primary: "#004b91", bg: "#00122c", accent: "#ff6e37" },
-      btnText: "Check Hotels in {{CITY}} (via Expedia)",
-      searchUrl: "https://www.expedia.com/hotels/{{CITY}}?&affid=YOUR_EXPEDIA_ID",
-      description: "Best hotel deals on Expedia in 240+ cities.",
-      location: "https://ben-palmo.github.io/hotelswipe/",
-    },
-    {
-      name: "HotelAlley",
-      network: "Hotels.com",
-      dark: { primary: "#003580", bg: "#001f44", accent: "#00b0e0" },
-      btnText: "Check Hotels in {{CITY}} (via Hotels.com)",
-      searchUrl: "https://www.hotels.com/...?{{CITY}}&ref=YOUR_HOTELS_COM_ID",
-      description: "Best hotel deals on Hotels.com in 240+ cities.",
-      location: "https://ben-palmo.github.io/hotelalley/",
-    },
-    {
-      name: "HotelPocket",
-      network: "Agoda",
-      dark: { primary: "#262262", bg: "#000000", accent: "#ffce00" },
-      btnText: "Check Hotels in {{CITY}} (via Agoda)",
-      searchUrl: "https://www.agoda.com/...?city={{CITY}}&cid=YOUR_AGODA_ID",
-      description: "Best hotel deals on Agoda in 240+ cities.",
-      location: "https://ben-palmo.github.io/hotelpocket/",
-    },
-    {
-      name: "MidnightDeals",
-      network: "Trip.com",
-      dark: { primary: "#cf000f", bg: "#080009", accent: "#feca00" },
-      btnText: "Check Hotels in {{CITY}} (via Trip.com)",
-      searchUrl: "https://www.trip.com/...?city={{CITY}}&locale=en&aff=YOUR_TRIP_COM_ID",
-      description: "Best hotel deals on Trip.com in 240+ cities.",
-      location: "https://ben-palmo.github.io/midnightdeals/",
-    },
-  ];
-
-  // Which brand to use (change this to 0, 1, 2, 3, 4 to test)
-  const BRAND_INDEX = 0; // 0 = HotelGuide26, 1 = HotelSwipe, etc.
-  const BRAND = HOTEL_BRANDS[BRAND_INDEX];
-
-  /********************************************************************************
-   * 2. APPLY BRAND COLORS + CONTENT
-   *******************************************************************************/
-
-  // Colors
-  document.documentElement.style.setProperty("--primary", BRAND.dark.primary);
-  document.documentElement.style.setProperty("--bg", BRAND.dark.bg);
-  document.documentElement.style.setProperty("--accent", BRAND.dark.accent);
-
-  // Title + Slogan
-  document.getElementById("page-title").textContent =
-    `Best Hotels Worldwide – ${BRAND.name}`;
-  document.getElementById("page-slogan").textContent =
-    `Best ${BRAND.network} hotel deals in 240+ cities.`;
-
-  // Buttons
-  const topHotels = document.getElementById("top-hotels");
-  topHotels.href = BRAND.searchUrl.replace("{{CITY}}", "worldwide");
-  topHotels.textContent = BRAND.btnText.replace("{{CITY}}", "worldwide");
-
-  const cheapHotels = document.getElementById("cheap-hotels");
-  cheapHotels.href = BRAND.searchUrl.replace("{{CITY}}", "worldwide") + "&price_filter=1";
-  cheapHotels.textContent = "Find Cheap Hotels on " + BRAND.network;
-
-  const lastDeals = document.getElementById("last-deals");
-  lastDeals.href = BRAND.searchUrl.replace("{{CITY}}", "worldwide") + "&last_minute_deals=1";
-  lastDeals.textContent = "View Last‑Minute Deals on " + BRAND.network;
-
-  // City links
-  const cities = ["New York", "London", "Paris", "Tokyo", "Rome", "Barcelona", "Sydney", "Berlin"];
-  cities.forEach((city, i) => {
-    const link = document.getElementById("link-" + city.toLowerCase());
-    if (link) {
-      const url = BRAND.searchUrl.replace("{{CITY}}", encodeURIComponent(city));
-      link.href = url;
-      link.textContent = city + " – " + BRAND.network;
-    }
-  });
-
-  // Footer + disclaimer
-  document.getElementById("affiliate-disclosure").textContent =
-    `We earn a commission from ${BRAND.network} for qualifying bookings at no extra cost to you.`;
-
-  document.getElementById("footer-message").textContent =
-    `Best ${BRAND.network} hotel deals in 240+ cities. Updated for 2026.`;
-
-  // Network buttons (extra handy UI)
-  const netBtns = document.getElementById("hotel-network-buttons");
-  HOTEL_BRANDS.forEach((brand, index) => {
-    const btn = document.createElement("a");
-    btn.href = brand.location;
-    btn.target = "_blank";
-    btn.textContent = `• ${brand.name} (${brand.network})`;
-    btn.style.display = "block";
-    btn.style.margin = "4px 0";
-    btn.style.color = "#4db8ff";
-    btn.style.textDecoration = "none";
-    netBtns.appendChild(btn);
-  });
-
-  /*******************************************************************************
-   * 3. LANGUAGE DETECTOR (per browser language)
-   *******************************************************************************/
-
-  (function () {
-    const SUPPORTED_LANGS = ["en", "es", "fr", "de", "it", "pt"];
-    const DEFAULT_LANG = "en";
-
-    function getBrowserLang() {
-      const lang = navigator.language || navigator.languages[0];
-      return lang ? lang.split("-")[0].toLowerCase() : DEFAULT_LANG;
-    }
-
-    const browserLang = getBrowserLang();
-    const langCode = SUPPORTED_LANGS.includes(browserLang) ? browserLang : DEFAULT_LANG;
-
-    const translations = {
-      en: {
-        title: `Best Hotels Worldwide – ${BRAND.name}`,
-        slogan: `Best ${BRAND.network} hotel deals in 240+ cities.`,
-        btnTop: `Check Hotels in worldwide (via ${BRAND.network})`,
-        btnCheap: `Find Cheap Hotels on ${BRAND.network}`,
-        btnLast: `View Last‑Minute Deals on ${BRAND.network}`,
-        footerDesc: `We earn a commission from ${BRAND.network} for qualifying bookings at no extra cost to you.`,
-      },
-      es: {
-        title: `Mejores Hoteles del Mundo – ${BRAND.name}`,
-        slogan: `Mejores hoteles en ${BRAND.network} en más de 240 ciudades.`,
-        btnTop: `Ver hoteles principales en ${BRAND.network}`,
-        btnCheap: `Encontrar hoteles baratos en ${BRAND.network}`,
-        btnLast: `Ver ofertas de última hora en ${BRAND.network}`,
-        footerDesc: `Ganamos una comisión de ${BRAND.network} por reservas calificadas sin costo adicional para usted.`,
-      },
-      fr: {
-        title: `Meilleurs hôtels du monde – ${BRAND.name}`,
-        slogan: `Meilleurs hôtels sur ${BRAND.network} dans plus de 240 villes.`,
-        btnTop: `Voir les hôtels principaux sur ${BRAND.network}`,
-        btnCheap: `Trouver des hôtels pas chers sur ${BRAND.network}`,
-        btnLast: `Voir les offres de dernière minute sur ${BRAND.network}`,
-        footerDesc: `Nous gagnons une commission de ${BRAND.network} pour les réservations admissibles, sans frais supplémentaires pour vous.`,
-      },
-      de: {
-        title: `Beste Hotels weltweit – ${BRAND.name}`,
-        slogan: `Beste ${BRAND.network} Hotels in über 240 Städten.`,
-        btnTop: `Haupt‑Hotels auf ${BRAND.network} anzeigen`,
-        btnCheap: `Günstige Hotels auf ${BRAND.network} finden`,
-        btnLast: `Last‑Minute‑Angebote auf ${BRAND.network} anzeigen`,
-        footerDesc: `Wir erhalten eine Provision von ${BRAND.network} für qualifizierte Buchungen ohne zusätzliche Kosten für Sie.`,
-      },
-      it: {
-        title: `Migliori Hotel del Mondo – ${BRAND.name}`,
-        slogan: `Migliori hotel su ${BRAND.network} in più di 240 città.`,
-        btnTop: `Vedi hotel principali su ${BRAND.network}`,
-        btnCheap: `Trova hotel economici su ${BRAND.network}`,
-        btnLast: `Vedi offerte dell’ultimo minuto su ${BRAND.network}`,
-        footerDesc: `Guadagniamo una commissione da ${BRAND.network} per le prenotazioni qualificate senza costi aggiuntivi.`,
-      },
-      pt: {
-        title: `Melhores Hotéis do Mundo – ${BRAND.name}`,
-        slogan: `Melhores hoteis no ${BRAND.network} em mais de 240 cidades.`,
-        btnTop: `Ver hotéis principais no ${BRAND.network}`,
-        btnCheap: `Encontrar hotéis baratos no ${BRAND.network}`,
-        btnLast: `Ver ofertas de última hora no ${BRAND.network}`,
-        footerDesc: `Ganhamos uma comissão da ${BRAND.network} por reservas qualificadas sem custo extra.`,
-      },
-    };
-
-    const lang = translations[langCode] || translations[DEFAULT_LANG];
-
-    document.getElementById("page-title").textContent = lang.title;
-    document.getElementById("page-slogan").textContent = lang.slogan;
-    topHotels.textContent = lang.btnTop;
-    cheapHotels.textContent = lang.btnCheap;
-    lastDeals.textContent = lang.btnLast;
-    document.getElementById("footer-message").textContent = lang.footerDesc;
-  })();
-
-  /*******************************************************************************
-   * 4. STATS / TRACKING SCRIPTS (local + dev)
-   *******************************************************************************/
-
-  // STATS helpers (Step 5)
-  (function () {
-    const STORAGE_KEY = "hg26_stats";
-    const MAX_DAYS = 7;
-
-   
+</body>
+</html>
