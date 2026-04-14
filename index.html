@@ -298,3 +298,67 @@
     };
   })();
 </script>
+<script>
+  // Step 5: Local stats storage (browser localStorage)
+  (function () {
+    const STORAGE_KEY = "hg26_stats";
+    const MAX_DAYS = 7; // how many days of stats to keep
+
+    function loadStats() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveStats(entries) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries.splice(-1000))); // cap at 1000 entries
+      } catch (e) {
+        console.warn("Can't save to localStorage");
+      }
+    }
+
+    function addStat(event, data) {
+      const now = new Date();
+      const entry = {
+        event,
+        data,
+        timestamp: now.toISOString(),
+        date: now.toISOString().split("T")[0], // YYYY‑MM‑DD
+      };
+
+      const entries = loadStats();
+      entries.push(entry);
+      saveStats(entries);
+    }
+
+    // 1) On page view
+    window.addEventListener("load", function () {
+      addStat("page_view", {
+        path: window.location.pathname,
+      });
+    });
+
+    // 2) On affiliate button click
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach((btn, i) => {
+      btn.addEventListener("click", function (e) {
+        addStat("affiliate_click", {
+          label: btn.textContent.trim(),
+          href: btn.href,
+          index: i + 1,
+          path: window.location.pathname,
+        });
+      });
+    });
+
+    // Optional: expose a simple debug view
+    window.HG26_STATS = {
+      list: () => loadStats(),
+      clear: () => localStorage.removeItem(STORAGE_KEY),
+    };
+  })();
+</script>
