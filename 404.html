@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Page Not Found – HotelHub</title>
+  <meta name="description" content="The page you requested could not be found. Return to our main site or search for hotels on Booking.com.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     :root {
       --primary: #003580;
@@ -19,25 +21,34 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+
+    header {
+      background: #003580;
+      color: #fff;
+      padding: 20px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     main {
-      background: var(--card-bg);
-      border: 1px solid #003580;
-      padding: 40px 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
     }
 
-    h1 {
-      color: #ff7a00;
-      margin: 0 0 10px 0;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #003580;
+      border-radius: 12px;
+      padding: 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px 0;
+      color: #4db8ff;
     }
 
     p {
@@ -46,15 +57,17 @@
     }
 
     .btn {
-      display: inline-block;
+      display: block;
       background: #ff7a00;
       color: #fff;
+      text-align: center;
       text-decoration: none;
       font-weight: bold;
-      padding: 12px 20px;
+      padding: 16px 20px;
       margin: 14px 0 0 0;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: 0.2s ease;
     }
 
     .btn:hover {
@@ -62,107 +75,63 @@
     }
 
     footer {
-      margin-top: 20px;
+      text-align: center;
+      margin-top: 40px;
       font-size: 12px;
       color: #999;
-    }
-
-    #error-lang-text {
-      display: none;
+      padding: 16px 0;
+      border-top: 1px solid #003580;
     }
   </style>
 </head>
+
 <body>
-  <main>
-    <h1 id="error-title">404 – Page Not Found</h1>
-    <p id="error-desc">
-      Sorry, the page you’re looking for doesn’t exist or has moved.
-    </p>
-    <p id="error-links">
-      Here are some popular options:
-    </p>
+
+<header>
+  <h1>Page Not Found</h1>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Oops! This page doesn’t exist.</h2>
     <p>
-      <a id="go-home" class="btn" href="/">Go to Homepage</a>
+      The URL you requested could not be found on this site.
+      The page may have been moved, renamed, or deleted.
     </p>
-    <p id="language-content">
-      <a href="/slugs/best-hotels-in-new-york/">Best hotels in New York</a> |
-      <a href="/slugs/best-hotels-in-london/">Best hotels in London</a>
+  </div>
+
+  <div class="card">
+    <h2>Where to go next</h2>
+    <p>
+      You can:
     </p>
-    <footer id="error-footer">
-      <small>
-        HotelHub – Best hotel deals in 240+ cities.<br>
-        Affiliate Disclaimer: We earn a commission from Booking.com for qualifying bookings at no extra cost to you.
-      </small>
-    </footer>
-  </main>
+    <ul>
+      <li>Go back to the <a href="/">main site</a> and pick a destination.</li>
+      <li>Use the search bar (if present) to find a city or hotel.</li>
+      <li>Head directly to Booking.com for the latest deals.</li>
+    </ul>
+  </div>
 
-  <script>
-    // Language detector for 404 page
-    (function () {
-      const SUPPORTED_LANGS = ["en", "es", "fr", "de", "it", "pt"];
-      const DEFAULT_LANG = "en";
+  <div class="card">
+    <h2>Quick Booking</h2>
+    <p>
+      Don’t want to browse? Go directly to Booking.com:
+    </p>
+    <a class="btn"
+       href="https://www.booking.com/?aid=8132800">
+      Go to Booking.com
+    </a>
+  </div>
 
-      function getBrowserLang() {
-        const lang = navigator.language || navigator.languages[0];
-        return lang ? lang.split("-")[0].toLowerCase() : DEFAULT_LANG;
-      }
+</main>
 
-      const browserLang = getBrowserLang();
-      const langCode = SUPPORTED_LANGS.includes(browserLang) ? browserLang : DEFAULT_LANG;
+<footer>
+  <p>
+    <strong>HotelHub</strong> – Best hotel deals in 240+ cities.<br>
+    <small>If you think this is a mistake, please check the URL and try again.</small>
+  </p>
+</footer>
 
-      const translations = {
-        en: {
-          title: "404 – Page Not Found",
-          desc: "Sorry, the page you’re looking for doesn’t exist or has moved.",
-          links: "Here are some popular options:",
-          home: "Go to Homepage",
-          footer: "HotelHub – Best hotel deals in 240+ cities. Affiliate Disclaimer: We earn a commission from Booking.com for qualifying bookings at no extra cost to you.",
-        },
-        es: {
-          title: "404 – Página no encontrada",
-          desc: "Lo sentimos, la página que buscas no existe o ha sido movida.",
-          links: "Aquí tienes algunas opciones populares:",
-          home: "Ir a la página de inicio",
-          footer: "HotelHub – Las mejores ofertas de hoteles en más de 240 ciudades. Aviso de afiliados: ganamos una comisión de Booking.com por reservas calificadas sin costo adicional para usted.",
-        },
-        fr: {
-          title: "404 – Page non trouvée",
-          desc: "Désolé, la page que vous recherchez n’existe pas ou a été déplacée.",
-          links: "Voici quelques options populaires :",
-          home: "Aller à la page d’accueil",
-          footer: "HotelHub – Les meilleures offres d’hôtels dans plus de 240 villes. Avertissement d’affiliation : nous gagnons une commission de Booking.com pour les réservations admissibles, sans frais supplémentaires pour vous.",
-        },
-        de: {
-          title: "404 – Seite nicht gefunden",
-          desc: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
-          links: "Hier sind einige beliebte Optionen:",
-          home: "Zur Startseite",
-          footer: "HotelHub – Beste Hotelangebote in über 240 Städten. Affiliate‑Hinweis: Wir erhalten eine Provision von Booking.com für qualifizierte Buchungen ohne zusätzliche Kosten für Sie.",
-        },
-        it: {
-          title: "404 – Pagina non trovata",
-          desc: "Spiacenti, la pagina che stai cercando non esiste o è stata spostata.",
-          links: "Ecco alcune opzioni popolari:",
-          home: "Vai alla homepage",
-          footer: "HotelHub – Le migliori offerte di hotel in 240+ città. Informativa sulle affiliazioni: guadagniamo una commissione da Booking.com per le prenotazioni qualificate senza costi aggiuntivi.",
-        },
-        pt: {
-          title: "404 – Página não encontrada",
-          desc: "Desculpe, a página que você procura não existe ou foi movida.",
-          links: "Aqui estão algumas opções populares:",
-          home: "Ir para a página inicial",
-          footer: "HotelHub – As melhores ofertas de hotéis em mais de 240 cidades. Aviso de afiliado: ganhamos uma comissão da Booking.com por reservas qualificadas sem custo extra.",
-        }
-      };
-
-      const lang = translations[langCode] || translations[DEFAULT_LANG];
-
-      document.getElementById("error-title").textContent = lang.title;
-      document.getElementById("error-desc").textContent = lang.desc;
-      document.getElementById("error-links").textContent = lang.links;
-      document.getElementById("go-home").textContent = lang.home;
-      document.getElementById("error-footer").innerHTML = lang.footer;
-    })();
-  </script>
 </body>
 </html>
