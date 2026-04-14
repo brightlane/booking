@@ -188,3 +188,32 @@
 
 </body>
 </html>
+<script>
+  // Simple tracking / engagement helper for affiliate links
+  (function() {
+    const TRACKING_ID = "hotel-guide-26";  // you can change this label
+    const NOW = new Date().toISOString();
+
+    // Log basic page view (you can ignore this if you don’t care)
+    console.log(`[HotelGuide26] Page loaded: ${NOW}`);
+
+    // Track clicks on affiliate buttons
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach((btn, i) => {
+      btn.addEventListener("click", function(e) {
+        try {
+          // Optional: send a tiny “ping” to your own analytics (if you ever add it)
+          // navigator.sendBeacon(...) or fetch() goes here later.
+          console.log(
+            `[HotelGuide26] Button ${i + 1} clicked: "${btn.textContent.trim()}"`
+          );
+        } catch (err) {
+          console.warn("Tracking click failed:", err);
+        }
+      });
+    });
+
+    // You can connect this later to your own analytics (Google Analytics, Plausible, etc.)
+    // by adding a small tracking script here.
+  })();
+</script>
