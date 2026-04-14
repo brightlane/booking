@@ -1,53 +1,21 @@
-const fs = require('fs');
-const path = require('path');
+name: Generate 5000 Hotel Pages
+on:
+  workflow_dispatch:  # ← MANUAL RUN BUTTON
+  push:
+    paths: ['scripts/generate.js']
 
-const data = [
-  ['nyc', 'hotels', 'marriott'],
-  ['london', 'luxury', 'hilton'],
-  ['paris', 'cheap', 'hyatt']
-];
-
-console.log('🚀 Generating 5000 SEO hotel pages...');
-
-// Ensure directory exists
-fs.mkdirSync('slugs/en/hotel', { recursive: true });
-
-for (let i = 0; i < 5000; i++) {
-  const [city, kw, brand] = data[i % 3];
-  const slug = `${city}-${kw}-${brand}`;
-  const filename = `${slug}-${i}.html`;
-  const filepath = `slugs/en/hotel/${filename}`;
-  
-  const title = `${brand} ${kw} ${city}`;
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>${title}</title>
-  <meta name="description" content="Book ${title} hotels via Booking.com - aid=8132800">
-</head>
-<body>
-  <h1>${title}</h1>
-  <a href="https://www.booking.com?aid=8132800" rel="nofollow">Book Now</a>
-</body>
-</html>`;
-  
-  fs.writeFileSync(filepath, html);
-}
-
-const sitemapUrls = Array.from({ length: 5000 }, (_, i) => 
-  `  <url>
-    <loc>https://en/hotel/${data[i % 3].join('-')}-${i}.html</loc>
-    <lastmod>2026-04-13</lastmod>
-  </url>`
-).join('\n');
-
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapUrls}
-</urlset>`;
-
-fs.writeFileSync('sitemap.xml', sitemap);
-
-console.log('✅ 5000 PAGES + SITEMAP.xml GENERATED');
-console.log('📁 Check: slugs/en/hotel/ (5000 HTML files)');
-console.log('🗺️  Check: sitemap.xml (5000 URLs with correct slugs)');
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with: { node-version: 20 }
+    - run: node scripts/generate.js
+    - name: Commit pages
+      run: |
+        git config user.name "Page Generator"
+        git config user.email "actions@github.com"
+        git add slugs/ sitemap.xml
+        git commit -m "Add 5000 hotel pages + sitemap" || exit 0
+        git push
