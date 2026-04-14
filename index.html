@@ -543,3 +543,43 @@
     });
   })();
 </script>
+<script>
+  // Automatic traffic‑keyword helper (SEO only, no bots)
+  (function () {
+    const KEYWORDS = [
+      "best hotels worldwide",
+      "cheap hotels worldwide",
+      "last minute deals hotels",
+      "best hotels in New York",
+      "cheap hotels in London",
+      "luxury hotels in Paris",
+      "family friendly hotels in Tokyo",
+      "hotel deals 2026",
+      "hotel booking affiliate",
+      "hotel prices comparison",
+    ];
+
+    // 1) Add keywords to description if missing
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      const desc = metaDesc.getAttribute("content") || "";
+      if (!desc.includes("2026")) {
+        metaDesc.setAttribute(
+          "content",
+          desc +
+            " Best, cheap, and last‑minute hotel deals in 240+ cities. Updated for 2026."
+        );
+      }
+    }
+
+    // 2) Add a hidden but SEO‑friendly keyword list to help crawlers (optional)
+    const keywordsDiv = document.createElement("div");
+    keywordsDiv.setAttribute("style", "display:none;");
+    keywordsDiv.setAttribute("aria-hidden", "true");
+    keywordsDiv.textContent = KEYWORDS.join(" | ");
+    document.body.appendChild(keywordsDiv);
+
+    // 3) Optionally log for dev (remove when done)
+    console.log("[HotelGuide26] Keyword SEO helper loaded:", KEYWORDS.length);
+  })();
+</script>
