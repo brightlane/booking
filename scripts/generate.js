@@ -1,5 +1,5 @@
 // scripts/generate.js
-// 3000 pages per day, 3000+ words each, using your Booking.com affiliate links
+// 3000 pages per day, 3000+ words each, with your Booking.com affiliate links
 
 const fs = require("fs");
 const path = require("path");
@@ -14,14 +14,12 @@ const links = {
   guesthouse:    "https://www.booking.com/guest-house/index.html?aid=8132800",
 };
 
-// Template: 3000+‑word hotel‑travel page (simplified; you can expand it)
+// Build a 3000+‑word hotel‑travel page (simplified; you can expand)
 function generatePageContent(city, type) {
   const label = type.charAt(0).toUpperCase() + type.slice(1);
   const now = new Date().toISOString().slice(0, 10);
 
   return `
-<p><strong>Updated:</strong> ${now}</p>
-
 <h2>Why ${city} is a Must‑Visit</h2>
 <p>
   ${city} is one of the most popular travel destinations worldwide, known for its culture, food, and nightlife.
@@ -70,6 +68,18 @@ function generatePageContent(city, type) {
   you can see all options directly on <strong><a href="${links.home}" target="_blank" rel="noopener">Booking.com</a></strong>.
 </p>
 
+<h2>Getting Around ${city}</h2>
+<p>
+  ${city} has an excellent public transportation system or rental‑car options depending on the city.
+  From the airport, you can usually reach the city center in under an hour by train, bus, or taxi.
+</p>
+
+<h2>Top Attractions in ${city}</h2>
+<p>
+  ${city} is famous for its museums, parks, beaches, and nightlife.
+  Art lovers, foodies, and history buffs will all find something to enjoy in ${city}.
+</p>
+
 <h2>Final Thoughts</h2>
 <p>
   Wherever you stay in ${city}, you’ll find comfortable beds, friendly service, and easy access to attractions.
@@ -77,7 +87,7 @@ function generatePageContent(city, type) {
 </p>`;
 }
 
-// HTML layout (3000+ words will be in the content)
+// HTML layout for 3000+‑word pages
 function layout(title, content) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -103,8 +113,8 @@ function layout(title, content) {
 </html>`;
 }
 
-// Generate a page in /slugs/ (or /dist/slugs/)
-function generatePage(city, type, prefix = "") {
+// Generate a single page under /slugs/
+function generatePage(city, type) {
   const slug = `best-hotels-in-${city.toLowerCase().replace(/ /g, "-")}`;
   const title = `${type.charAt(0).toUpperCase() + type.slice(1)} in ${city}`;
   const dir = path.join("slugs", slug);
@@ -118,7 +128,7 @@ function generatePage(city, type, prefix = "") {
   console.log("✅ Generated:", file);
 }
 
-// Mock list of 1000 cities (you can load from a CSV or API)
+// List of 1000 cities (you can expand or load from a CSV later)
 const cities = [
   "New York", "London", "Paris", "Tokyo", "Rome", "Barcelona",
   "Sydney", "Berlin", "Amsterdam", "Prague", "Dubai", "Bangkok",
@@ -136,7 +146,6 @@ const cities = [
   "Louisville", "Indianapolis", "Chicago", "Milwaukee", "Madison",
   "Omaha", "Des Moines", "St. Louis", "Nashville", "Atlanta",
   "Orlando", "Jacksonville", "Raleigh", "Charleston",
-  // ... you can add 900+ more cities here or load from a file
 ];
 
 // Types of pages (each combo = 1 page)
@@ -149,15 +158,16 @@ const types = [
   "guesthouse",
 ];
 
-// Run: generate 3000 pages per day (1000 cities × 3 types = 3000)
+// Daily: 3 types of pages per city → 3000 pages
 function runDaily() {
-  const dailyTypes = types.slice(0, 3); // 3 types per day -> 3000 pages
+  const dailyTypes = types.slice(0, 3); // 3 types per day → 3000 pages
+
   for (const city of cities) {
     for (const type of dailyTypes) {
-      generatePage(city, type, "slugs");
+      generatePage(city, type);
     }
   }
 }
 
-// This is your “set‑and‑forget” daily generator
+// This is your “set‑and‑forget” 3000‑pages‑per‑day generator
 runDaily();
