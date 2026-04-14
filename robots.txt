@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ben-palmo.github.io/hotel-guide/sitemap.xml
