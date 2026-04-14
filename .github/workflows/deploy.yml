@@ -1,4 +1,4 @@
-name: Generate 3000 Hotel Pages Per Day
+name: Generate 5000 Hotel Pages Per Day
 
 on:
   schedule:
@@ -33,10 +33,10 @@ jobs:
           ls -la data/
           ls -la scripts/
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (no package-lock.json required)
+        run: npm install
 
-      - name: Run generator script (3000+ pages per day)
+      - name: Run generator script (5000+ pages per day, self‑contained)
         run: |
           mkdir -p data
           mkdir -p slugs
@@ -62,5 +62,5 @@ jobs:
           git add sitemap.xml
           git add robots.txt
           git status
-          git commit -m "Generate 3000+ hotel pages for $(date)" || echo "No changes to commit."
+          git commit -m "Generate 5000+ hotel pages for $(date)" || echo "No changes to commit."
           git push
