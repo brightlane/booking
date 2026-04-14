@@ -1,33 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Home page -->
   <url>
-    <loc>https://ben-palmo.github.io/hotel-mega-site/</loc>
+    <loc>https://YOURDOMAIN.COM/</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Legal / Affiliate page -->
   <url>
-    <loc>https://ben-palmo.github.io/hotel-mega-site/slugs/best-hotels-in-new-york/</loc>
+    <loc>https://YOURDOMAIN.COM/LEGAL.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Example dynamic city / category pages (you can auto‑generate or expand manually) -->
+  <url>
+    <loc>https://YOURDOMAIN.COM/slugs/best-hotels-in-new-york/hotel.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ben-palmo.github.io/hotel-mega-site/slugs/cheap-hotels-in-london-near-airport/</loc>
+    <loc>https://YOURDOMAIN.COM/slugs/cheap-hotels-in-london/apartment.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ben-palmo.github.io/hotel-mega-site/slugs/luxury-hotels-in-paris-shopping/</loc>
+    <loc>https://YOURDOMAIN.COM/slugs/luxury-hotels-in-paris/resort.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ben-palmo.github.io/hotel-mega-site/slugs/family-friendly-hotels-in-tokyo/</loc>
+    <loc>https://YOURDOMAIN.COM/slugs/family-hotels-in-tokyo/villa.html</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://YOURDOMAIN.COM/slugs/pet-friendly-hotels-in-rome/b&b.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://YOURDOMAIN.COM/slugs/business-hotels-in-barcelona/guesthouse.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Booking.com links related to this site concept (for context, not required) -->
+  <url>
+    <loc>https://www.booking.com/?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/apartments/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/resorts/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/villas/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/bed-and-breakfast/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.booking.com/guest-house/index.html?aid=8132800</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
