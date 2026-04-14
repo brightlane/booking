@@ -3,15 +3,10 @@ name: Run generator script
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # manual trigger button
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
-
-concurrency:
-  group: "run-generator"
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -31,7 +26,15 @@ jobs:
         run: npm ci
 
       - name: Run generator script
-        run: node scripts/generate.js
+        run: |
+          ls -la
+          mkdir -p dist
+          mkdir -p dist/page
+          mkdir -p dist/hotel
+          mkdir -p dist/ads
+          mkdir -p dist/article
+          mkdir -p dist/story
+          node scripts/generate.js
 
       - name: Commit generated files
         run: |
