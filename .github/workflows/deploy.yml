@@ -22,15 +22,31 @@ jobs:
         with:
           node-version: 18
 
+      - name: Ensure data/ and slugs/ folders
+        run: |
+          mkdir -p data
+          mkdir -p slugs
+
+      - name: List files to check data/ contents
+        run: |
+          ls -la
+          ls -la data/
+          ls -la scripts/
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Ensure slug folders
-        run: mkdir -p slugs
-
-      - name: Run 3000‑pages‑per‑day generator
+      - name: Run generator script (3000+ pages per day)
         run: |
+          mkdir -p data
           mkdir -p slugs
+          mkdir -p dist
+          mkdir -p dist/page
+          mkdir -p dist/hotel
+          mkdir -p dist/ads
+          mkdir -p dist/article
+          mkdir -p dist/story
+          ls -la
           node scripts/generate.js
 
       - name: Commit new / refreshed pages
@@ -38,6 +54,13 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add slugs/
+          git add data/
+          git add dist/
+          git add index.html
+          git add LEGAL.html
+          git add 404.html
+          git add sitemap.xml
+          git add robots.txt
           git status
           git commit -m "Generate 3000+ hotel pages for $(date)" || echo "No changes to commit."
           git push
