@@ -1,19 +1,17 @@
-name: Generate 3000+ Hotel Pages Daily
+name: Run generator script
 
 on:
-  schedule:
-    # Run every day at 9:00 UTC (~4:00 AM EDT)
-    - cron: "0 9 * * *"
-  workflow_dispatch:         # also lets you run it manually
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # manual trigger button
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
+  pull-requests: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "run-generator"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,23 +27,17 @@ jobs:
         with:
           node-version: 18
 
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        with:
-          path: ~/.npm
-          key: npm
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Run generator (3000+ pages)
+      - name: Run generator script
         run: node scripts/generate.js
 
-      - name: Commit and push to main
-        continue-on-error: false
+      - name: Commit generated files
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add dist/
-          git commit -m "Generate 3000+ pages for $(date)" || echo "No changes to commit."
+          git status
+          git commit -m "Generate pages for $(date)" || echo "No changes to commit."
           git push
