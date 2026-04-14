@@ -1,8 +1,1 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ben-palmo.github.io/hotel-guide/sitemap.xml
-User-agent: *
-Allow: /
-
-Sitemap: https://ben-palmo.github.io/hotel-mega-site/sitemap.xml
+robots.txt
