@@ -1,5 +1,5 @@
 // scripts/generate.js
-// 5000+ pages/day, CSV‑loaded cities/keywords/brands, 3000+‑word, brand‑aware, with affiliate links
+// 5000+ pages/day + auto‑generated sitemap.xml, with your Booking.com affiliate links
 
 const fs = require("fs");
 const path = require("path");
@@ -14,11 +14,29 @@ const links = {
   guesthouse:    "https://www.booking.com/guest-house/index.html?aid=8132800",
 };
 
-// 3000+‑word content generator (language‑aware, brand‑aware)
-function generatePageContent(lang, city, type, brandNames) {
-  const words = Math.floor(Math.random() * 1000) + 3000;
-  const now = new Date().toISOString().slice(0, 10);
+// Base URL of your site (change this to your real domain)
+const SITE_URL = "https://YOURDOMAIN.COM";
 
+// Types of pages
+const TYPES = [
+  "hotel",
+  "apartment",
+  "resort",
+  "villa",
+  "b&b",
+  "guesthouse",
+];
+
+// Track all URLs for sitemap
+const sitemapUrls = new Set();
+
+// Add URL to sitemap with lastmod = today
+function addSitemapUrl(loc, lastmod = null) {
+  sitemapUrls.add({ loc, lastmod: lastmod || new Date().toISOString().slice(0, 10) });
+}
+
+// Generate 3000+‑word content (same as before, simplified)
+function generatePageContent(city, type, brandNames) {
   const brandList = brandNames
     .slice(0, 6)
     .map(b => `<strong>${b}</strong>`)
@@ -110,32 +128,28 @@ function generatePageContent(lang, city, type, brandNames) {
 </p>
 
 <p>
-  <strong>Last updated:</strong> ${now}
-</p>
-
-<p>
   We earn a commission from Booking.com for qualifying bookings at no extra cost to you.
   The links and content on this site are intended to help you find the best deals and places to stay.
 </p>`;
 }
 
-function layout(lang, title, content, city, type, words, brandNames) {
+function layout(city, type, brandNames) {
   const brandList = brandNames
     .slice(0, 4)
     .join(", ")
     .replace(/, ([^,]+)$/, " and $1");
 
   return `<!DOCTYPE html>
-<html lang="${lang}">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>${title} | HotelHub</title>
-  <meta name="description" content="Best hotel deals in ${city} from top brands like ${brandList}, updated every day with ${words}+ words.">
+  <title>${type.charAt(0).toUpperCase() + type.slice(1)} in ${city} | HotelHub</title>
+  <meta name="description" content="Best hotel deals in ${city} from top brands like ${brandList}, updated every day.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <main>
-    <h1>${title}</h1>
+    <h1>${type.charAt(0).toUpperCase() + type.slice(1)} in ${city} – Best Hotel Brands and Deals</h1>
     <p><strong>Best hotel deals in ${city} from top brands like ${brandList}, updated every day.</strong></p>
 
     <p>
@@ -147,40 +161,24 @@ function layout(lang, title, content, city, type, words, brandNames) {
       <a href="${links.home}" target="_blank" rel="noopener">Go to Booking.com (aid=8132800)</a>
     </p>
 
-    ${content}
+    ${generatePageContent(city, type, brandNames)}
   </main>
 </body>
 </html>`;
 }
 
-function generatePage(lang, city, type, keyword) {
+function generatePage(city, type, keyword, brandNames) {
   const slug = `${keyword}-${city.toLowerCase().replace(/ /g, "-")}`;
-  const dir = path.join("slugs", slug, lang);
+  const dir = path.join("slugs", slug);
   const file = path.join(dir, `${type}.html`);
-
-  const brandNames = BRANDS.sort(() => 0.5 - Math.random()).slice(0, 5);
-
-  const content = generatePageContent(lang, city, type, brandNames);
-  const title = `${type.charAt(0).toUpperCase() + type.slice(1)} in ${city} – Best Hotel Brands and Deals`;
-
-  const words = Math.floor(Math.random() * 1000) + 3000;
-
-  const html = layout(lang, title, content, city, type, words, brandNames);
+  const url = `${SITE_URL}/slugs/${slug}/${type}.html`;
 
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(file, html, "utf-8");
+  fs.writeFileSync(file, layout(city, type, brandNames), "utf-8");
+  addSitemapUrl(url);
+
   console.log("✅ Generated:", file);
 }
-
-// Types of pages (each combo = 1 page)
-const TYPES = [
-  "hotel",
-  "apartment",
-  "resort",
-  "villa",
-  "b&b",
-  "guesthouse",
-];
 
 // Load CSV files
 function loadCsv(file, fieldName) {
@@ -198,24 +196,64 @@ function loadCsv(file, fieldName) {
     .filter(Boolean);
 }
 
-// Load lists from CSV
 const CITIES  = loadCsv("data/cities.csv", "city");
 const KEYWORDS = loadCsv("data/keywords.csv", "keyword");
 const BRANDS  = loadCsv("data/brands.csv", "brand");
 
-// 5000+ pages per day generator
+// Generate sitemap.xml
+function writeSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+
+  const staticUrls = [
+    { loc: `${SITE_URL}/`, changefreq: "daily", priority: "1.0" },
+    { loc: `${SITE_URL}/LEGAL.html`, changefreq: "monthly", priority: "0.6" },
+    { loc: `${SITE_URL}/sitemap.xml`, changefreq: "daily", priority: "0.5" },
+    // Your Booking.com links (optional, for SEO context)
+    { loc: links.home, changefreq: "weekly", priority: "0.5" },
+    { loc: links.apartments, changefreq: "weekly", priority: "0.5" },
+    { loc: links.resorts, changefreq: "weekly", priority: "0.5" },
+    { loc: links.villas, changefreq: "weekly", priority: "0.5" },
+    { loc: links["b&b"], changefreq: "weekly", priority: "0.5" },
+    { loc: links.guesthouse, changefreq: "weekly", priority: "0.5" },
+  ];
+
+  for (const url of staticUrls) {
+    addSitemapUrl(url.loc, today);
+  }
+
+  const xmlStart = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n\n`;
+
+  const urlNodes = Array.from(sitemapUrls).map(item => {
+    return `  <url>
+    <loc>${item.loc}</loc>
+    <lastmod>${item.lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }).join("\n\n");
+
+  const xmlEnd = "\n\n</urlset>";
+
+  const sitemap = xmlStart + urlNodes + xmlEnd;
+  fs.writeFileSync("sitemap.xml", sitemap, "utf-8");
+  console.log("✅ Updated sitemap.xml with", sitemapUrls.size, "URLs");
+}
+
+// 5000+ pages/day generator
 function runDaily() {
   const dailyTypes = TYPES.slice(0, 3);
 
   let count = 0;
   for (const keyword of KEYWORDS) {
     for (const city of CITIES) {
-      for (const lang of ["en", "es", "fr", "de", "it", "pt"]) {
-        for (const type of dailyTypes) {
-          generatePage(lang, city, type, keyword);
-          count++;
-          if (count >= 5000) break;
-        }
+      const brands = BRANDS.sort(() => 0.5 - Math.random()).slice(0, 5);
+      for (const type of dailyTypes) {
+        generatePage(city, type, keyword, brands);
+        count++;
         if (count >= 5000) break;
       }
       if (count >= 5000) break;
@@ -223,6 +261,9 @@ function runDaily() {
     if (count >= 5000) break;
   }
   console.log("✅ Generated ~5000 pages for today.");
+
+  // Write updated sitemap at the end
+  writeSitemap();
 }
 
 runDaily();
