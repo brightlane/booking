@@ -1,140 +1,115 @@
 // scripts/generate.js
+// Generate static HTML pages using your Booking.com affiliate links
+
 const fs = require("fs");
 const path = require("path");
 
-// --- CONFIG ---
-const DATA_DIR = path.join(__dirname, "..", "data");
-const TEMPLATES_DIR = path.join(__dirname, "..", "templates");
-const DIST_DIR = path.join(__dirname, "..", "dist");
-
-const KEYWORDS_FILE = "keywords.csv";
-const TEMPLATE_FILE = "page.html";
-
-// --- AFFILIATE LINKS ---
-const AFFILIATES = {
-  booking: (city) => `https://www.booking.com/searchresults.html?ss=${city}&aid=8132800`,
+// 🌐 YOUR AFFILIATE LINKS — do not change these
+const links = {
+  home:          "https://www.booking.com/index.html?aid=8132800",
+  apartments:    "https://www.booking.com/apartments/index.html?aid=8132800",
+  resorts:       "https://www.booking.com/resorts/index.html?aid=8132800",
+  villas:        "https://www.booking.com/villas/index.html?aid=8132800",
+  "b&b":         "https://www.booking.com/bed-and-breakfast/index.html?aid=8132800",
+  guesthouse:    "https://www.booking.com/guest-house/index.html?aid=8132800",
 };
 
-// --- HELPERS ---
-function slugify(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+// Basic HTML layout
+function layout(title, content) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${title}</title>
+  <meta name="description" content="Hotel, apartment, resort, villa, B&B, and guesthouse guide with Booking.com links.">
+</head>
+<body>
+  <main>
+    <h1>${title}</h1>
+    ${content}
+  </main>
+</body>
+</html>`;
 }
 
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
+// Generate main index page that uses your Booking.com home link
+function generateIndex() {
+  const html = layout(
+    "HotelHub",
+    `
+    <p>
+      Find hotels, apartments, resorts, villas, B&Bs, and guesthouses worldwide.
+    </p>
+    <ul>
+      <li><a href="${links.home}" target="_blank" rel="noopener">Hotels</a></li>
+      <li><a href="${links.apartments}" target="_blank" rel="noopener">Apartments</a></li>
+      <li><a href="${links.resorts}" target="_blank" rel="noopener">Resorts</a></li>
+      <li><a href="${links.villas}" target="_blank" rel="noopener">Villas</a></li>
+      <li><a href="${links["b&b"]}" target="_blank" rel="noopener">Bed & Breakfasts</a></li>
+      <li><a href="${links.guesthouse}" target="_blank" rel="noopener">Guesthouses</a></li>
+    </ul>`
+  );
+
+  const outFile = path.join("dist", "index.html");
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
+  fs.writeFileSync(outFile, html, "utf-8");
+  console.log("✅ Generated main index:", outFile);
 }
 
-// --- 3000+ WORD CONTENT BUILDER ---
-function generateContent(topic, city, subtopic) {
-  const themes = [
-    `Why stay in {{CITY}} for {{TOPIC}} travelers`,
-    `Best neighborhoods for {{SUBTOPIC}} in {{CITY}}`,
-    `How to find {{TOPIC}} hotels in {{CITY}} under good prices`,
-    `Booking strategies for last‑minute {{SUBTOPIC}} stays`,
-    `Family, business, and solo tips for {{CITY}}`,
-  ];
+// Generate a simple city page for a given category (e.g., apartment, resort)
+function generateCityPage(city, category, bookingLink) {
+  const label = category.charAt(0).toUpperCase() + category.slice(1);
+  const html = layout(
+    `${label} in ${city}`,
+    `
+    <p>Explore ${label}s in ${city} on Booking.com.</p>
+    <p>
+      <a href="${bookingLink}" target="_blank" rel="noopener">
+        See ${label}s in ${city} on Booking.com
+      </a>
+    </p>`
+  );
 
-  const paragraphs = [];
-
-  for (let i = 0; i < 30; i++) {
-    const theme = themes[i % themes.length];
-
-    const para = `
-{{THEME}}: In {{CITY}}, the key is choosing the right area and hotel type.
-For {{SUBTOPIC}}, focus on central districts with easy access to public transport and attractions.
-Always compare prices across networks, check recent reviews, and read the description.
-Use filters for guest rating, breakfast included, and free cancellation.
-Consider the time of year, local events, and airport proximity.
-Early bookings often secure better rates, while last‑minute deals can surprise you.
-National holidays and festivals can double prices; plan ahead or accept higher costs.
-For business trips, prioritize location, WiFi quality, and quiet rooms.
-For families, look for spacious rooms, child‑friendly policies, and nearby parks or attractions.
-If you’re arriving late or leaving early, confirm check‑in and check‑out rules and ask about baggage storage.
-Finally, trust your instincts; if a deal looks too good to be true, double‑check photos and reviews.
-    `.trim();
-
-    paragraphs.push(
-      para
-        .replace(/\{\{THEME\}\}/g, theme)
-        .replace(/\{\{TOPIC\}\}/g, topic)
-        .replace(/\{\{SUBTOPIC\}\}/g, subtopic)
-        .replace(/\{\{CITY\}\}/g, city)
-    );
-  }
-
-  return paragraphs.join(" ");
+  const dir = path.join("dist", category);
+  const file = path.join(dir, city.toLowerCase().replace(/ /g, "-") + ".html");
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(file, html, "utf-8");
+  console.log("✅ Generated:", file);
 }
 
-// --- TEMPLATE LOADER ---
-function loadTemplate() {
-  const templatePath = path.join(TEMPLATES_DIR, TEMPLATE_FILE);
-  return fs.readFileSync(templatePath, "utf8");
-}
+// List of example cities (you can change this)
+const cities = ["Alice Springs", "Sydney", "Melbourne", "Brisbane", "Perth"];
 
-function generatePageHtml(template, row) {
-  const city = row.city;
-  const keyword = row.keyword;
-  const topic = row.topic;
-  const subtopic = row.subtopic;
-
-  const content = generateContent(topic, city, subtopic);
-  const booking = AFFILIATES.booking(encodeURIComponent(city));
-  const link = `<a href="${booking}" class="btn">Check Hotels in ${city}</a>`;
-
-  return template
-    .replace(/\{\{KEYWORD\}\}/g, keyword)
-    .replace(/\{\{CITY\}\}/g, city)
-    .replace(/\{\{CONTENT_3000_WORDS\}\}/g, content)
-    .replace(/\{\{BOOKING_COM_LINK\}\}/g, booking)
-    .replace(/\{\{AFFILIATE_WIDGET\}\}/g, link);
-}
-
-// --- CSV READER ---
-function readKeywords() {
-  const data = fs.readFileSync(path.join(DATA_DIR, KEYWORDS_FILE));
-  const lines = data.toString().split("\n").map(line => line.trim());
-  if (lines.length < 2) throw new Error("Empty or invalid CSV");
-
-  const headers = lines[0].split(",").map(h => h.trim());
-  return lines.slice(1).filter(line => line).map(line => {
-    const values = line.split(",").map(v => v.trim());
-    const row = {};
-    headers.forEach((h, i) => {
-      row[h] = values[i] || "";
-    });
-    return row;
-  });
-}
-
-// --- MAIN ---
+// Generate everything
 function run() {
-  console.log("Starting 3000‑word page generator...");
-  ensureDir(DATA_DIR);
-  ensureDir(TEMPLATES_DIR);
-  ensureDir(DIST_DIR);
+  // Main page
+  generateIndex();
 
-  const rows = readKeywords();
-  console.log(`Generating ${rows.length} pages (each ~3000+ words)...`);
-
-  rows.forEach((row, i) => {
-    const slug = slugify(row.keyword);
-    const pageDir = path.join(DIST_DIR, "slugs", slug);
-    const indexPath = path.join(pageDir, "index.html");
-
-    ensureDir(pageDir);
-
-    const html = generatePageHtml(loadTemplate(), row);
-    fs.writeFileSync(indexPath, html, "utf8");
-
-    if (i % 10 === 0) process.stdout.write(`.`);
+  // Apartments in each city
+  cities.forEach((city) => {
+    generateCityPage(city, "apartment", links.apartments);
   });
 
-  console.log("\n✅ Pages written to /dist/ (ready for GitHub Pages).");
+  // Resorts in each city
+  cities.forEach((city) => {
+    generateCityPage(city, "resort", links.resorts);
+  });
+
+  // Villas in each city
+  cities.forEach((city) => {
+    generateCityPage(city, "villa", links.villas);
+  });
+
+  // B&Bs in each city
+  cities.forEach((city) => {
+    generateCityPage(city, "bedbreakfast", links["b&b"]);
+  });
+
+  // Guesthouses in each city
+  cities.forEach((city) => {
+    generateCityPage(city, "guesthouse", links.guesthouse);
+  });
 }
 
+// Execute
 run();
