@@ -42,167 +42,281 @@
 
     <style>
         :root { 
-            --gold: #ffd700; 
-            --dark: #0b1426; 
-            --booking-blue: #003580;
-            --neon: #00ff41; 
-            --slate: #8b949e; 
-            --danger: #ff4b2b;
+            --booking-orange: #feba02; 
+            --dark-bg: #060d1a; 
+            --neon-green: #00ff41; 
+            --error-red: #ff3b30;
+            --text-white: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
         
         body { 
             margin: 0; 
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; 
-            background: var(--dark);
-            color: #fff; 
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at top center, #1a2a44 0%, var(--dark-bg) 80%);
+            color: var(--text-white); 
             text-align: center; 
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .hero { padding: 40px 20px; max-width: 600px; margin: 0 auto; }
-
-        .offer-badge {
-            background: var(--danger);
-            color: white;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: pulse 1.5s infinite;
+        .container { 
+            padding: 40px 15px; 
+            max-width: 800px; 
+            margin: 0 auto; 
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 10px; }
-        
-        .big-save {
-            color: var(--gold);
-            font-size: 4rem;
+        /* 50% More Noticeable Limited Offer */
+        .limited-offer-banner {
+            background: var(--error-red);
+            color: #fff;
+            font-size: 1.4rem; 
             font-weight: 900;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.5);
+            animation: shake 2.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1) rotate(2deg); }
+            10% { transform: scale(1.1) rotate(-2deg); }
+            15% { transform: scale(1); }
+        }
+
+        .clickable-headline {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { font-size: 2.2rem; margin: 0; font-weight: 400; }
+        
+        .huge-discount {
+            color: var(--booking-orange);
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1;
             margin: 10px 0;
             display: block;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 20px rgba(254, 186, 2, 0.3);
         }
 
-        .sub-header { color: #fff; font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+        .sub-header { 
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            margin-bottom: 35px;
+            color: #fff;
+        }
 
-        /* The Deal Card */
-        .deal-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
+        /* Reduced Search Box (20% smaller) */
+        .search-module {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
             color: #333;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative;
+            max-width: 450px; 
+            margin: 0 auto 40px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
         }
 
-        .timer-box {
-            color: var(--danger);
-            font-weight: 700;
-            font-size: 1.1rem;
+        .timer-display {
+            color: var(--error-red);
+            font-weight: 900;
+            font-size: 1.3rem;
             margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
-        .search-container {
+        .input-wrap {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .search-container input {
-            padding: 18px;
-            font-size: 1.2rem;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            outline: none;
+        input {
+            padding: 16px; 
+            font-size: 1.1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
             text-align: center;
+            font-weight: 700;
+            background: #f9f9f9;
         }
 
-        .cta-button {
-            background: #006ce4; /* Booking Blue */
-            color: white;
+        .orange-btn {
+            background: var(--booking-orange);
+            color: #000;
             border: none;
             padding: 20px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 6px 0 #004a9e;
+            box-shadow: 0 5px 0 #c69100;
             transition: all 0.1s;
         }
 
-        .cta-button:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #004a9e;
+        .orange-btn:hover { background: #ffc425; }
+        .orange-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #c69100;
         }
 
-        .trust-line {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #666;
+        .trust-bar {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #888;
             display: flex;
             justify-content: center;
             gap: 15px;
         }
 
-        .urgency-text {
-            color: var(--neon);
-            font-weight: bold;
-            margin-top: 25px;
-            font-size: 0.9rem;
+        /* FEATURED SECTION */
+        .featured-in {
+            margin: 60px 0;
+            opacity: 0.6;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            font-weight: 900;
+            font-style: italic;
+            color: #555;
         }
 
-        .links { margin-top: 40px; }
-        .links a {
-            color: var(--slate);
+        /* HOW IT WORKS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+        }
+        .info-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+        .info-card h3 { color: var(--booking-orange); margin-top: 0; }
+
+        /* SEO CONTENT SECTION */
+        .seo-content {
+            text-align: left;
+            background: rgba(0,0,0,0.3);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        .seo-content h2 { color: var(--booking-orange); }
+
+        .live-ticker {
+            color: var(--neon-green);
+            margin: 30px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+        }
+
+        .quick-links { 
+            margin-top: 60px; 
+            padding: 40px 0 100px; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .quick-links a {
+            color: #8b949e;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.8rem;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
 
-<div class="hero">
-    <div class="offer-badge">Limited Time Reward</div>
-    <h1>Click Now To</h1>
-    <span class="big-save">SAVE 50%</span>
-    <p class="sub-header">Directly at Booking.com</p>
+<div class="container">
+    <div class="limited-offer-banner">⚠️ LIMITED TIME REWARD</div>
 
-    <div class="deal-card">
-        <div class="timer-box">Deal Expires In: <span id="timer">04:59</span></div>
+    <a href="javascript:void(0)" onclick="go()" class="clickable-headline">
+        <h1>Click Now To</h1>
+        <span class="huge-discount">SAVE 50%</span>
+        <p class="sub-header">Directly at Booking.com</p>
+    </a>
+
+    <div class="search-module">
+        <div class="timer-display">OFFER EXPIRES: <span id="timer">04:59</span></div>
         
-        <div class="search-container">
-            <input id="target" placeholder="Enter City" value="New York">
-            <button class="cta-button" onclick="go()">ACTIVATE 50% DISCOUNT</button>
+        <div class="input-wrap">
+            <input id="target" placeholder="Where are you going?" value="New York">
+            <button class="orange-btn" onclick="go()">ACTIVATE 50% DISCOUNT</button>
         </div>
 
-        <div class="trust-line">
-            <span>✓ Verified Partner</span>
-            <span>✓ No Fees</span>
-            <span>✓ Best Price</span>
+        <div class="trust-bar">
+            <span>✓ VERIFIED PARTNER</span>
+            <span>✓ NO HIDDEN FEES</span>
+            <span>✓ 2.5M+ HOTELS</span>
         </div>
     </div>
 
-    <p id="live-data" class="urgency-text">🔥 Finding active coupons for New York...</p>
+    <p id="live-data" class="live-ticker">🔥 Initializing AI Inventory Sniper...</p>
 
-    <div class="links">
-        <a href="?city=new-york">New York Deals</a>
-        <a href="?city=los-angeles">Los Angeles Deals</a>
-        <a href="?city=london">London Deals</a>
+    <div class="featured-in">
+        As Seen In Global Travel Portals
+        <div class="logos">
+            <span>SKYSCANNER</span>
+            <span>TRAVELNEWS</span>
+            <span>STAYMATRIX</span>
+        </div>
     </div>
 
-    <div style="margin-top: 50px; opacity: 0.4; font-size: 0.7rem;">
-        *Discounts vary by property. Up to 50% off select Genius properties.
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>1. AI Inventory Sniper</h3>
+            <p>Our algorithm extracts direct API rates that are often hidden from standard mobile searches, specifically for the 2026 World Cup cycle.</p>
+        </div>
+        <div class="info-card">
+            <h3>2. Genius Tier Unlocked</h3>
+            <p>We bypass retail markups by prioritizing Genius Tier 3 and Mobile-Only inventory, providing up to 50% off select stays.</p>
+        </div>
+    </div>
+
+    <div class="seo-content">
+        <h2>How to Book Hotels Online & Save Big</h2>
+        <p>Looking for the best way to book hotels online while maximizing your savings? Our <strong>Global Stay Matrix</strong> leverages programmatic SEO and direct inventory sniping to find the lowest possible rates for destinations worldwide.</p>
+        
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Are these discounts real?</strong> Yes. By using our partner AID (8132800), you access specific deal-pages on Booking.com that are reserved for high-volume affiliate partners.</p>
+        <p><strong>How do I apply the 50% coupon?</strong> Simply click the activation button above. The discount is automatically applied to eligible properties when you land on the search results page.</p>
+    </div>
+
+    <div class="quick-links">
+        <a href="?city=new-york">New York Hotels</a>
+        <a href="?city=los-angeles">Los Angeles Hotels</a>
+        <a href="?city=london">London Hotels</a>
+        <a href="?city=paris">Paris Hotels</a>
+        <a href="?city=tokyo">Tokyo Hotels</a>
+        <a href="?city=miami">Miami Hotels</a>
+    </div>
+
+    <div style="opacity: 0.3; font-size: 0.7rem; padding-bottom: 50px;">
+        *Discounts calculated based on Genius Tier 3 and Mobile-Only inventory rates for 2026.<br>
+        Vulture 10K Protocol v4.2 | Partner ID: 8132800
     </div>
 </div>
 
@@ -212,36 +326,36 @@ const AID = "8132800";
 function go(){
     const dest = document.getElementById("target").value;
     if(!dest) return;
-    // Redirecting to the 'Deals' filter to ensure they see the highest savings
-    const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&order=price&selected_currency=USD&label=save-50-promo`;
+    const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&nflt=price%3D1&order=price&label=vulture-sniper-long`;
     window.location.href = url;
 }
 
-// Countdown Timer Logic
-let time = 299;
-setInterval(() => {
-    let m = Math.floor(time / 60);
-    let s = time % 60;
+document.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") go();
+});
+
+let timeLeft = 299;
+function updateTimer() {
+    let m = Math.floor(timeLeft / 60);
+    let s = timeLeft % 60;
     document.getElementById("timer").innerText = `0${m}:${s < 10 ? '0'+s : s}`;
-    if(time > 0) time--;
-}, 1000);
-
-// Live "Activity" Simulator
-function simulateActivity() {
-    let cities = ["Paris", "Tokyo", "Miami", "Chicago", "Rome"];
-    let city = cities[Math.floor(Math.random()*cities.length)];
-    let n = Math.floor(Math.random()*20)+5;
-    document.getElementById("live-data").innerText = `🔥 ${n} people just claimed 50% off in ${city}`;
+    if(timeLeft > 0) timeLeft--;
 }
-setInterval(simulateActivity, 4000);
+setInterval(updateTimer, 1000);
 
-// Meta & City Logic
-const params = new URLSearchParams(window.location.search);
-const city = params.get("city");
-if(city){
-    const c = city.replace(/-/g," ");
-    document.getElementById("target").value = c;
-    document.getElementById("live-data").innerText = `🔥 High demand for ${c}: Coupons active!`;
+const locations = ["London", "Tokyo", "Miami", "Las Vegas", "Paris", "Barcelona", "Sydney", "New York"];
+function rotateTicker() {
+    const loc = locations[Math.floor(Math.random() * locations.length)];
+    const count = Math.floor(Math.random() * 25) + 15;
+    document.getElementById("live-data").innerText = `🔥 ${count} travelers just claimed 50% off in ${loc}`;
+}
+setInterval(rotateTicker, 4000);
+
+const urlParams = new URLSearchParams(window.location.search);
+const cityParam = urlParams.get("city");
+if(cityParam){
+    const cleanCity = cityParam.replace(/-/g," ");
+    document.getElementById("target").value = cleanCity;
 }
 
 window.onload = () => {
