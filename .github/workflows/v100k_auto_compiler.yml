@@ -39,25 +39,25 @@ jobs:
         git config --global user.name "Vulture Engine Bot"
         git config --global user.email "brightlane-bot@users.noreply.github.com"
         
-        # Stage only the generated sitemaps and index ledger, using '|| true' to prevent crashes if a file is missing
+        # 1. Dynamic Catch-Up: Fetch the current live state after the 2-minute build lag
+        echo "🔄 Syncing remote references post-compilation..."
+        git fetch origin main
+        
+        # 2. Reset the head pointer to match remote exactly without losing our new XML files
+        git reset --mixed origin/main
+        
+        # 3. Stage only the generated sitemaps and index ledger
         git add sitemap-v10k-node-*.xml sitemap-index.xml || true
         
         if git diff --staged --quiet; then
           echo "No new differential URLs generated in this sequence. Keeping workspace clear."
         else
+          # 4. Commit directly on top of the fresh remote head state
           git commit -m "🤖 Vulture Engine Auto-Run: Appended new 100K node clusters [Skip CI]"
           
-          # Force hard alignment to drop local reference conflicts from parallel runs
-          echo "🔄 Fetching latest upstream state to clear race conditions..."
-          git fetch origin main
-          
-          # Weave your newly compiled sitemaps seamlessly on top of the live head
-          echo "🔄 Rebasing local changes onto origin/main..."
-          git rebase origin/main
-          
-          # Push specifically using HEAD pointer to guarantee write locking authorization
+          # 5. Push specifically using HEAD pointer to guarantee write locking authorization
           echo "🚀 Pushing finalized nodes with upstream protection..."
-          git push origin HEAD:main
+          git push origin HEAD:main --force-with-lease
         fi
 
     - name: Global Webmaster Indexation Ping Trigger
