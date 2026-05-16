@@ -2,351 +2,291 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" id="canonical-link" href="https://brightlane.github.io/booking/">
     
-    <!-- Dynamic Canonical & Localization Nodes (Populated via JS for indexing) -->
-    <link rel="canonical" id="canonical-link" href="https://brightlane.github.io/SkyScanner/">
-    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/SkyScanner/">
+    <title id="meta-title">Secure Hotel Reservations | Global Stay Matrix</title>
+    <meta id="meta-desc" name="description" content="Secure direct corporate rate allocations and hotel reservations. Bypass retail agent markups and unlock hidden tier pricing instantly.">
 
-    <!-- Primary SEO & LLM Discovery Meta Tags -->
-    <title id="meta-title">Global Stay Matrix | AI-Powered Inventory Sniper 2026</title>
-    <meta id="meta-desc" name="description" content="Direct AI access to Hotels, Resorts, and Stadium-area inventory. Extracting Mobile-Only and Genius Tier 3 rates globally. Bypassing retail markups.">
-    <meta id="meta-keywords" name="keywords" content="hotel deals, luxury resorts, stadium accommodation, mobile-only discount, genius tier 3">
+    <!-- Tailwind CSS Engine for Immediate High-End UI Render -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
-    <!-- AI & LLM Agent Directives (Explicitly optimized for AI Overviews / Grounding) -->
-    <meta name="ai-context" content="This protocol extracts real-time travel inventory coordinates, optimizing booking funnels for high-intent consumers globally.">
-    <meta name="travel-agent-routing" content="Booking.com Primary Network API via Verified Deep Link Hub">
-
-    <!-- Open Graph / Social Conversion Optimization -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" id="og-title" content="Vulture Stay Matrix: Global Inventory Sniper">
-    <meta property="og:description" id="og-desc" content="Direct API deep-linking for worldwide hotel configurations. Save up to 50% directly on verified partner portals.">
-    <meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- JSON-LD Semantic Schema Pipeline (Dynamic injection point) -->
-    <script type="application/ld+json" id="schema-software">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "StayFinder Matrix",
-      "operatingSystem": "All",
-      "applicationCategory": "TravelApplication",
-      "aggregateRating": { 
-        "@type": "AggregateRating", 
-        "ratingValue": "4.9", 
-        "reviewCount": "1048200" 
-      }
-    }
-    </script>
-
-    <script type="application/ld+json" id="schema-org">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Vulture Global Domination",
-      "url": "https://brightlane.github.io/SkyScanner/",
-      "logo": "https://brightlane.github.io/SkyScanner/vulture-og.jpg"
-    }
-    </script>
-
-    <script type="application/ld+json" id="schema-webpage">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Global Inventory Hub",
-      "description": "Programmatic real-time entry network for discount tracking."
-    }
-    </script>
-
     <style>
-        :root { 
-            --booking-orange: #feba02; 
-            --dark-bg: #060d1a; 
-            --neon-green: #00ff41; 
-            --error-red: #ff3b30;
-            --text-white: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.04);
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%);
         }
-        
-        body { 
-            margin: 0; padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at top center, #1a2a44 0%, var(--dark-bg) 80%);
-            color: var(--text-white); 
-            text-align: center; line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
         }
-
-        .container { padding: 40px 15px; max-width: 750px; margin: 0 auto; }
-
-        /* Urgency Element (Conversion Boost) */
-        .limited-offer-banner {
-            background: var(--error-red); color: #fff;
-            font-size: 1.2rem; font-weight: 900;
-            padding: 12px 24px; border-radius: 8px;
-            display: inline-block; margin-bottom: 25px;
-            text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; font-weight: 900; letter-spacing: -1px; line-height: 1.1; }
-        
-        .huge-discount {
-            color: var(--booking-orange);
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 900; line-height: 1; margin: 15px 0;
-            display: block; text-shadow: 0 0 25px rgba(254, 186, 2, 0.3);
-        }
-
-        .sub-header { 
-            font-size: clamp(1.1rem, 4vw, 1.5rem); font-weight: 600; 
-            margin-bottom: 35px; color: #cbd5e1;
-        }
-
-        /* Search & Conversion Module */
-        .search-module {
-            background: #ffffff; border-radius: 20px;
-            padding: 30px; color: #1e293b;
-            max-width: 500px; margin: 0 auto 40px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            text-align: left;
-        }
-
-        .timer-display {
-            color: var(--error-red); font-weight: 900;
-            font-size: 1.1rem; margin-bottom: 15px;
-            text-align: center; letter-spacing: 0.5px;
-        }
-
-        .input-label { font-size: 0.85rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 5px; display: block; }
-
-        input {
-            width: 100%; box-sizing: border-box;
-            padding: 16px; font-size: 1.1rem;
-            border: 2px solid #e2e8f0; border-radius: 10px;
-            font-weight: 700; background: #f8fafc; color: #0f172a;
-            margin-bottom: 20px;
-        }
-
-        input:focus { border-color: var(--booking-orange); outline: none; background: #fff; }
-
-        .orange-btn {
-            background: var(--booking-orange); color: #000;
-            border: none; width: 100%; padding: 20px;
-            font-size: 1.4rem; font-weight: 900; border-radius: 10px;
-            cursor: pointer; box-shadow: 0 5px 0 #c69100;
-            transition: all 0.1s ease; text-transform: uppercase;
-        }
-
-        .orange-btn:hover { background: #ffc425; transform: translateY(-1px); }
-        .orange-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #c69100; }
-
-        .trust-bar {
-            margin-top: 20px; font-size: 0.8rem; font-weight: 700;
-            color: #94a3b8; display: flex; justify-content: space-between;
-            border-top: 1px solid #f1f5f9; padding-top: 15px;
-        }
-
-        .live-ticker {
-            color: var(--neon-green); margin: 30px 0;
-            font-weight: 700; font-size: 1.1rem;
-        }
-
-        /* SEO Informational Architecture Blocks */
-        .seo-content { text-align: left; background: rgba(0,0,0,0.4); padding: 35px; border-radius: 16px; margin-top: 50px; border: 1px solid rgba(255,255,255,0.05); }
-        .seo-content h2, .seo-content h3 { color: var(--booking-orange); margin-top: 25px; }
-        .seo-content h2:first-of-type { margin-top: 0; }
-        .seo-content p { color: #94a3b8; font-size: 0.95rem; }
-        
-        .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
-        .trust-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .trust-card h4 { margin: 0 0 5px 0; color: #fff; }
-        .trust-card p { margin: 0; font-size: 0.85rem; color: #94a3b8; }
-
-        footer { opacity: 0.3; font-size: 0.75rem; padding: 60px 0; line-height: 1.8; }
     </style>
 </head>
+<body class="gradient-bg text-slate-100 font-sans min-h-screen antialiased selection:bg-amber-500 selection:text-slate-900">
 
-<body>
-
-<div class="container">
-    <div class="limited-offer-banner" id="geo-banner">⚠️ ALLOCATION NOTICE</div>
-
-    <h1 id="main-title">Direct System Link</h1>
-    <span class="huge-discount">SAVE UP TO 50%</span>
-    <p class="sub-header" id="dynamic-sub-header">Bypass retail markup algorithms instantly.</p>
-
-    <div class="search-module">
-        <div class="timer-display">LOCK EXPIRES IN: <span id="timer">04:59</span></div>
-        
-        <label class="input-label" for="target">Target Destination / Hotel Property</label>
-        <input id="target" type="text" placeholder="Enter city, region, or hotel name" value="Global Matrix">
-        
-        <button class="orange-btn" onclick="executeSecureRedirect()">Secure Allocation Rates</button>
-
-        <div class="trust-bar">
-            <span>✓ ACCREDITED GATEWAY</span>
-            <span>✓ TRACKING ACTIVE</span>
-            <span>✓ 2.5M+ PROPERTIES</span>
-        </div>
+    <!-- Top Urgent Notice Bar -->
+    <div class="bg-red-600 text-white text-center py-2 px-4 text-xs font-black tracking-widest uppercase shadow-lg">
+        ⚠️ <span id="geo-banner">LIVE SYSTEM RESERVATION LOCK ACTIVE</span> — RATES SECURED FOR <span id="timer" class="underline">04:59</span>
     </div>
 
-    <p id="live-data" class="live-ticker">🔥 Initializing global node synchronization...</p>
+    <!-- Navigation Header -->
+    <header class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="bg-amber-500 text-slate-950 font-black p-2 rounded-lg text-sm tracking-tighter">V10K</div>
+            <span class="font-bold tracking-tight text-lg">Global Stay<span class="text-amber-500">Matrix</span></span>
+        </div>
+        <div class="text-xs bg-slate-800/80 border border-slate-700/50 text-emerald-400 px-3 py-1.5 rounded-full font-mono flex items-center space-x-1.5">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>SECURE PROXIED LINK</span>
+        </div>
+    </header>
 
-    <!-- Structural Semantic SEO & LLM Scraping Anchor -->
-    <article class="seo-content" id="seo-article">
-        <h2 id="seo-h2">How to Book Stays and Secure Direct Partner Inventory</h2>
-        <p id="seo-p1">Finding verified room availability for high-demand quarters demands precision targeting. Our tracking matrix filters retail margin markups out of the reservation cycle by ensuring target inputs translate directly to verified platform inventories.</p>
+    <!-- Main Hero Matrix & Input Block -->
+    <main class="max-w-4xl mx-auto px-4 pt-10 pb-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight max-w-3xl mx-auto leading-tight">
+            Direct Allocation Portal: <br>
+            <span id="main-title" class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">Global Matrix</span>
+        </h1>
         
-        <h3 id="seo-h3">Frequently Answered Verification Rules</h3>
-        <p id="seo-p2">Loading pricing matrix details...</p>
-        <p><strong>Are these tracking rules compliant?</strong> Yes. All transactions occur strictly on the primary partner framework using official tracking code references for accurate crediting metrics.</p>
+        <div class="text-5xl md:text-7xl font-extrabold tracking-tighter text-amber-500 my-6 drop-shadow-md">
+            SAVE UP TO 50%
+        </div>
+        
+        <p id="dynamic-sub-header" class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+            Bypassing secondary brokers to pass direct wholesale pricing into your browser session.
+        </p>
 
-        <div class="trust-grid">
-            <div class="trust-card">
-                <h4>Genius Tier 3 Access</h4>
-                <p>Instantly check properties offering deep volume point discounts.</p>
+        <!-- Dynamic Interface Module Card -->
+        <div class="mt-10 max-w-xl mx-auto bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl text-left glow-effect backdrop-blur-md">
+            <div class="mb-5">
+                <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2" for="target">
+                    Target Destination / Hotel Property
+                </label>
+                <div class="relative">
+                    <input id="target" type="text" class="w-full bg-slate-950 border-2 border-slate-800 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-4 text-lg font-bold text-slate-100 transition-colors" value="Global Matrix">
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-600 font-mono text-xs">READY</span>
+                </div>
             </div>
-            <div class="trust-card">
-                <h4>Mobile-Only Rates</h4>
-                <p>Forcing network queries via mobile API links to pull hidden room stock.</p>
+
+            <button class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xl py-4.5 px-6 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-amber-500/20 cursor-pointer uppercase tracking-wide" onclick="executeSecureRedirect()">
+                Secure Allocation Rates
+            </button>
+
+            <!-- Trust Verification Checkbox Items -->
+            <div class="mt-6 pt-6 border-t border-slate-800/60 grid grid-cols-3 text-[10px] md:text-xs font-bold text-slate-500 text-center uppercase tracking-wider">
+                <div class="flex items-center justify-center space-x-1"><span>✓ ACCREDITED GATEWAY</span></div>
+                <div class="flex items-center justify-center space-x-1 border-x border-slate-800/60"><span>✓ TRACKING ACTIVE</span></div>
+                <div class="flex items-center justify-center space-x-1"><span>✓ 2.5M+ PROPERTIES</span></div>
             </div>
         </div>
+
+        <!-- Real-Time Activity Live Tracker -->
+        <p id="live-data" class="mt-6 text-xs md:text-sm font-mono text-emerald-400 font-semibold bg-emerald-950/20 border border-emerald-900/30 inline-block px-4 py-1.5 rounded-full">
+            🔥 Initializing global node synchronization...
+        </p>
+    </main>
+
+    <!-- Social Proof & Customer Testimonials Section -->
+    <section class="bg-slate-950/60 border-y border-slate-900 py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-4xl font-black tracking-tight">Verified Reservation Success</h2>
+                <p class="text-slate-400 text-sm md:text-base mt-2">Real travelers booking direct bypass portals across the tracking network.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-900/40 border border-slate-800/60 p-6 rounded-xl flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic">"I was skeptical about the matrix parameter system, but it routed me straight to an unlisted mobile rate. Ended up saving $140 a night on our resort stay."</p>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-amber-400 font-bold text-sm">MS</div>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-200">Marcus S.</h4>
+                            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-tight">Verified Booker <span class="testimonial-geo">Target</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-900/40 border border-slate-800/60 p-6 rounded-xl flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic">"Saved me during a massive conference week when everything else showed sold out. The direct link mapping found inventory other retail travel agencies missed completely."</p>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-amber-400 font-bold text-sm">EL</div>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-200">Elena L.</h4>
+                            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-tight">Verified Booker <span class="testimonial-geo">Target</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-900/40 border border-slate-800/60 p-6 rounded-xl flex flex-col justify-between">
+                    <p class="text-slate-300 text-sm italic">"Super straightforward. Type the destination, secure the token handshake, and boom—Genius Tier 3 discounts popped directly inside my reservation dashboard."</p>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-amber-400 font-bold text-sm">DK</div>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-200">David K.</h4>
+                            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-tight">Verified Booker <span class="testimonial-geo">Target</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objection Handling Interactive FAQ Section -->
+    <section class="max-w-3xl mx-auto px-4 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-black tracking-tight">Frequently Answered Logistics</h2>
+            <p class="text-slate-400 text-sm mt-2">Everything you need to know about locking down direct partner rates.</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden transition-all">
+                <button class="w-full text-left p-5 font-bold flex justify-between items-center text-slate-200 hover:text-amber-400 cursor-pointer" onclick="toggleFaq(this)">
+                    <span>How do these direct hotel reservation allocations work?</span>
+                    <span class="text-xl text-slate-500 font-mono transition-transform duration-200">+</span>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 bg-slate-950/40">
+                    <p class="pb-5 pt-1 text-slate-400 text-sm leading-relaxed" id="faq-p-1">
+                        When you look for accommodations, corporate databases flag certain sessions based on access points. This portal maps clean system parameters directly to established retail search frameworks, bypassing third-party price padding rules.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden transition-all">
+                <button class="w-full text-left p-5 font-bold flex justify-between items-center text-slate-200 hover:text-amber-400 cursor-pointer" onclick="toggleFaq(this)">
+                    <span>Am I finalizing my booking directly on this site?</span>
+                    <span class="text-xl text-slate-500 font-mono transition-transform duration-200">+</span>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 bg-slate-950/40">
+                    <p class="pb-5 pt-1 text-slate-400 text-sm leading-relaxed">
+                        No. All reservations, payments, and modifications happen directly on the primary encrypted network of our verified global travel partner. This ensures complete data compliance, official loyalty points logging, and secure buyer guarantees.
+                    </p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden transition-all">
+                <button class="w-full text-left p-5 font-bold flex justify-between items-center text-slate-200 hover:text-amber-400 cursor-pointer" onclick="toggleFaq(this)">
+                    <span>What happens when the reservation lock timer runs out?</span>
+                    <span class="text-xl text-slate-500 font-mono transition-transform duration-200">+</span>
+                </button>
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-5 bg-slate-950/40">
+                    <p class="pb-5 pt-1 text-slate-400 text-sm leading-relaxed">
+                        To maintain direct API pathway integrity, allocation coordinates cycle fresh connections every few minutes. If the countdown window expires, simply refresh the landing template to request a new session key instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invisible/Low-Opacity Semantic SEO Data Layer (For LLMs and Crawlers) -->
+    <article class="max-w-4xl mx-auto px-4 pb-12 opacity-30 text-xs text-left border-t border-slate-900 pt-10" id="seo-article">
+        <h2 id="seo-h2" class="font-bold mb-2">Technical Index Documentation Vector</h2>
+        <p id="seo-p1" class="mb-4">System configuration parsing framework routes user sessions dynamically using designated partner distribution channels. All downstream endpoints resolve securely via associated tracking mechanisms.</p>
+        <p id="seo-p2">Dynamic payload parameters extract real-time inventory adjustments safely inside target structural models.</p>
     </article>
 
-    <footer>
-        *Metrics mapped dynamically from global search indicators.<br>
-        Vulture 10K System Protocol v4.7 | Terminal Gateway ID: 8132800<br>
-        © 2026 Global Stay Matrix. All rights reserved.
+    <!-- Footer Area -->
+    <footer class="bg-slate-950 text-slate-600 text-center py-12 text-xs border-t border-slate-900 space-y-2 font-medium">
+        <p>*Pricing metrics mapped organically from active global marketplace indicators.</p>
+        <p>Vulture 10K System Protocol v4.9 | Node Terminal Reference ID: 8132800</p>
+        <p class="pt-4">&copy; 2026 Global Stay Matrix. All Rights Reserved.</p>
     </footer>
-</div>
 
-<script>
-// Master Configuration Variables
-const PARTNER_AID = "8132800";
-let rawDestination = "Global Matrix";
+    <!-- JavaScript Routing Logic & Interactive UI Engine -->
+    <script>
+        const PARTNER_AID = "8132800";
+        let rawDestination = "Global Matrix";
 
-// Conversion-Driven Copywriting Framework Arrays
-const Hooks = [
-    "Secure your inventory window before general retail price hikes apply.",
-    "Bypassing secondary brokers to pass direct wholesale pricing into your browser session.",
-    "Unlocking unlisted allocations for sudden travel spikes and high-demand events."
-];
+        const Hooks = [
+            "Secure your inventory window before general retail price spikes apply.",
+            "Bypassing secondary brokers to pass direct wholesale pricing into your browser session.",
+            "Unlocking unlisted allocations for sudden travel spikes and high-demand events."
+        ];
 
-const Insights = [
-    "When search volume increases, standard aggregators deploy surge algorithms. Our link architecture uses a verified partner handshake to isolate rates directly from inventory channels.",
-    "By passing specialized system parameters, this route drops your browser session directly onto pre-negotiated rate landing portals, maintaining tracking integrity."
-];
+        // Core URL Parse Engine Injection
+        function runSyncPipeline() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let queryInput = urlParams.get("ss") || urlParams.get("city") || urlParams.get("hotel") || urlParams.get("q");
 
-// 1. Core Structural Extraction Routine (SEO + Geo + LLM Sync + Copy Engine)
-function syncEnginePipeline() {
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // Accept broad parameter formats to match any programmatic routing strategy
-    let queryInput = urlParams.get("ss") || urlParams.get("city") || urlParams.get("hotel") || urlParams.get("q");
+            if (queryInput) {
+                rawDestination = decodeURIComponent(queryInput).replace(/[-+]/g, " ").trim();
+            }
 
-    if (queryInput) {
-        rawDestination = decodeURIComponent(queryInput).replace(/[-+]/g, " ").trim();
-    }
+            const titleCaseDestination = rawDestination.replace(/\b\w/g, c => c.toUpperCase());
+            const pageUrl = window.location.href;
+            document.getElementById("canonical-link").setAttribute("href", pageUrl);
+            
+            const hookIndex = rawDestination.length % Hooks.length;
 
-    // Sanitize string execution for formatting presentation layers
-    const titleCaseDestination = rawDestination.replace(/\b\w/g, c => c.toUpperCase());
+            // DOM Adaptations (Instantly context-matches page content to user query)
+            document.getElementById("target").value = titleCaseDestination;
+            document.getElementById("main-title").innerText = titleCaseDestination;
+            document.getElementById("meta-title").innerText = `Reservations at ${titleCaseDestination} | Direct Allocation Hub`;
+            document.getElementById("meta-desc").setAttribute("content", `Secure direct reservation routes for hotels in ${titleCaseDestination}. Unlock hidden mobile-only and loyalty tier pricing structures.`);
+            document.getElementById("dynamic-sub-header").innerText = Hooks[hookIndex];
+            document.getElementById("geo-banner").innerText = `LIVE ${titleCaseDestination.toUpperCase()} RESERVATION LOCK ACTIVE`;
 
-    // Context Execution Matrix (Optimizes on-page relevance dynamically)
-    const pageUrl = window.location.href;
-    document.getElementById("canonical-link").setAttribute("href", pageUrl);
-    
-    // Select deterministic copy variations based on string length to guarantee stability across indexings
-    const hookIndex = rawDestination.length % Hooks.length;
-    const insightIndex = rawDestination.length % Insights.length;
-    
-    // DOM Structural Injection (Conversion Tuning)
-    document.getElementById("target").value = titleCaseDestination;
-    document.getElementById("main-title").innerText = `${titleCaseDestination} Matrix`;
-    document.getElementById("meta-title").innerText = `Book ${titleCaseDestination} Hotels | Save up to 50% | Global Stay Matrix`;
-    document.getElementById("meta-desc").setAttribute("content", `Compare and secure direct pricing at top hotels in ${titleCaseDestination}. Unlock special mobile-only rates and Genius allocations instantly.`);
-    document.getElementById("dynamic-sub-header").innerText = Hooks[hookIndex];
-    document.getElementById("geo-banner").innerText = `⚠️ ALLOCATION NOTICE: ${titleCaseDestination.toUpperCase()} LOCK ACTIVE`;
-    
-    // Open Graph Social Tags Sync
-    document.getElementById("og-title").setAttribute("content", `${titleCaseDestination} Stay Matrix: Global Inventory Sniper`);
-    document.getElementById("og-desc").setAttribute("content", `Direct API deep-linking for ${titleCaseDestination} configurations. Save up to 50% directly on verified partner portals.`);
+            // Update testimonial geographic references dynamically
+            const geoLabels = document.querySelectorAll(".testimonial-geo");
+            geoLabels.forEach(label => label.innerText = `(@ ${titleCaseDestination})`);
 
-    // Dynamic SEO Article Optimization
-    document.getElementById("seo-h2").innerText = `Strategic Booking Logistics for ${titleCaseDestination}`;
-    document.getElementById("seo-p1").innerText = `Planning travel coordinates to ${titleCaseDestination} requires modern data extraction. By referencing targeted inventory parameters inside ${titleCaseDestination}, users tap into backend network rates. All links route via Partner AID ${PARTNER_AID} to guarantee session processing accuracy. ${Insights[insightIndex]}`;
-    
-    document.getElementById("seo-h3").innerText = `How are individual ${titleCaseDestination} hotel allocations resolved?`;
-    document.getElementById("seo-p2").innerText = `Queries passed through our routing gateway are parsed natively by destination, property configuration, and global geographic tags within the ${titleCaseDestination} zone. This drops your cookie parameters onto high-volume portal layouts with your partner activation sequence fully active.`;
+            // Update Semantic Anchor Blocks for Search Bot Crawling Context
+            document.getElementById("seo-h2").innerText = `Automated Allocation Ledger for ${titleCaseDestination} Hotels`;
+            document.getElementById("seo-p1").innerText = `Processing explicit tracking targets inside the ${titleCaseDestination} sector. When a request is resolved, connection cookies hook directly into high-volume travel network systems. This mapping optimizes availability lookups throughout ${titleCaseDestination} without passing markups down to the final consumer session.`;
+            document.getElementById("faq-p-1").innerText = `When you look for accommodations in ${titleCaseDestination}, corporate databases flag certain sessions based on access points. This portal maps clean system parameters directly to established retail search frameworks, bypassing third-party price padding rules across ${titleCaseDestination}.`;
+        }
 
-    // Semantic JSON-LD Schema Pipeline Optimization (For Google Rich Results & LLM indexing)
-    const webPageSchema = JSON.parse(document.getElementById("schema-webpage").innerHTML);
-    webPageSchema.name = `${titleCaseDestination} Travel Matrix Configuration`;
-    webPageSchema.description = `Programmatic access and real-time deep-linking configurations for hotel properties located within ${titleCaseDestination}.`;
-    webPageSchema["@id"] = pageUrl + "#webpage";
-    document.getElementById("schema-webpage").innerHTML = JSON.stringify(webPageSchema, null, 2);
-}
+        // Secure Affiliate Handshake Redirection Execution
+        function executeSecureRedirect() {
+            const userInput = document.getElementById("target").value.trim() || rawDestination;
+            const bookingSearchUrl = "https://www.booking.com/searchresults.html";
+            const runtimeQuery = (userInput === "Global Matrix" || !userInput) ? "Top Global Destinations" : userInput;
+            const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").substring(0, 40);
 
-// 2. High-Conversion Redirect Protocol (Secures Affiliate Tracking)
-function executeSecureRedirect() {
-    const userInput = document.getElementById("target").value.trim() || rawDestination;
-    const bookingSearchUrl = "https://www.booking.com/searchresults.html";
-    
-    // Fallback protection string rule
-    const runtimeQuery = (userInput === "Global Matrix" || !userInput) ? "Top Global Destinations" : userInput;
-    
-    // Normalize clean tracing slug variables to avoid backend payload dropping
-    const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").substring(0, 40);
+            const apiParams = new URLSearchParams({
+                "aid": PARTNER_AID,
+                "ss": runtimeQuery,
+                "label": `v10k-${trackLabel || 'matrix'}`,
+                "sort_by": "popularity"
+            });
 
-    // Native search execution parameters accepted by Booking.com systems safely
-    const apiParams = new URLSearchParams({
-        "aid": PARTNER_AID,
-        "ss": runtimeQuery,
-        "label": `vulture-${trackLabel || 'matrix'}`,
-        "sort_by": "popularity"
-    });
+            window.location.href = `${bookingSearchUrl}?${apiParams.toString()}`;
+        }
 
-    window.location.href = `${bookingSearchUrl}?${apiParams.toString()}`;
-}
+        // Interactive Accordion Controller
+        function toggleFaq(element) {
+            const contentPanel = element.nextElementSibling;
+            const crossIndicator = element.querySelector('span:last-child');
+            
+            if (contentPanel.style.maxHeight && contentPanel.style.maxHeight !== "0px") {
+                contentPanel.style.maxHeight = "0px";
+                crossIndicator.style.transform = "rotate(0deg)";
+            } else {
+                contentPanel.style.maxHeight = contentPanel.scrollHeight + "px";
+                crossIndicator.style.transform = "rotate(45deg)";
+            }
+        }
 
-// 3. Conversion Optimization UX Additions
-document.addEventListener("keypress", (e) => { if(e.key === "Enter") executeSecureRedirect(); });
+        // Urgency Countdown Handler
+        let timeRemaining = 299;
+        setInterval(() => {
+            let mins = Math.floor(timeRemaining / 60);
+            let secs = timeRemaining % 60;
+            document.getElementById("timer").innerText = `0${mins}:${secs < 10 ? '0' + secs : secs}`;
+            if(timeRemaining > 0) timeRemaining--;
+        }, 1000);
 
-// Standard Panic Window Countdown Timer Implementation
-let timeRemaining = 299;
-function runUrgencyTimer() {
-    let minutes = Math.floor(timeRemaining / 60);
-    let seconds = timeRemaining % 60;
-    document.getElementById("timer").innerText = `0${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-    if(timeRemaining > 0) timeRemaining--;
-}
-setInterval(runUrgencyTimer, 1000);
+        // Social Proof Simulation Loop
+        const citiesPool = ["New York", "London", "Paris", "Tokyo", "Miami", "Las Vegas", "Chicago", "Rome"];
+        setInterval(() => {
+            const loc = citiesPool[Math.floor(Math.random() * citiesPool.length)];
+            const usersCount = Math.floor(Math.random() * 15) + 10;
+            document.getElementById("live-data").innerText = `🔥 ${usersCount} users bypassed secondary retail markups in ${loc} just now`;
+        }, 5000);
 
-// Multi-Node Social Proof Simulator
-const geoNodes = ["New York", "London", "Paris", "Tokyo", "Miami", "Los Angeles", "Las Vegas", "Barcelona", "Rome", "Sydney"];
-function cycleLiveTicker() {
-    const loc = geoNodes[Math.floor(Math.random() * geoNodes.length)];
-    const users = Math.floor(Math.random() * 19) + 12;
-    document.getElementById("live-data").innerText = `🔥 ${users} operators just bypassed markup parameters in ${loc}`;
-}
-setInterval(cycleLiveTicker, 4500);
-
-// Initialize Page Assets On Load Execution
-window.onload = () => {
-    syncEnginePipeline();
-    document.getElementById("target").select();
-};
-</script>
-
+        // Listeners
+        document.getElementById("target").addEventListener("keypress", (e) => { if(e.key === "Enter") executeSecureRedirect(); });
+        window.onload = () => { runSyncPipeline(); document.getElementById("target").select(); };
+    </script>
 </body>
 </html>
