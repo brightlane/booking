@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "new-york",
+    "city": "New York",
+    "headline": "2026 World Cup Premium Stays",
+    "meta_desc": "Secure your MetLife Stadium area inventory.",
+    "target_hotel": "Hard Rock Hotel New York"
+  },
+  {
+    "slug": "los-angeles",
+    "city": "Los Angeles",
+    "headline": "SoFi Luxury Inventory Sniper",
+    "meta_desc": "Bypass retail markups on luxury SoFi stadium suites.",
+    "target_hotel": "The Westin Bonaventure"
+  },
+  {
+    "slug": "london",
+    "city": "London",
+    "headline": "Genius Tier Elite London Inventory",
+    "meta_desc": "Sniping 50% off boutique hotel allocations in central London.",
+    "target_hotel": "The Standard London"
+  }
+]
