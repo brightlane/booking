@@ -21,7 +21,25 @@
         }
     </style>
 </head>
-<body class="gradient-bg text-slate-100 font-sans min-h-screen antialiased selection:bg-amber-500 selection:text-slate-900">
+<body class="gradient-bg text-slate-100 font-sans min-h-screen antialiased selection:bg-amber-500 selection:text-slate-900 relative">
+
+    <!-- INTERSTITIAL HANDSHAKE LOADER OVERLAY -->
+    <div id="matrix-loader" class="fixed inset-0 bg-slate-950/95 z-50 flex flex-col items-center justify-center backdrop-blur-md transition-opacity duration-300 pointer-events-none opacity-0">
+        <div class="max-w-md w-full px-6 text-center space-y-6">
+            <div class="relative w-20 h-20 mx-auto">
+                <div class="absolute inset-0 border-4 border-amber-500/20 rounded-full"></div>
+                <div class="absolute inset-0 border-4 border-t-amber-500 rounded-full animate-spin"></div>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xl font-black uppercase tracking-wider text-amber-400 font-mono">Syncing Direct Path...</h3>
+                <p id="loader-target" class="text-sm text-slate-400 font-mono font-bold truncate">Bypassing Retail Gateways</p>
+            </div>
+            <div class="w-full bg-slate-900 border border-slate-800 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-orange-500 h-full w-0 animate-[pulse_1.5s_ease-in-out_infinite]" style="animation-duration: 1.2s; width: 100%;"></div>
+            </div>
+            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Securing secure token handshake. Do not close window.</p>
+        </div>
+    </div>
 
     <!-- Top Urgent Notice Bar -->
     <div class="bg-red-600 text-white text-center py-2 px-4 text-xs font-black tracking-widest uppercase shadow-lg">
@@ -67,9 +85,14 @@
                 </div>
             </div>
 
-            <button class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xl py-5 px-6 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-amber-500/20 cursor-pointer uppercase tracking-wide text-center block" onclick="executeSecureRedirect()">
+            <!-- Pre-framed Tab Isolation Anchor Link -->
+            <a id="secure-cta-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xl py-5 px-6 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-amber-500/20 cursor-pointer uppercase tracking-wide text-center block" onclick="executeSecureRedirect(event)">
                 Claim Allocation Rates Now
-            </button>
+            </a>
+            
+            <p class="text-[10px] text-slate-500 font-medium mt-3 text-center leading-normal">
+                💡 *Note: Mapped allocations open securely in a separate secure network node. Simply bypass or close standard retail portal prompts upon arrival.*
+            </p>
 
             <!-- Trust Verification Checkbox Items -->
             <div class="mt-6 pt-6 border-t border-slate-800/60 grid grid-cols-3 text-[10px] md:text-xs font-bold text-slate-500 text-center uppercase tracking-wider">
@@ -85,27 +108,27 @@
                 🌐 Quick Verification Matrix (Top Global Properties)
             </h3>
             <div class="grid grid-cols-2 gap-2 text-xs font-mono font-bold">
-                <button onclick="matrixRedirect('Reservations At The Ritz-Carlton Paris');" 
+                <button onclick="matrixRedirect(event, 'Reservations At The Ritz-Carlton Paris');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Ritz-Carlton Paris
                 </button>
-                <button onclick="matrixRedirect('Hotel Reservations Marina Bay Sands Singapore');" 
+                <button onclick="matrixRedirect(event, 'Hotel Reservations Marina Bay Sands Singapore');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Marina Bay Sands
                 </button>
-                <button onclick="matrixRedirect('Book A Room At The Plaza Hotel New York');" 
+                <button onclick="matrixRedirect(event, 'Book A Room At The Plaza Hotel New York');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Plaza Hotel NY
                 </button>
-                <button onclick="matrixRedirect('Reservations At Burj Al Arab Dubai');" 
+                <button onclick="matrixRedirect(event, 'Reservations At Burj Al Arab Dubai');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Burj Al Arab Dubai
                 </button>
-                <button onclick="matrixRedirect('London Boutique Hotel Hotel Reservations');" 
+                <button onclick="matrixRedirect(event, 'London Boutique Hotel Hotel Reservations');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 London Boutique
                 </button>
-                <button onclick="matrixRedirect('Secure Room Booking Bellagio Las Vegas');" 
+                <button onclick="matrixRedirect(event, 'Secure Room Booking Bellagio Las Vegas');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Bellagio Las Vegas
                 </button>
@@ -310,16 +333,13 @@
             document.getElementById("seo-h2").innerText = `Automated Allocation Ledger for ${titleCaseDestination} Hotels`;
             document.getElementById("seo-p1").innerText = `Processing explicit tracking targets inside the ${titleCaseDestination} sector. When a request is resolved, connection cookies hook directly into high-volume travel network systems. This mapping optimizes availability lookups throughout ${titleCaseDestination} without passing markups down to the final consumer session.`;
             document.getElementById("faq-p-1").innerText = `When you look for accommodations in ${titleCaseDestination}, corporate databases flag certain sessions based on access points. This portal maps clean system parameters directly to established retail search frameworks, bypassing third-party price padding rules across ${titleCaseDestination}.`;
+            
+            // Build the dynamic URL straight onto the anchor object
+            buildTrackingLink();
         }
 
-        // Direct handling for Matrix buttons to update destination scope and go immediately
-        function matrixRedirect(forcedDestination) {
-            rawDestination = forcedDestination;
-            executeSecureRedirect();
-        }
-
-        // Secure Affiliate Handshake Redirection Execution to Booking Engine
-        function executeSecureRedirect() {
+        // Programmatically compiles the downstream target link parameter string
+        function buildTrackingLink() {
             const bookingSearchUrl = "https://www.booking.com/searchresults.html";
             const runtimeQuery = (rawDestination === "Global Matrix" || !rawDestination) ? "Top Global Destinations" : rawDestination;
             const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").substring(0, 40);
@@ -331,7 +351,32 @@
                 "sort_by": "popularity"
             });
 
-            window.location.href = `${bookingSearchUrl}?${apiParams.toString()}`;
+            document.getElementById("secure-cta-link").href = `${bookingSearchUrl}?${apiParams.toString()}`;
+        }
+
+        // Direct handling for Matrix buttons to update destination scope and go immediately
+        function matrixRedirect(e, forcedDestination) {
+            rawDestination = forcedDestination;
+            buildTrackingLink();
+            executeSecureRedirect(e);
+        }
+
+        // Triggers the Interstitial animation layer before tab release
+        function executeSecureRedirect(e) {
+            const titleCaseDestination = rawDestination.replace(/\b\w/g, c => c.toUpperCase());
+            const loader = document.getElementById("matrix-loader");
+            
+            document.getElementById("loader-target").innerText = `Routing to ${titleCaseDestination} Portals...`;
+            
+            // Activate interstitial overlay view natively
+            loader.classList.remove("pointer-events-none", "opacity-0");
+            loader.classList.add("opacity-100");
+
+            // Automatically wash overlay context color layer clean right after link execution releases
+            setTimeout(() => {
+                loader.classList.remove("opacity-100");
+                loader.classList.add("pointer-events-none", "opacity-0");
+            }, 1800);
         }
 
         // Interactive Accordion Controller
