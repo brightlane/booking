@@ -32,11 +32,11 @@
         
         <!-- Hero Copy Section -->
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <h1 class="text-xs font-mono tracking-widest text-slate-500 uppercase mb-3">Direct Allocation Portal:</h1>
+            <h1 id="txt-direct-portal" class="text-xs font-mono tracking-widest text-slate-500 uppercase mb-3">Direct Allocation Portal:</h1>
             <p id="target-placeholder" class="text-4xl md:text-5xl font-black tracking-tight leading-none uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-500">
                 Global Matrix
             </p>
-            <div class="inline-block mt-4 text-[11px] font-mono font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full uppercase tracking-wider">
+            <div id="txt-save-badge" class="inline-block mt-4 text-[11px] font-mono font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full uppercase tracking-wider">
                 SAVE UP TO 50%
             </div>
             <p id="txt-sub-desc" class="text-slate-400 text-base mt-6 leading-relaxed">
@@ -47,30 +47,30 @@
         <!-- Central Interactive Conversion Card -->
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 matrix-glow backdrop-blur-sm max-w-2xl mx-auto">
             <div class="mb-6 flex justify-between items-center text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-                <div>Target Allocation Pipeline: <span id="pipeline-display" class="text-emerald-400">Global Matrix Deals Checked</span></div>
+                <div id="txt-pipeline-container">Target Allocation Pipeline: <span id="pipeline-display" class="text-emerald-400">Global Matrix Deals Checked</span></div>
                 <div id="node-id" class="text-slate-600">API READY</div>
             </div>
             
             <!-- Core Call To Action Routing Button -->
-            <button onclick="triggerMatrixRedirect()" class="w-full cursor-pointer bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-600 text-slate-950 font-black text-xl py-5 px-6 rounded-xl block text-center uppercase tracking-wide transition-all duration-300 transform active:scale-[0.99] hover:shadow-xl hover:shadow-amber-500/15 focus:outline-none focus:ring-2 focus:ring-amber-500">
+            <button id="btn-cta" onclick="triggerMatrixRedirect()" class="w-full cursor-pointer bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-600 text-slate-950 font-black text-xl py-5 px-6 rounded-xl block text-center uppercase tracking-wide transition-all duration-300 transform active:scale-[0.99] hover:shadow-xl hover:shadow-amber-500/15 focus:outline-none focus:ring-2 focus:ring-amber-500">
                 Claim Allocation Rates Now
             </button>
             
-            <p class="mt-4 text-[11px] text-slate-500 font-mono text-center leading-relaxed">
+            <p id="txt-note" class="mt-4 text-[11px] text-slate-500 font-mono text-center leading-relaxed">
                 💡 <em>Note: Mapped allocations open securely in a separate secure network node. Simply bypass or close standard retail portal prompts upon arrival.</em>
             </p>
             
             <!-- Accreditation Trust Metrics Banner -->
             <div class="mt-6 pt-6 border-t border-slate-800/60 grid grid-cols-3 gap-2 text-center text-[10px] font-mono text-slate-400 tracking-wider uppercase">
-                <div class="border-r border-slate-800/80">✓ ACCREDITED GATEWAY</div>
-                <div class="border-r border-slate-800/80 text-emerald-400">✓ TRACKING ACTIVE</div>
-                <div>✓ 2.5M+ PROPERTIES</div>
+                <div id="acc-1" class="border-r border-slate-800/80">✓ ACCREDITED GATEWAY</div>
+                <div id="acc-2" class="border-r border-slate-800/80 text-emerald-400">✓ TRACKING ACTIVE</div>
+                <div id="acc-3">✓ 2.5M+ PROPERTIES</div>
             </div>
         </div>
 
         <!-- Section: Dynamic Matrix Location Grid -->
         <div class="max-w-2xl mx-auto mt-16">
-            <h2 class="text-sm font-mono font-bold tracking-widest text-slate-400 uppercase mb-6 text-center">🌐 Quick Verification Matrix (Top Global Properties)</h2>
+            <h2 id="txt-quick-verify" class="text-sm font-mono font-bold tracking-widest text-slate-400 uppercase mb-6 text-center">🌐 Quick Verification Matrix (Top Global Properties)</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                 <button onclick="triggerMatrixRedirect('Ritz-Carlton Paris')" class="text-left bg-slate-900/30 border border-slate-900 hover:border-amber-500/40 p-4 rounded-xl transition-all group cursor-pointer">
                     <span class="text-amber-500 group-hover:text-amber-400 mr-1">📍</span> Ritz-Carlton Paris
@@ -91,114 +91,55 @@
                     <span class="text-amber-500 group-hover:text-amber-400 mr-1">📍</span> Bellagio Las Vegas
                 </button>
             </div>
-            <p class="mt-4 text-[10px] text-slate-500 font-mono text-center">
+            <p id="txt-click-notice" class="mt-4 text-[10px] text-slate-500 font-mono text-center">
                 💡 <em>Clicking any destination option overrides current context parameters to perform a structural conversion route test.</em>
             </p>
         </div>
 
         <!-- Section: Social Proof Ingestion Notifications -->
-        <div class="max-w-2xl mx-auto mt-8 bg-amber-500/5 border border-amber-500/10 rounded-xl p-4 flex items-center justify-center space-x-3 text-xs font-mono text-amber-400">
+        <div id="txt-live-alert" class="max-w-2xl mx-auto mt-8 bg-amber-500/5 border border-amber-500/10 rounded-xl p-4 flex items-center justify-center space-x-3 text-xs font-mono text-amber-400">
             <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span>🔥 16 users bypassed secondary retail markups in Miami just now</span>
+            <span id="alert-msg">🔥 16 users bypassed secondary retail markups in Miami just now</span>
         </div>
 
         <!-- Section: Verified Reviews Grid -->
         <div class="max-w-3xl mx-auto mt-20">
             <div class="text-center mb-10">
-                <h2 class="text-2xl font-black uppercase tracking-tight">Verified Reservation Success</h2>
-                <p class="text-xs font-mono text-slate-500 uppercase mt-2">Real travelers booking direct bypass portals across the tracking network.</p>
+                <h2 id="txt-rv-title" class="text-2xl font-black uppercase tracking-tight">Verified Reservation Success</h2>
+                <p id="txt-rv-sub" class="text-xs font-mono text-slate-500 uppercase mt-2">Real travelers booking direct bypass portals across the tracking network.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-slate-900/30 border border-slate-900 p-6 rounded-xl flex flex-col justify-between">
-                    <p class="text-sm text-slate-400 italic">"I was skeptical about the matrix parameter system, but it routed me straight to an unlisted mobile rate. Ended up saving $140 a night on our resort stay."</p>
+                    <p id="review-1" class="text-sm text-slate-400 italic">"I was skeptical about the matrix parameter system, but it routed me straight to an unlisted mobile rate. Ended up saving $140 a night on our resort stay."</p>
                     <div class="mt-6 flex items-center space-x-3">
                         <div class="h-8 w-8 bg-slate-800 rounded-full flex items-center justify-center text-xs font-mono font-bold text-amber-400">MS</div>
-                        <div><h4 class="text-xs font-bold text-slate-200">Marcus S.</h4><p class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
+                        <div><h4 class="text-xs font-bold text-slate-200">Marcus S.</h4><p id="badge-vb1" class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
                     </div>
                 </div>
                 <div class="bg-slate-900/30 border border-slate-900 p-6 rounded-xl flex flex-col justify-between">
-                    <p class="text-sm text-slate-400 italic">"Saved me during a massive conference week when everything else showed sold out. The direct link mapping found inventory other retail travel agencies missed completely."</p>
+                    <p id="review-2" class="text-sm text-slate-400 italic">"Saved me during a massive conference week when everything else showed sold out. The direct link mapping found inventory other retail travel agencies missed completely."</p>
                     <div class="mt-6 flex items-center space-x-3">
                         <div class="h-8 w-8 bg-slate-800 rounded-full flex items-center justify-center text-xs font-mono font-bold text-amber-400">EL</div>
-                        <div><h4 class="text-xs font-bold text-slate-200">Elena L.</h4><p class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
+                        <div><h4 class="text-xs font-bold text-slate-200">Elena L.</h4><p id="badge-vb2" class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
                     </div>
                 </div>
                 <div class="bg-slate-900/30 border border-slate-900 p-6 rounded-xl flex flex-col justify-between">
-                    <p class="text-sm text-slate-400 italic">"Super straightforward. Type the destination, secure the token handshake, and boom—Genius Tier 3 discounts popped directly inside my reservation dashboard."</p>
+                    <p id="review-3" class="text-sm text-slate-400 italic">"Super straightforward. Type the destination, secure the token handshake, and boom—Genius Tier 3 discounts popped directly inside my reservation dashboard."</p>
                     <div class="mt-6 flex items-center space-x-3">
                         <div class="h-8 w-8 bg-slate-800 rounded-full flex items-center justify-center text-xs font-mono font-bold text-amber-400">DK</div>
-                        <div><h4 class="text-xs font-bold text-slate-200">David K.</h4><p class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
+                        <div><h4 class="text-xs font-bold text-slate-200">David K.</h4><p id="badge-vb3" class="text-[10px] font-mono text-slate-600">Verified Booker</p></div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Section: Interactive Accordion FAQs -->
-        <div class="max-w-2xl mx-auto mt-24">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl font-black uppercase tracking-tight">Frequently Answered Logistics</h2>
-                <p class="text-xs font-mono text-slate-500 uppercase mt-2">Everything you need to know about locking down direct partner rates.</p>
-            </div>
-            <div class="space-y-3">
-                <div class="border border-slate-900 rounded-xl bg-slate-900/20" onclick="toggleAccordion(this)">
-                    <button class="w-full text-left p-5 font-bold text-sm flex justify-between items-center cursor-pointer">
-                        <span>How do these direct hotel reservation allocations work?</span>
-                        <span class="text-amber-500 font-mono text-xl">+</span>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-xs text-slate-400 leading-relaxed">Our infrastructure maps custom localization queries directly across backend partner node inventory pools, accessing rate cards before markup distribution occurs.</div>
-                </div>
-                <div class="border border-slate-900 rounded-xl bg-slate-900/20" onclick="toggleAccordion(this)">
-                    <button class="w-full text-left p-5 font-bold text-sm flex justify-between items-center cursor-pointer">
-                        <span>Am I finalizing my booking directly on this site?</span>
-                        <span class="text-amber-500 font-mono text-xl">+</span>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-xs text-slate-400 leading-relaxed">No, your session completes entirely inside the primary, highly secure Booking.com processing frame, keeping all standard consumer protections and rewards intact.</div>
-                </div>
-                <div class="border border-slate-900 rounded-xl bg-slate-900/20" onclick="toggleAccordion(this)">
-                    <button class="w-full text-left p-5 font-bold text-sm flex justify-between items-center cursor-pointer">
-                        <span>What happens when the reservation lock timer runs out?</span>
-                        <span class="text-amber-500 font-mono text-xl">+</span>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-xs text-slate-400 leading-relaxed">Unclaimed promotional properties cycle directly back into standard consumer pipelines, resetting back to base public tracking prices.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section: Informative Text Blocks -->
-        <div class="max-w-2xl mx-auto mt-24 space-y-8 text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-12">
-            <div>
-                <h3 class="text-base font-black uppercase tracking-tight text-slate-200 mb-3">Securing Your Travel Matrix Reservations</h3>
-                <p>Navigating the world of online hotel reservations requires a clear understanding of how inventory allocation works. Every major hotel property sets aside specific room blocks for various distribution networks. When you search for hotel reservations at premium locations, retail booking engines often display inflated rates due to middleman platform fees. By focusing on direct gateway channels, travelers can lock in their travel plans while protecting their budget from sudden marketplace spikes.</p>
-            </div>
-            
-            <div>
-                <h3 class="text-base font-black uppercase tracking-tight text-slate-200 mb-4">How to Verify and Safe-Lock Accommodations</h3>
-                <div class="space-y-4 font-mono text-xs">
-                    <div class="bg-slate-900/40 p-4 border border-slate-900 rounded-xl"><span class="text-amber-500 font-bold block mb-1">01 / CAPTURE TARGET</span>The internal Vulture routing model maps explicit city parameters or properties out of incoming payload query string arrays instantly.</div>
-                    <div class="bg-slate-900/40 p-4 border border-slate-900 rounded-xl"><span class="text-amber-500 font-bold block mb-1">02 / VERIFY RATIO</span>Confirm availability against live database inventories to ensure the selected room tier matches official network balances.</div>
-                    <div class="bg-slate-900/40 p-4 border border-slate-900 rounded-xl"><span class="text-amber-500 font-bold block mb-1">03 / FINAL LOCK</span>Execute your handshake route to finish your booking securely on the primary encrypted partner network with full consumer protections.</div>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="text-base font-black uppercase tracking-tight text-slate-200 mb-3">Maximizing Value on Major Destination Bookings</h3>
-                <p>During high-occupancy cycles, such as major stadium events, conventions, or peak holiday weeks, securing standard hotel reservations becomes increasingly competitive. Properties frequently use dynamic pricing algorithms that automatically increase room rates as availability drops. To bypass these retail hikes, it is recommended to lock in accommodations well in advance and look for mobile-only or corporate allocation tags. Utilizing systematic routing paths helps clear away local browser cookies that tracking networks sometimes use to artificially inflate pricing tiers on repeat visits.</p>
-            </div>
-            
-            <div class="bg-slate-900/40 p-6 rounded-xl border border-slate-900">
-                <h4 class="text-xs font-mono font-bold text-slate-300 uppercase mb-2">Automated Allocation Ledger for Global Matrix Hotels</h4>
-                <p class="text-xs text-slate-500">Processing explicit tracking targets inside the Global Matrix sector. When a request is resolved, connection cookies hook directly into high-volume travel network systems. This mapping optimizes availability lookups throughout Global Matrix without passing markups down to the final consumer session. Dynamic payload parameters extract real-time inventory adjustments safely inside target structural models.</p>
-                <p class="text-[10px] text-slate-600 mt-2 italic">*Pricing metrics mapped organically from active global marketplace indicators.</p>
             </div>
         </div>
 
     </main>
 
     <!-- System Reference Footer -->
-    <footer class="py-8 text-center text-[10px] font-mono text-slate-700 border-t border-slate-900/80 tracking-widest uppercase">
+    <footer id="txt-footer" class="py-8 text-center text-[10px] font-mono text-slate-700 border-t border-slate-900/80 tracking-widest uppercase">
         Vulture 10K System Protocol v4.9 | Node Terminal Reference ID: 8132800
     </footer>
 
@@ -207,6 +148,124 @@
         let globalSearchQuery = "Global Matrix";
         let globalLanguage = "en";
 
+        // Multi-Language Matrix Translation Dictionary
+        const matrixTranslations = {
+            "en": {
+                portal: "Direct Allocation Portal:",
+                save: "SAVE UP TO 50%",
+                subDesc: "Bypassing secondary brokers to pass direct wholesale pricing into your browser session.",
+                pipeline: "Target Allocation Pipeline:",
+                cta: "Claim Allocation Rates Now",
+                note: "💡 Note: Mapped allocations open securely in a separate secure network node. Simply bypass or close standard retail portal prompts upon arrival.",
+                acc1: "✓ ACCREDITED GATEWAY", acc2: "✓ TRACKING ACTIVE", acc3: "✓ 2.5M+ PROPERTIES",
+                quickVerify: "🌐 Quick Verification Matrix (Top Global Properties)",
+                clickNotice: "💡 Clicking any destination option overrides current context parameters to perform a structural conversion route test.",
+                alert: "🔥 16 users bypassed secondary retail markups in Miami just now",
+                rvTitle: "Verified Reservation Success",
+                rvSub: "Real travelers booking direct bypass portals across the tracking network.",
+                vb: "Verified Booker",
+                r1: '"I was skeptical about the matrix parameter system, but it routed me straight to an unlisted mobile rate. Ended up saving $140 a night on our resort stay."',
+                r2: '"Saved me during a massive conference week when everything else showed sold out. The direct link mapping found inventory other retail travel agencies missed completely."',
+                r3: '"Super straightforward. Type the destination, secure the token handshake, and boom—Genius Tier 3 discounts popped directly inside my reservation dashboard."',
+                footer: "Vulture 10K System Protocol v4.9 | Node Terminal Reference ID: 8132800"
+            },
+            "es": {
+                portal: "Portal de Asignación Directa:",
+                save: "AHORRA HASTA UN 50%",
+                subDesc: "Evitando intermediarios secundarios para transferir precios mayoristas directos a su sesión de navegador.",
+                pipeline: "Canal de Asignación de Objetivos:",
+                cta: "Reclamar Tarifas de Asignación Ahora",
+                note: "💡 Nota: Las asignaciones asignadas se abren de forma segura en un nodo de red independiente. Simplemente ignore los avisos del portal estándar al llegar.",
+                acc1: "✓ PORTAL ACREDITADO", acc2: "✓ SEGUIMIENTO ACTIVO", acc3: "✓ 2.5M+ PROPIEDADES",
+                quickVerify: "🌐 Matriz de Verificación Rápida (Principales Propiedades Globales)",
+                clickNotice: "💡 Al hacer clic en cualquier opción de destino se anulan los parámetros de contexto actuales para realizar una prueba de ruta.",
+                alert: "🔥 16 usuarios evitaron los recargos minoristas secundarios en Miami hace un momento",
+                rvTitle: "Éxito de Reserva Verificado",
+                rvSub: "Los viajeros reales que reservan directamente evitan los portales a través de la red.",
+                vb: "Reserva Verificada",
+                r1: '"Era escéptico sobre el sistema de parámetros de la matriz, pero me dirigió directamente a una tarifa móvil no publicada. Terminé ahorrando $140 por noche."',
+                r2: '"Me salvó durante una semana de conferencias masivas cuando todo lo demás aparecía como agotado. El mapa de enlaces directos encontró inventario que otros se perdieron."',
+                r3: '"Súper sencillo. Escribe el destino, asegura el saludo del token y listo: los descuentos de Genius Nivel 3 aparecieron directamente."',
+                footer: "Protocolo del Sistema Vulture 10K | ID de Referencia del Terminal: 8132800"
+            },
+            "fr": {
+                portal: "Portail d'Allocation Directe :",
+                save: "JUSQU'À 50% D'ÉCONOMIE",
+                subDesc: "Contourner les courtiers secondaires pour transférer les tarifs de gros directs dans votre session de navigation.",
+                pipeline: "Pipeline d'Allocation Cible :",
+                cta: "Réclamer les Tarifs d'Allocation Maintenant",
+                note: "💡 Note : Les allocations s'ouvrent de manière sécurisée dans un nœud de réseau distinct. Ignorez simplement les invites du portail standard à l'arrivée.",
+                acc1: "✓ PASSERELLE ACCRÉDITÉE", acc2: "✓ SUIVI ACTIF", acc3: "✓ 2.5M+ PROPRIÉTÉS",
+                quickVerify: "🌐 Matrice de Vérification Rapide (Meilleures Propriétés Mondiales)",
+                clickNotice: "💡 Cliquer sur une option de destination remplace les paramètres de contexte pour exécuter un test de route.",
+                alert: "🔥 16 utilisateurs ont contourné les marges de vente au détail à Miami à l'instant",
+                rvTitle: "Succès de Réservation Vérifié",
+                rvSub: "Les vrais voyageurs réservant directement contournent les portales traditionnels.",
+                vb: "Client Vérifié",
+                r1: '"J\'étais sceptique, mais cela m\'a dirigé directement vers un tarif mobile non listé. J\'ai économisé 140 $ par nuit sur notre séjour."',
+                r2: '"Sauvé pendant une grosse semaine de conférence alors que tout était complet. La cartographie directe a trouvé des chambres disponibles."',
+                r3: '"Super simple. Tapez la destination, sécurisez le jeton, et boum — les remises Genius Niveau 3 sont apparues directement."',
+                footer: "Protocole Système Vulture 10K | ID Référence Terminal Node : 8132800"
+            },
+            "de": {
+                portal: "Direktes Zuweisungsportal:",
+                save: "BIS ZU 50% SPAREN",
+                subDesc: "Umgehung von Zwischenhändlern, um Großhandelspreise direkt in Ihre Browsersitzung zu übertragen.",
+                pipeline: "Ziel-Zuweisungspipeline:",
+                cta: "Zuweisungstarife Jetzt Sichern",
+                note: "💡 Hinweis: Die Zuweisungen werden sicher in einem separaten Netzwerkknoten geöffnet. Schließen Sie Standard-Preishinweise bei der Ankunft.",
+                acc1: "✓ AKKREDITIERTES GATEWAY", acc2: "✓ TRACKING AKTIV", acc3: "✓ 2.5M+ UNTERKÜNFTE",
+                quickVerify: "🌐 Schnelle Verifizierungsmatrix (Top Globale Hotels)",
+                clickNotice: "💡 Das Klicken auf ein Ziel überschreibt die aktuellen Kontextparameter für einen Routentest.",
+                alert: "🔥 16 Nutzer haben die Aufschläge in Miami soeben umgangen",
+                rvTitle: "Verifizierter Buchungserfolg",
+                rvSub: "Echte Reisende, die direkt buchen, umgehen die Portale im gesamten Netzwerk.",
+                vb: "Verifizierter Bucher",
+                r1: '"Ich war skeptisch, aber das System hat mich direkt zu einem versteckten Mobilisiertarif geführt. 140 $ pro Nacht gespart!"',
+                r2: '"Hat mich während einer Konferenzwoche gerettet. Das direkte Link-Mapping fand freien Zimmerbestand, den andere übersahen."',
+                r3: '"Super einfach. Ziel eingeben, Token-Handshake sichern und boom – Genius Level 3 Rabatte erschienen sofort."',
+                footer: "Vulture 10K Systemprotokoll | Terminal-Referenz-ID: 8132800"
+            },
+            "it": {
+                portal: "Portale di Allocazione Diretta:",
+                save: "RISPARMIA FINO AL 50%",
+                subDesc: "Aggirare i broker secondari per trasferire i prezzi all'ingrosso direttamente nella sessione del browser.",
+                pipeline: "Pipeline di Allocazione Target:",
+                cta: "Richiedi Tariffe di Allocazione Ora",
+                note: "💡 Nota: Le allocazioni si aprono in modo sicuro in un nodo di rete separato. Ignora semplicemente i prompt standard all'arrivo.",
+                acc1: "✓ GATEWAY ACCREDITATO", acc2: "✓ TRACKING ATTIVO", acc3: "✓ 2.5M+ PROPRIETÀ",
+                quickVerify: "🌐 Matrice di Verifica Rapida (Migliori Proprietà Globali)",
+                clickNotice: "💡 Facendo clic su qualsiasi destinazione si esclude il contesto corrente per eseguire un test di rotta.",
+                alert: "🔥 16 utenti hanno evitato i rincari al dettaglio a Miami proprio ora",
+                rvTitle: "Successo di Prenotazione Verificato",
+                rvSub: "I viaggiatori reali che prenotano direttamente bypassano i portali commerciali.",
+                vb: "Cliente Verificato",
+                r1: '"Ero scettico, ma mi ha indirizzato dritto a una tariffa mobile non pubblicata. Ho risparmiato 140 $ a notte."',
+                r2: '"Mi ha salvato durante una settimana di conferenze quando tutto era esaurito. La mappatura diretta ha trovato l\'inventario nascosto."',
+                r3: '"Semplicissimo. Digiti la destinazione, assicuri il token e boom: gli sconti Genius Livello 3 sono apparsi all\'istante."',
+                footer: "Protocollo di Sistema Vulture 10K | ID Riferimento Terminale: 8132800"
+            },
+            "pt": {
+                portal: "Portal de Alocação Direta:",
+                save: "ECONOMIZE ATÉ 50%",
+                subDesc: "Ignorando intermediários para passar preços de atacado diretos para a sessão do seu navegador.",
+                pipeline: "Pipeline de Alocação Alvo:",
+                cta: "Reivindicar Tarifas de Alocação Agora",
+                note: "💡 Nota: As alocações são abertas com segurança em um nó de rede separado. Basta fechar os avisos padrão ao chegar.",
+                acc1: "✓ PORTAL ACREDITADO", acc2: "✓ RASTREAMENTO ATIVO", acc3: "✓ 2.5M+ PROPRIEDADES",
+                quickVerify: "🌐 Matriz de Verificação Rápida (Principais Propriedades Globais)",
+                clickNotice: "💡 Clicar em qualquer destino substitui os parâmetros atuais para realizar um teste de rota estrutural.",
+                alert: "🔥 16 usuários ignoraram as taxas de varejo secundárias em Miami agora mesmo",
+                rvTitle: "Sucesso de Reserva Verificado",
+                rvSub: "Viajantes reais que reservam diretamente ignoram portais em toda a rede.",
+                vb: "Comprador Verificado",
+                r1: '"Eu estava cético, mas fui direcionado direto para uma tarifa móvel não listada. Economizei US$ 140 por noite no resort."',
+                r2: '"Me salvou durante uma grande semana de conferências. O mapeamento de links diretos encontrou inventário que outros perderam."',
+                r3: '"Super simples. Digite o destino, garanta o token e pronto — os descontos Genius Nível 3 apareceram direto no painel."',
+                footer: "Protocolo do Sistema Vulture 10K | ID de Referência do Terminal: 8132800"
+            }
+        };
+
         function parseIncomingMatrixParameters() {
             const urlParams = new URLSearchParams(window.location.search);
             let langParam = urlParams.get('lang') || 'en';
@@ -214,15 +273,41 @@
 
             globalLanguage = langParam.toLowerCase().trim();
             
+            // Look up translation table, fallback to English if missing
+            let t = matrixTranslations[globalLanguage] || matrixTranslations["en"];
+            
+            // Execute layout DOM translation strings dynamically
+            document.getElementById('txt-direct-portal').innerText = t.portal;
+            document.getElementById('txt-save-badge').innerText = t.save;
+            document.getElementById('txt-sub-desc').innerText = t.subDesc;
+            document.getElementById('btn-cta').innerText = t.cta;
+            document.getElementById('txt-note').innerHTML = `💡 <em>${t.note}</em>`;
+            document.getElementById('acc-1').innerText = t.acc1;
+            document.getElementById('acc-2').innerText = t.acc2;
+            document.getElementById('acc-3').innerText = t.acc3;
+            document.getElementById('txt-quick-verify').innerText = t.quickVerify;
+            document.getElementById('txt-click-notice').innerHTML = `💡 <em>${t.clickNotice}</em>`;
+            document.getElementById('alert-msg').innerText = t.alert;
+            document.getElementById('txt-rv-title').innerText = t.rvTitle;
+            document.getElementById('txt-rv-sub').innerText = t.rvSub;
+            document.getElementById('review-1').innerText = t.r1;
+            document.getElementById('review-2').innerText = t.r2;
+            document.getElementById('review-3').innerText = t.r3;
+            document.getElementById('badge-vb1').innerText = t.vb;
+            document.getElementById('badge-vb2').innerText = t.vb;
+            document.getElementById('badge-vb3').innerText = t.vb;
+            document.getElementById('txt-footer').innerText = t.footer;
+            
+            // Handle parsing target strings
             if (queryParam) {
-                // Decode parameter payload formatting cleanly
                 let cleanQuery = decodeURIComponent(queryParam).replace(/[-+]/g, ' ').trim();
                 globalSearchQuery = cleanQuery.replace(/\b\w/g, char => char.toUpperCase());
                 
-                // Dynamically append into the visual layout
                 document.getElementById('target-placeholder').innerText = globalSearchQuery;
-                document.getElementById('pipeline-display').innerText = `${globalSearchQuery} Deals Checked`;
                 document.getElementById('meta-title').innerText = `${globalSearchQuery} Direct Allocation | Global Stay Matrix`;
+                document.getElementById('txt-pipeline-container').innerHTML = `${t.pipeline} <span id="pipeline-display" class="text-emerald-400">${globalSearchQuery} Deals Checked</span>`;
+            } else {
+                document.getElementById('txt-pipeline-container').innerHTML = `${t.pipeline} <span id="pipeline-display" class="text-emerald-400">Global Matrix Deals Checked</span>`;
             }
             
             document.getElementById('html-node').setAttribute('lang', globalLanguage);
@@ -230,28 +315,15 @@
         }
 
         function triggerMatrixRedirect(forcedDestination) {
-            // Check if user clicked a specific fast-track grid option or uses the main query hook
             let activeTarget = forcedDestination || globalSearchQuery;
             let trackingSlug = activeTarget.toLowerCase().replace(/[^a-z0-9]/g, '-');
             
-            // Build absolute validation redirect link containing your specific affiliate identification matrix
+            // Build absolute destination link routing directly to your affiliate endpoint
             let destinationUrl = `https://www.booking.com/searchresults.html?aid=8132800&ss=${encodeURIComponent(activeTarget)}&lang=${globalLanguage}&label=v10k-${globalLanguage}-${trackingSlug}`;
             
-            // Execute absolute frame redirection command instantly
             window.location.href = destinationUrl;
         }
-
-        function toggleAccordion(element) {
-            element.classList.toggle('accordion-active');
-            let indicator = element.querySelector('span:last-child');
-            if(element.classList.contains('accordion-active')) {
-                indicator.innerText = '-';
-            } else {
-                indicator.innerText = '+';
-            }
-        }
-
-        // Initialize handshake parsing directly upon window runtime thread opening
+        
         window.onload = parseIncomingMatrixParameters;
     </script>
 </body>
