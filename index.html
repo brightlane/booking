@@ -85,27 +85,27 @@
                 🌐 Quick Verification Matrix (Top Global Properties)
             </h3>
             <div class="grid grid-cols-2 gap-2 text-xs font-mono font-bold">
-                <button onclick="document.getElementById('target').value='Reservations At The Ritz-Carlton Paris'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('Reservations At The Ritz-Carlton Paris');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Ritz-Carlton Paris
                 </button>
-                <button onclick="document.getElementById('target').value='Hotel Reservations Marina Bay Sands Singapore'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('Hotel Reservations Marina Bay Sands Singapore');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Marina Bay Sands
                 </button>
-                <button onclick="document.getElementById('target').value='Book A Room At The Plaza Hotel New York'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('Book A Room At The Plaza Hotel New York');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Plaza Hotel NY
                 </button>
-                <button onclick="document.getElementById('target').value='Reservations At Burj Al Arab Dubai'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('Reservations At Burj Al Arab Dubai');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Burj Al Arab Dubai
                 </button>
-                <button onclick="document.getElementById('target').value='London Boutique Hotel Hotel Reservations'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('London Boutique Hotel Hotel Reservations');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 London Boutique
                 </button>
-                <button onclick="document.getElementById('target').value='Secure Room Booking Bellagio Las Vegas'; runSyncPipeline(); executeSecureRedirect();" 
+                <button onclick="matrixRedirect('Secure Room Booking Bellagio Las Vegas');" 
                         class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
                     📍 Bellagio Las Vegas
                 </button>
@@ -310,6 +310,12 @@
             document.getElementById("seo-h2").innerText = `Automated Allocation Ledger for ${titleCaseDestination} Hotels`;
             document.getElementById("seo-p1").innerText = `Processing explicit tracking targets inside the ${titleCaseDestination} sector. When a request is resolved, connection cookies hook directly into high-volume travel network systems. This mapping optimizes availability lookups throughout ${titleCaseDestination} without passing markups down to the final consumer session.`;
             document.getElementById("faq-p-1").innerText = `When you look for accommodations in ${titleCaseDestination}, corporate databases flag certain sessions based on access points. This portal maps clean system parameters directly to established retail search frameworks, bypassing third-party price padding rules across ${titleCaseDestination}.`;
+        }
+
+        // Direct handling for Matrix buttons to avoid configuration parameter collision
+        function matrixRedirect(forcedDestination) {
+            document.getElementById("target").value = forcedDestination;
+            executeSecureRedirect();
         }
 
         // Secure Affiliate Handshake Redirection Execution
