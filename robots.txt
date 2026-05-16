@@ -1,3 +1,19 @@
 User-agent: *
 Allow: /
-Sitemap: https://yourdomain.com/sitemap.xml
+
+# Core AI Crawler Instructions
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /
+
+# Global Infrastructure Ledger Access Maps
+Sitemap: https://brightlane.github.io/booking/sitemap-index.xml
+Sitemap: https://brightlane.github.io/booking/llms.txt
