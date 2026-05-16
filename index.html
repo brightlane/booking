@@ -40,7 +40,7 @@
         </div>
     </header>
 
-    <!-- Main Hero Matrix & Input Block -->
+    <!-- Main Hero Matrix Block -->
     <main class="max-w-4xl mx-auto px-4 pt-10 pb-20 text-center">
         <h1 class="text-4xl md:text-6xl font-black tracking-tight max-w-3xl mx-auto leading-tight">
             Direct Allocation Portal: <br>
@@ -55,20 +55,20 @@
             Bypassing secondary brokers to pass direct wholesale pricing into your browser session.
         </p>
 
-        <!-- Dynamic Interface Module Card -->
+        <!-- Direct Instant-Redirection Action Box -->
         <div class="mt-10 max-w-xl mx-auto bg-slate-900/90 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl text-left glow-effect backdrop-blur-md">
-            <div class="mb-5">
-                <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2" for="target">
-                    Target Destination / Hotel Property
-                </label>
-                <div class="relative">
-                    <input id="target" type="text" class="w-full bg-slate-950 border-2 border-slate-800 focus:border-amber-500 focus:outline-none rounded-xl px-4 py-4 text-lg font-bold text-slate-100 transition-colors" value="Global Matrix">
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-600 font-mono text-xs">READY</span>
+            <div class="mb-6 bg-slate-950/80 border border-slate-800 rounded-xl p-4 flex justify-between items-center">
+                <div>
+                    <span class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Target Allocation Pipeline</span>
+                    <span id="current-target-display" class="text-base font-bold text-amber-400 truncate block max-w-[280px] md:max-w-[360px]">Global Matrix Top Rates</span>
+                </div>
+                <div class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-bold px-2 py-1 rounded tracking-tight">
+                    API READY
                 </div>
             </div>
 
-            <button class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xl py-4.5 px-6 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-amber-500/20 cursor-pointer uppercase tracking-wide" onclick="executeSecureRedirect()">
-                Secure Allocation Rates
+            <button class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xl py-5 px-6 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-amber-500/20 cursor-pointer uppercase tracking-wide text-center block" onclick="executeSecureRedirect()">
+                Claim Allocation Rates Now
             </button>
 
             <!-- Trust Verification Checkbox Items -->
@@ -111,7 +111,7 @@
                 </button>
             </div>
             <p class="text-[10px] text-slate-500 font-medium mt-3 text-center">
-                💡 *Clicking any destination above injects high-intent buyer terms instantly into the DOM engine for rapid live testing.*
+                💡 *Clicking any destination option overrides current context parameters to perform a structural conversion route test.*
             </p>
         </div>
 
@@ -230,8 +230,8 @@
             <h3 class="text-lg font-bold text-slate-100 tracking-tight">How to Verify and Safe-Lock Accommodations</h3>
             <div class="grid md:grid-cols-3 gap-6 text-sm">
                 <div class="bg-slate-900/30 border border-slate-800/40 p-5 rounded-xl">
-                    <span class="text-amber-500 font-mono font-bold block mb-2">01 / INPUT INTENT</span>
-                    <p class="text-slate-400 text-xs leading-relaxed">Enter your exact target property or city destination into the tracking module to initialize a clean parameter lookup sequence.</p>
+                    <span class="text-amber-500 font-mono font-bold block mb-2">01 / CAPTURE TARGET</span>
+                    <p class="text-slate-400 text-xs leading-relaxed">The internal Vulture routing model maps explicit city parameters or properties out of incoming payload query string arrays instantly.</p>
                 </div>
                 <div class="bg-slate-900/30 border border-slate-800/40 p-5 rounded-xl">
                     <span class="text-amber-500 font-mono font-bold block mb-2">02 / VERIFY RATIO</span>
@@ -295,7 +295,7 @@
             const hookIndex = rawDestination.length % Hooks.length;
 
             // DOM Adaptations (Instantly context-matches page content to user query)
-            document.getElementById("target").value = titleCaseDestination;
+            document.getElementById("current-target-display").innerText = titleCaseDestination + " Deals Checked";
             document.getElementById("main-title").innerText = titleCaseDestination;
             document.getElementById("meta-title").innerText = `Reservations at ${titleCaseDestination} | Direct Allocation Hub`;
             document.getElementById("meta-desc").setAttribute("content", `Secure direct reservation routes for hotels in ${titleCaseDestination}. Unlock hidden mobile-only and loyalty tier pricing structures.`);
@@ -312,17 +312,16 @@
             document.getElementById("faq-p-1").innerText = `When you look for accommodations in ${titleCaseDestination}, corporate databases flag certain sessions based on access points. This portal maps clean system parameters directly to established retail search frameworks, bypassing third-party price padding rules across ${titleCaseDestination}.`;
         }
 
-        // Direct handling for Matrix buttons to avoid configuration parameter collision
+        // Direct handling for Matrix buttons to update destination scope and go immediately
         function matrixRedirect(forcedDestination) {
-            document.getElementById("target").value = forcedDestination;
+            rawDestination = forcedDestination;
             executeSecureRedirect();
         }
 
-        // Secure Affiliate Handshake Redirection Execution
+        // Secure Affiliate Handshake Redirection Execution to Booking Engine
         function executeSecureRedirect() {
-            const userInput = document.getElementById("target").value.trim() || rawDestination;
             const bookingSearchUrl = "https://www.booking.com/searchresults.html";
-            const runtimeQuery = (userInput === "Global Matrix" || !userInput) ? "Top Global Destinations" : userInput;
+            const runtimeQuery = (rawDestination === "Global Matrix" || !rawDestination) ? "Top Global Destinations" : rawDestination;
             const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").substring(0, 40);
 
             const apiParams = new URLSearchParams({
@@ -366,9 +365,8 @@
             document.getElementById("live-data").innerText = `🔥 ${usersCount} users bypassed secondary retail markups in ${loc} just now`;
         }, 5000);
 
-        // Listeners
-        document.getElementById("target").addEventListener("keypress", (e) => { if(e.key === "Enter") executeSecureRedirect(); });
-        window.onload = () => { runSyncPipeline(); document.getElementById("target").select(); };
+        // Initialize pipeline on drop
+        window.onload = () => { runSyncPipeline(); };
     </script>
 </body>
 </html>
