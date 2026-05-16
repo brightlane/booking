@@ -39,8 +39,8 @@ jobs:
         git config --global user.name "Vulture Engine Bot"
         git config --global user.email "brightlane-bot@users.noreply.github.com"
         
-        # Stage only structural nodes, sitemaps, and index ledgers
-        git add sitemap-v10k-node-*.xml sitemap-index.xml sitemao.xml
+        # Stage only the generated sitemaps and index ledger, using '|| true' to prevent crashes if a file is missing
+        git add sitemap-v10k-node-*.xml sitemap-index.xml || true
         
         if git diff --staged --quiet; then
           echo "No new differential URLs generated in this sequence. Keeping workspace clear."
