@@ -1,0 +1,9 @@
+{
+  "affiliate_id": "8132800",
+  "program_name": "Booking.com Affiliate Network",
+  "base_url": "https://www.booking.com/index.html",
+  "tracking_parameters": {
+    "aid": "8132800"
+  },
+  "full_url": "https://www.booking.com/index.html?aid=8132800"
+}
