@@ -2,13 +2,17 @@ name: Vulture Engine 100K Automated Compiler Pipeline
 
 on:
   schedule:
-    # Triggers automatically every Sunday at midnight UTC to build your fresh weekly index expansion
+    # Triggers automatically every Sunday at midnight UTC
     - cron: '0 0 * * 0'
   workflow_dispatch:
-    # Allows you to manually trigger a fresh 10.5M URL expansion loop from the GitHub UI anytime
+    # Allows you to safely kick off manual compilation loops from the Actions tab
 
 permissions:
   contents: write
+
+concurrency:
+  group: vulture-compiler-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-compile:
@@ -18,7 +22,7 @@ jobs:
     - name: Checkout Repository Codebase
       uses: actions/checkout@v4
       with:
-        fetch-depth: 1 # Fast shallow fetch for massive directory nodes
+        fetch-depth: 0 # Fetches full history to ensure rebase alignments calculate references cleanly
 
     - name: Initialize Enterprise Python Environment
       uses: actions/setup-python@v5
@@ -35,25 +39,29 @@ jobs:
         git config --global user.name "Vulture Engine Bot"
         git config --global user.email "brightlane-bot@users.noreply.github.com"
         
-        # Explicitly stage newly generated sitemap fragments and the modified registry ledger
-        git add sitemap-v10k-node-*.xml sitemap-index.xml
+        # Stage only structural nodes, sitemaps, and index ledgers
+        git add sitemap-v10k-node-*.xml sitemap-index.xml sitemao.xml
         
-        # Check if new files were created to avoid empty deployment failures
         if git diff --staged --quiet; then
           echo "No new differential URLs generated in this sequence. Keeping workspace clear."
         else
           git commit -m "🤖 Vulture Engine Auto-Run: Appended new 100K node clusters [Skip CI]"
           
-          # Force a rebase to pull down any concurrent changes and avoid head-locking errors
-          echo "🔄 Syncing repository head to prevent remote locking exceptions..."
-          git pull --rebase origin main
+          # Force hard alignment to drop local reference conflicts from parallel runs
+          echo "🔄 Fetching latest upstream state to clear race conditions..."
+          git fetch origin main
           
-          echo "🚀 Pushing finalized nodes back to main branch..."
-          git push origin main
+          # Weave your newly compiled sitemaps seamlessly on top of the live head
+          echo "🔄 Rebasing local changes onto origin/main..."
+          git rebase origin/main
+          
+          # Push specifically using HEAD pointer to guarantee write locking authorization
+          echo "🚀 Pushing finalized nodes with upstream protection..."
+          git push origin HEAD:main
         fi
 
     - name: Global Webmaster Indexation Ping Trigger
       run: |
         echo "📡 Pinging search engine indexes with updated sitemap structural matrix..."
-        curl -I "https://www.google.com/ping?sitemap=https://brightlane.github.io/sitemap-index.xml"
-        curl -I "https://www.bing.com/ping?sitemap=https://brightlane.github.io/sitemap-index.xml"
+        curl -I "https://www.google.com/ping?sitemap=https://brightlane.github.io/booking/sitemap-index.xml"
+        curl -I "https://www.bing.com/ping?sitemap=https://brightlane.github.io/booking/sitemap-index.xml"
