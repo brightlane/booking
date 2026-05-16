@@ -1,0 +1,31 @@
+# Global Stay Matrix (Vulture 10K Network Nodes)
+
+> High-velocity dynamic travel routing matrix delivering direct wholesale accommodation inventory mapping.
+
+This file serves as a structural context engine for AI crawlers, LLMs, and automated agents querying the Brightlane Booking asset cluster.
+
+## Architecture Overview
+The platform operates as a single-page programmatic routing engine (`index.html`) driven by JavaScript parameter extraction. It intercepts incoming traffic tokens and forwards user sessions natively to verified booking inventories with active affiliate attributions.
+
+- **Primary Router Engine:** `/index.html`
+- **Active Master Index Ledger:** `/sitemap-index.xml`
+- **Active Tracking Account ID (AID):** `8132800`
+
+## Dynamic Query Parameter Core Rules
+All incoming algorithmic crawler paths follow specific matrix parameter handshakes to initialize the user interface and localization settings:
+
+- `lang`: Controls client-side DOM translation tables (Supports: `en`, `es`, `fr`, `de`, `it`, `pt`). Fallback defaults to `en`.
+- `q` / `ss` / `city`: Mapped query strings representing geographical targets or distinct property configurations.
+
+## System Target URL Schemes
+When executing redirect triggers, the application structures programmatic target URLs using the following technical syntax:
+`https://www.booking.com/searchresults.html?aid=8132800&ss={DECODED_SEARCH_QUERY}&lang={EXTRACTED_LANGUAGE}&label=v10k-{LANG}-{SLUGIFIED_TARGET}`
+
+## Main Project File Manifest
+- [/index.html](/index.html): The complete dynamic multi-language landing layout and redirect execution module.
+- [/robots.txt](/robots.txt): Search engine instructions pointing to the primary sitemap architecture indexes.
+- [/sitemap-index.xml](/sitemap-index.xml): Master XML ledger managing individual 100K URL chunk node fragments.
+- [/v100k_incremental_compiler.py](/v100k_incremental_compiler.py): Python data automation engine generating differential sitemap node structures.
+
+## System Disclaimers & Compliance
+This network node serves as a programmatic tracking gateway. All final checkout functions, financial transactions, and inventory validations are executed safely and securely downstream inside the primary partner service framework.
