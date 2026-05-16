@@ -55,7 +55,6 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://brightlane.github.io/SkyScanner/#webpage",
       "name": "Global Inventory Hub",
       "description": "Programmatic real-time entry network for discount tracking."
     }
@@ -168,6 +167,11 @@
         .seo-content h2, .seo-content h3 { color: var(--booking-orange); margin-top: 25px; }
         .seo-content h2:first-of-type { margin-top: 0; }
         .seo-content p { color: #94a3b8; font-size: 0.95rem; }
+        
+        .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
+        .trust-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .trust-card h4 { margin: 0 0 5px 0; color: #fff; }
+        .trust-card p { margin: 0; font-size: 0.85rem; color: #94a3b8; }
 
         footer { opacity: 0.3; font-size: 0.75rem; padding: 60px 0; line-height: 1.8; }
     </style>
@@ -178,7 +182,7 @@
 <div class="container">
     <div class="limited-offer-banner" id="geo-banner">⚠️ ALLOCATION NOTICE</div>
 
-    <h1>Direct System Link</h1>
+    <h1 id="main-title">Direct System Link</h1>
     <span class="huge-discount">SAVE UP TO 50%</span>
     <p class="sub-header" id="dynamic-sub-header">Bypass retail markup algorithms instantly.</p>
 
@@ -204,24 +208,47 @@
         <h2 id="seo-h2">How to Book Stays and Secure Direct Partner Inventory</h2>
         <p id="seo-p1">Finding verified room availability for high-demand quarters demands precision targeting. Our tracking matrix filters retail margin markups out of the reservation cycle by ensuring target inputs translate directly to verified platform inventories.</p>
         
-        <h3>Frequently Answered Verification Rules</h3>
-        <p><strong>How are individual hotel allocations resolved?</strong> Queries passed through our routing gateway are parsed natively by destination, property configuration, and global geographic tags. This drops your cookie parameters onto high-volume portal layouts with your partner activation sequence fully active.</p>
+        <h3 id="seo-h3">Frequently Answered Verification Rules</h3>
+        <p id="seo-p2">Loading pricing matrix details...</p>
         <p><strong>Are these tracking rules compliant?</strong> Yes. All transactions occur strictly on the primary partner framework using official tracking code references for accurate crediting metrics.</p>
+
+        <div class="trust-grid">
+            <div class="trust-card">
+                <h4>Genius Tier 3 Access</h4>
+                <p>Instantly check properties offering deep volume point discounts.</p>
+            </div>
+            <div class="trust-card">
+                <h4>Mobile-Only Rates</h4>
+                <p>Forcing network queries via mobile API links to pull hidden room stock.</p>
+            </div>
+        </div>
     </article>
 
     <footer>
         *Metrics mapped dynamically from global search indicators.<br>
-        Vulture 10K System Protocol v4.5 | Terminal Gateway ID: 8132800<br>
+        Vulture 10K System Protocol v4.7 | Terminal Gateway ID: 8132800<br>
         © 2026 Global Stay Matrix. All rights reserved.
     </footer>
 </div>
 
 <script>
-// Master Configuration Configuration Variables
+// Master Configuration Variables
 const PARTNER_AID = "8132800";
 let rawDestination = "Global Matrix";
 
-// 1. Core Structural Extraction Routine (SEO + Geo + LLM Sync)
+// Conversion-Driven Copywriting Framework Arrays
+const Hooks = [
+    "Secure your inventory window before general retail price hikes apply.",
+    "Bypassing secondary brokers to pass direct wholesale pricing into your browser session.",
+    "Unlocking unlisted allocations for sudden travel spikes and high-demand events."
+];
+
+const Insights = [
+    "When search volume increases, standard aggregators deploy surge algorithms. Our link architecture uses a verified partner handshake to isolate rates directly from inventory channels.",
+    "By passing specialized system parameters, this route drops your browser session directly onto pre-negotiated rate landing portals, maintaining tracking integrity."
+];
+
+// 1. Core Structural Extraction Routine (SEO + Geo + LLM Sync + Copy Engine)
 function syncEnginePipeline() {
     const urlParams = new URLSearchParams(window.location.search);
     
@@ -239,16 +266,28 @@ function syncEnginePipeline() {
     const pageUrl = window.location.href;
     document.getElementById("canonical-link").setAttribute("href", pageUrl);
     
+    // Select deterministic copy variations based on string length to guarantee stability across indexings
+    const hookIndex = rawDestination.length % Hooks.length;
+    const insightIndex = rawDestination.length % Insights.length;
+    
     // DOM Structural Injection (Conversion Tuning)
     document.getElementById("target").value = titleCaseDestination;
+    document.getElementById("main-title").innerText = `${titleCaseDestination} Matrix`;
     document.getElementById("meta-title").innerText = `Book ${titleCaseDestination} Hotels | Save up to 50% | Global Stay Matrix`;
     document.getElementById("meta-desc").setAttribute("content", `Compare and secure direct pricing at top hotels in ${titleCaseDestination}. Unlock special mobile-only rates and Genius allocations instantly.`);
-    document.getElementById("dynamic-sub-header").innerText = `Extracting room allocations and verified deals inside ${titleCaseDestination}.`;
+    document.getElementById("dynamic-sub-header").innerText = Hooks[hookIndex];
     document.getElementById("geo-banner").innerText = `⚠️ ALLOCATION NOTICE: ${titleCaseDestination.toUpperCase()} LOCK ACTIVE`;
     
+    // Open Graph Social Tags Sync
+    document.getElementById("og-title").setAttribute("content", `${titleCaseDestination} Stay Matrix: Global Inventory Sniper`);
+    document.getElementById("og-desc").setAttribute("content", `Direct API deep-linking for ${titleCaseDestination} configurations. Save up to 50% directly on verified partner portals.`);
+
     // Dynamic SEO Article Optimization
     document.getElementById("seo-h2").innerText = `Strategic Booking Logistics for ${titleCaseDestination}`;
-    document.getElementById("seo-p1").innerText = `Planning travel coordinates to ${titleCaseDestination} requires modern data extraction. By referencing targeted inventory parameters inside ${titleCaseDestination}, users tap into backend network rates. All links route via Partner AID ${PARTNER_AID} to guarantee session processing accuracy.`;
+    document.getElementById("seo-p1").innerText = `Planning travel coordinates to ${titleCaseDestination} requires modern data extraction. By referencing targeted inventory parameters inside ${titleCaseDestination}, users tap into backend network rates. All links route via Partner AID ${PARTNER_AID} to guarantee session processing accuracy. ${Insights[insightIndex]}`;
+    
+    document.getElementById("seo-h3").innerText = `How are individual ${titleCaseDestination} hotel allocations resolved?`;
+    document.getElementById("seo-p2").innerText = `Queries passed through our routing gateway are parsed natively by destination, property configuration, and global geographic tags within the ${titleCaseDestination} zone. This drops your cookie parameters onto high-volume portal layouts with your partner activation sequence fully active.`;
 
     // Semantic JSON-LD Schema Pipeline Optimization (For Google Rich Results & LLM indexing)
     const webPageSchema = JSON.parse(document.getElementById("schema-webpage").innerHTML);
@@ -269,7 +308,7 @@ function executeSecureRedirect() {
     // Normalize clean tracing slug variables to avoid backend payload dropping
     const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").substring(0, 40);
 
-    // native search execution parameters accepted by Booking.com systems safely
+    // Native search execution parameters accepted by Booking.com systems safely
     const apiParams = new URLSearchParams({
         "aid": PARTNER_AID,
         "ss": runtimeQuery,
