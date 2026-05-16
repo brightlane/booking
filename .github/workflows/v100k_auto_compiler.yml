@@ -43,5 +43,17 @@ jobs:
           echo "No new differential URLs generated in this sequence. Keeping workspace clear."
         else
           git commit -m "🤖 Vulture Engine Auto-Run: Appended new 100K node clusters [Skip CI]"
+          
+          # Force a rebase to pull down any concurrent changes and avoid head-locking errors
+          echo "🔄 Syncing repository head to prevent remote locking exceptions..."
+          git pull --rebase origin main
+          
+          echo "🚀 Pushing finalized nodes back to main branch..."
           git push origin main
         fi
+
+    - name: Global Webmaster Indexation Ping Trigger
+      run: |
+        echo "📡 Pinging search engine indexes with updated sitemap structural matrix..."
+        curl -I "https://www.google.com/ping?sitemap=https://brightlane.github.io/sitemap-index.xml"
+        curl -I "https://www.bing.com/ping?sitemap=https://brightlane.github.io/sitemap-index.xml"
