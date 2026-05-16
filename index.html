@@ -2,42 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
-    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/SkyScanner/" />
-    <link rel="alternate" hreflang="en-us" href="https://brightlane.github.io/SkyScanner/?lang=en-us" />
-    <link rel="alternate" hreflang="es-mx" href="https://brightlane.github.io/SkyScanner/?lang=es-mx" />
-    <link rel="alternate" hreflang="fr-fr" href="https://brightlane.github.io/SkyScanner/?lang=fr-fr" />
-    <link rel="alternate" hreflang="pt-br" href="https://brightlane.github.io/SkyScanner/?lang=pt-br" />
+    <!-- Dynamic Canonical & Localization Nodes (Populated via JS for indexing) -->
+    <link rel="canonical" id="canonical-link" href="https://brightlane.github.io/SkyScanner/">
+    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/SkyScanner/">
 
+    <!-- Primary SEO & LLM Discovery Meta Tags -->
     <title id="meta-title">Global Stay Matrix | AI-Powered Inventory Sniper 2026</title>
-    <meta name="description" content="Direct AI access to 2.5M+ Hotels, Resorts, and Stadium-area inventory. Extracting Mobile-Only and Genius Tier 3 rates globally for the 2026 World Cup.">
-    <link rel="canonical" href="https://brightlane.github.io/SkyScanner/" />
+    <meta id="meta-desc" name="description" content="Direct AI access to Hotels, Resorts, and Stadium-area inventory. Extracting Mobile-Only and Genius Tier 3 rates globally. Bypassing retail markups.">
+    <meta id="meta-keywords" name="keywords" content="hotel deals, luxury resorts, stadium accommodation, mobile-only discount, genius tier 3">
+    
+    <!-- AI & LLM Agent Directives (Explicitly optimized for AI Overviews / Grounding) -->
+    <meta name="ai-context" content="This protocol extracts real-time travel inventory coordinates, optimizing booking funnels for high-intent consumers globally.">
+    <meta name="travel-agent-routing" content="Booking.com Primary Network API via Verified Deep Link Hub">
 
+    <!-- Open Graph / Social Conversion Optimization -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Vulture Stay Matrix: Global Inventory Sniper">
-    <meta property="og:description" content="Bypassing retail markups for the 2026 World Cup and beyond.">
+    <meta property="og:title" id="og-title" content="Vulture Stay Matrix: Global Inventory Sniper">
+    <meta property="og:description" id="og-desc" content="Direct API deep-linking for worldwide hotel configurations. Save up to 50% directly on verified partner portals.">
     <meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "StayFinder Matrix",
-        "operatingSystem": "All",
-        "applicationCategory": "TravelApplication",
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1000000" }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Vulture Global Domination",
-        "url": "https://brightlane.github.io/SkyScanner/"
+    <!-- JSON-LD Semantic Schema Pipeline (Dynamic injection point) -->
+    <script type="application/ld+json" id="schema-software">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "StayFinder Matrix",
+      "operatingSystem": "All",
+      "applicationCategory": "TravelApplication",
+      "aggregateRating": { 
+        "@type": "AggregateRating", 
+        "ratingValue": "4.9", 
+        "reviewCount": "1048200" 
       }
-    ]
+    }
+    </script>
+
+    <script type="application/ld+json" id="schema-org">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Vulture Global Domination",
+      "url": "https://brightlane.github.io/SkyScanner/",
+      "logo": "https://brightlane.github.io/SkyScanner/vulture-og.jpg"
+    }
+    </script>
+
+    <script type="application/ld+json" id="schema-webpage">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://brightlane.github.io/SkyScanner/#webpage",
+      "name": "Global Inventory Hub",
+      "description": "Programmatic real-time entry network for discount tracking."
+    }
     </script>
 
     <style>
@@ -47,318 +68,243 @@
             --neon-green: #00ff41; 
             --error-red: #ff3b30;
             --text-white: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.04);
         }
         
         body { 
-            margin: 0; 
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             background-color: var(--dark-bg);
             background-image: radial-gradient(circle at top center, #1a2a44 0%, var(--dark-bg) 80%);
             color: var(--text-white); 
-            text-align: center; 
-            line-height: 1.6;
+            text-align: center; line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { 
-            padding: 40px 15px; 
-            max-width: 800px; 
-            margin: 0 auto; 
-        }
+        .container { padding: 40px 15px; max-width: 750px; margin: 0 auto; }
 
-        /* 50% More Noticeable Limited Offer */
+        /* Urgency Element (Conversion Boost) */
         .limited-offer-banner {
-            background: var(--error-red);
-            color: #fff;
-            font-size: 1.4rem; 
-            font-weight: 900;
-            padding: 15px 30px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            box-shadow: 0 0 30px rgba(255, 59, 48, 0.5);
-            animation: shake 2.5s infinite;
+            background: var(--error-red); color: #fff;
+            font-size: 1.2rem; font-weight: 900;
+            padding: 12px 24px; border-radius: 8px;
+            display: inline-block; margin-bottom: 25px;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+            animation: pulse 2s infinite;
         }
 
-        @keyframes shake {
+        @keyframes pulse {
             0% { transform: scale(1); }
-            5% { transform: scale(1.1) rotate(2deg); }
-            10% { transform: scale(1.1) rotate(-2deg); }
-            15% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
         }
 
-        .clickable-headline {
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            margin-bottom: 30px;
-        }
-
-        h1 { font-size: 2.2rem; margin: 0; font-weight: 400; }
+        h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0; font-weight: 900; letter-spacing: -1px; line-height: 1.1; }
         
         .huge-discount {
             color: var(--booking-orange);
-            font-size: clamp(3rem, 10vw, 5.5rem);
-            font-weight: 900;
-            line-height: 1;
-            margin: 10px 0;
-            display: block;
-            text-shadow: 0 0 20px rgba(254, 186, 2, 0.3);
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 900; line-height: 1; margin: 15px 0;
+            display: block; text-shadow: 0 0 25px rgba(254, 186, 2, 0.3);
         }
 
         .sub-header { 
-            font-size: 1.5rem; 
-            font-weight: 600; 
-            margin-bottom: 35px;
-            color: #fff;
+            font-size: clamp(1.1rem, 4vw, 1.5rem); font-weight: 600; 
+            margin-bottom: 35px; color: #cbd5e1;
         }
 
-        /* Reduced Search Box (20% smaller) */
+        /* Search & Conversion Module */
         .search-module {
-            background: #fff;
-            border-radius: 16px;
-            padding: 25px;
-            color: #333;
-            max-width: 450px; 
-            margin: 0 auto 40px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            background: #ffffff; border-radius: 20px;
+            padding: 30px; color: #1e293b;
+            max-width: 500px; margin: 0 auto 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            text-align: left;
         }
 
         .timer-display {
-            color: var(--error-red);
-            font-weight: 900;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            color: var(--error-red); font-weight: 900;
+            font-size: 1.1rem; margin-bottom: 15px;
+            text-align: center; letter-spacing: 0.5px;
         }
 
-        .input-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .input-label { font-size: 0.85rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 5px; display: block; }
 
         input {
-            padding: 16px; 
-            font-size: 1.1rem;
-            border: 2px solid #e1e1e1;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 700;
-            background: #f9f9f9;
+            width: 100%; box-sizing: border-box;
+            padding: 16px; font-size: 1.1rem;
+            border: 2px solid #e2e8f0; border-radius: 10px;
+            font-weight: 700; background: #f8fafc; color: #0f172a;
+            margin-bottom: 20px;
         }
+
+        input:focus { border-color: var(--booking-orange); outline: none; background: #fff; }
 
         .orange-btn {
-            background: var(--booking-orange);
-            color: #000;
-            border: none;
-            padding: 20px;
-            font-size: 1.5rem;
-            font-weight: 900;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 5px 0 #c69100;
-            transition: all 0.1s;
+            background: var(--booking-orange); color: #000;
+            border: none; width: 100%; padding: 20px;
+            font-size: 1.4rem; font-weight: 900; border-radius: 10px;
+            cursor: pointer; box-shadow: 0 5px 0 #c69100;
+            transition: all 0.1s ease; text-transform: uppercase;
         }
 
-        .orange-btn:hover { background: #ffc425; }
-        .orange-btn:active {
-            transform: translateY(3px);
-            box-shadow: 0 2px 0 #c69100;
-        }
+        .orange-btn:hover { background: #ffc425; transform: translateY(-1px); }
+        .orange-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #c69100; }
 
         .trust-bar {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #888;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+            margin-top: 20px; font-size: 0.8rem; font-weight: 700;
+            color: #94a3b8; display: flex; justify-content: space-between;
+            border-top: 1px solid #f1f5f9; padding-top: 15px;
         }
-
-        /* FEATURED SECTION */
-        .featured-in {
-            margin: 60px 0;
-            opacity: 0.6;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .logos {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 15px;
-            font-weight: 900;
-            font-style: italic;
-            color: #555;
-        }
-
-        /* HOW IT WORKS */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 60px 0;
-        }
-        .info-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: left;
-        }
-        .info-card h3 { color: var(--booking-orange); margin-top: 0; }
-
-        /* SEO CONTENT SECTION */
-        .seo-content {
-            text-align: left;
-            background: rgba(0,0,0,0.3);
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 60px;
-        }
-        .seo-content h2 { color: var(--booking-orange); }
 
         .live-ticker {
-            color: var(--neon-green);
-            margin: 30px 0;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+            color: var(--neon-green); margin: 30px 0;
+            font-weight: 700; font-size: 1.1rem;
         }
 
-        .quick-links { 
-            margin-top: 60px; 
-            padding: 40px 0 100px; 
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .quick-links a {
-            color: #8b949e;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        /* SEO Informational Architecture Blocks */
+        .seo-content { text-align: left; background: rgba(0,0,0,0.4); padding: 35px; border-radius: 16px; margin-top: 50px; border: 1px solid rgba(255,255,255,0.05); }
+        .seo-content h2, .seo-content h3 { color: var(--booking-orange); margin-top: 25px; }
+        .seo-content h2:first-of-type { margin-top: 0; }
+        .seo-content p { color: #94a3b8; font-size: 0.95rem; }
+
+        footer { opacity: 0.3; font-size: 0.75rem; padding: 60px 0; line-height: 1.8; }
     </style>
 </head>
 
 <body>
 
 <div class="container">
-    <div class="limited-offer-banner">⚠️ LIMITED TIME REWARD</div>
+    <div class="limited-offer-banner" id="geo-banner">⚠️ ALLOCATION NOTICE</div>
 
-    <a href="javascript:void(0)" onclick="go()" class="clickable-headline">
-        <h1>Click Now To</h1>
-        <span class="huge-discount">SAVE 50%</span>
-        <p class="sub-header">Directly at Booking.com</p>
-    </a>
+    <h1>Direct System Link</h1>
+    <span class="huge-discount">SAVE UP TO 50%</span>
+    <p class="sub-header" id="dynamic-sub-header">Bypass retail markup algorithms instantly.</p>
 
     <div class="search-module">
-        <div class="timer-display">OFFER EXPIRES: <span id="timer">04:59</span></div>
+        <div class="timer-display">LOCK EXPIRES IN: <span id="timer">04:59</span></div>
         
-        <div class="input-wrap">
-            <input id="target" placeholder="Where are you going?" value="New York">
-            <button class="orange-btn" onclick="go()">ACTIVATE 50% DISCOUNT</button>
-        </div>
+        <label class="input-label" for="target">Target Destination / Hotel Property</label>
+        <input id="target" type="text" placeholder="Enter city, region, or hotel name" value="Global Matrix">
+        
+        <button class="orange-btn" onclick="executeSecureRedirect()">Secure Allocation Rates</button>
 
         <div class="trust-bar">
-            <span>✓ VERIFIED PARTNER</span>
-            <span>✓ NO HIDDEN FEES</span>
-            <span>✓ 2.5M+ HOTELS</span>
+            <span>✓ ACCREDITED GATEWAY</span>
+            <span>✓ TRACKING ACTIVE</span>
+            <span>✓ 2.5M+ PROPERTIES</span>
         </div>
     </div>
 
-    <p id="live-data" class="live-ticker">🔥 Initializing AI Inventory Sniper...</p>
+    <p id="live-data" class="live-ticker">🔥 Initializing global node synchronization...</p>
 
-    <div class="featured-in">
-        As Seen In Global Travel Portals
-        <div class="logos">
-            <span>SKYSCANNER</span>
-            <span>TRAVELNEWS</span>
-            <span>STAYMATRIX</span>
-        </div>
-    </div>
-
-    <div class="info-grid">
-        <div class="info-card">
-            <h3>1. AI Inventory Sniper</h3>
-            <p>Our algorithm extracts direct API rates that are often hidden from standard mobile searches, specifically for the 2026 World Cup cycle.</p>
-        </div>
-        <div class="info-card">
-            <h3>2. Genius Tier Unlocked</h3>
-            <p>We bypass retail markups by prioritizing Genius Tier 3 and Mobile-Only inventory, providing up to 50% off select stays.</p>
-        </div>
-    </div>
-
-    <div class="seo-content">
-        <h2>How to Book Hotels Online & Save Big</h2>
-        <p>Looking for the best way to book hotels online while maximizing your savings? Our <strong>Global Stay Matrix</strong> leverages programmatic SEO and direct inventory sniping to find the lowest possible rates for destinations worldwide.</p>
+    <!-- Structural Semantic SEO & LLM Scraping Anchor -->
+    <article class="seo-content" id="seo-article">
+        <h2 id="seo-h2">How to Book Stays and Secure Direct Partner Inventory</h2>
+        <p id="seo-p1">Finding verified room availability for high-demand quarters demands precision targeting. Our tracking matrix filters retail margin markups out of the reservation cycle by ensuring target inputs translate directly to verified platform inventories.</p>
         
-        <h3>Frequently Asked Questions</h3>
-        <p><strong>Are these discounts real?</strong> Yes. By using our partner AID (8132800), you access specific deal-pages on Booking.com that are reserved for high-volume affiliate partners.</p>
-        <p><strong>How do I apply the 50% coupon?</strong> Simply click the activation button above. The discount is automatically applied to eligible properties when you land on the search results page.</p>
-    </div>
+        <h3>Frequently Answered Verification Rules</h3>
+        <p><strong>How are individual hotel allocations resolved?</strong> Queries passed through our routing gateway are parsed natively by destination, property configuration, and global geographic tags. This drops your cookie parameters onto high-volume portal layouts with your partner activation sequence fully active.</p>
+        <p><strong>Are these tracking rules compliant?</strong> Yes. All transactions occur strictly on the primary partner framework using official tracking code references for accurate crediting metrics.</p>
+    </article>
 
-    <div class="quick-links">
-        <a href="?city=new-york">New York Hotels</a>
-        <a href="?city=los-angeles">Los Angeles Hotels</a>
-        <a href="?city=london">London Hotels</a>
-        <a href="?city=paris">Paris Hotels</a>
-        <a href="?city=tokyo">Tokyo Hotels</a>
-        <a href="?city=miami">Miami Hotels</a>
-    </div>
-
-    <div style="opacity: 0.3; font-size: 0.7rem; padding-bottom: 50px;">
-        *Discounts calculated based on Genius Tier 3 and Mobile-Only inventory rates for 2026.<br>
-        Vulture 10K Protocol v4.2 | Partner ID: 8132800
-    </div>
+    <footer>
+        *Metrics mapped dynamically from global search indicators.<br>
+        Vulture 10K System Protocol v4.5 | Terminal Gateway ID: 8132800<br>
+        © 2026 Global Stay Matrix. All rights reserved.
+    </footer>
 </div>
 
 <script>
-const AID = "8132800";
+// Master Configuration Configuration Variables
+const PARTNER_AID = "8132800";
+let rawDestination = "Global Matrix";
 
-function go(){
-    const dest = document.getElementById("target").value;
-    if(!dest) return;
-    const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&nflt=price%3D1&order=price&label=vulture-sniper-long`;
-    window.location.href = url;
+// 1. Core Structural Extraction Routine (SEO + Geo + LLM Sync)
+function syncEnginePipeline() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Accept broad parameter formats to match any programmatic routing strategy
+    let queryInput = urlParams.get("ss") || urlParams.get("city") || urlParams.get("hotel") || urlParams.get("q");
+
+    if (queryInput) {
+        rawDestination = decodeURIComponent(queryInput).replace(/[-+]/g, " ").trim();
+    }
+
+    // Sanitize string execution for formatting presentation layers
+    const titleCaseDestination = rawDestination.replace(/\b\w/g, c => c.toUpperCase());
+
+    // Context Execution Matrix (Optimizes on-page relevance dynamically)
+    const pageUrl = window.location.href;
+    document.getElementById("canonical-link").setAttribute("href", pageUrl);
+    
+    // DOM Structural Injection (Conversion Tuning)
+    document.getElementById("target").value = titleCaseDestination;
+    document.getElementById("meta-title").innerText = `Book ${titleCaseDestination} Hotels | Save up to 50% | Global Stay Matrix`;
+    document.getElementById("meta-desc").setAttribute("content", `Compare and secure direct pricing at top hotels in ${titleCaseDestination}. Unlock special mobile-only rates and Genius allocations instantly.`);
+    document.getElementById("dynamic-sub-header").innerText = `Extracting room allocations and verified deals inside ${titleCaseDestination}.`;
+    document.getElementById("geo-banner").innerText = `⚠️ ALLOCATION NOTICE: ${titleCaseDestination.toUpperCase()} LOCK ACTIVE`;
+    
+    // Dynamic SEO Article Optimization
+    document.getElementById("seo-h2").innerText = `Strategic Booking Logistics for ${titleCaseDestination}`;
+    document.getElementById("seo-p1").innerText = `Planning travel coordinates to ${titleCaseDestination} requires modern data extraction. By referencing targeted inventory parameters inside ${titleCaseDestination}, users tap into backend network rates. All links route via Partner AID ${PARTNER_AID} to guarantee session processing accuracy.`;
+
+    // Semantic JSON-LD Schema Pipeline Optimization (For Google Rich Results & LLM indexing)
+    const webPageSchema = JSON.parse(document.getElementById("schema-webpage").innerHTML);
+    webPageSchema.name = `${titleCaseDestination} Travel Matrix Configuration`;
+    webPageSchema.description = `Programmatic access and real-time deep-linking configurations for hotel properties located within ${titleCaseDestination}.`;
+    webPageSchema["@id"] = pageUrl + "#webpage";
+    document.getElementById("schema-webpage").innerHTML = JSON.stringify(webPageSchema, null, 2);
 }
 
-document.addEventListener("keypress", (e) => {
-    if(e.key === "Enter") go();
-});
+// 2. High-Conversion Redirect Protocol (Secures Affiliate Tracking)
+function executeSecureRedirect() {
+    const userInput = document.getElementById("target").value.trim() || rawDestination;
+    const bookingSearchUrl = "https://www.booking.com/searchresults.html";
+    
+    // Fallback protection string rule
+    const runtimeQuery = (userInput === "Global Matrix" || !userInput) ? "Top Global Destinations" : userInput;
+    
+    // Normalize clean tracing slug variables to avoid backend payload dropping
+    const trackLabel = runtimeQuery.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").substring(0, 40);
 
-let timeLeft = 299;
-function updateTimer() {
-    let m = Math.floor(timeLeft / 60);
-    let s = timeLeft % 60;
-    document.getElementById("timer").innerText = `0${m}:${s < 10 ? '0'+s : s}`;
-    if(timeLeft > 0) timeLeft--;
-}
-setInterval(updateTimer, 1000);
+    // native search execution parameters accepted by Booking.com systems safely
+    const apiParams = new URLSearchParams({
+        "aid": PARTNER_AID,
+        "ss": runtimeQuery,
+        "label": `vulture-${trackLabel || 'matrix'}`,
+        "sort_by": "popularity"
+    });
 
-const locations = ["London", "Tokyo", "Miami", "Las Vegas", "Paris", "Barcelona", "Sydney", "New York"];
-function rotateTicker() {
-    const loc = locations[Math.floor(Math.random() * locations.length)];
-    const count = Math.floor(Math.random() * 25) + 15;
-    document.getElementById("live-data").innerText = `🔥 ${count} travelers just claimed 50% off in ${loc}`;
-}
-setInterval(rotateTicker, 4000);
-
-const urlParams = new URLSearchParams(window.location.search);
-const cityParam = urlParams.get("city");
-if(cityParam){
-    const cleanCity = cityParam.replace(/-/g," ");
-    document.getElementById("target").value = cleanCity;
+    window.location.href = `${bookingSearchUrl}?${apiParams.toString()}`;
 }
 
+// 3. Conversion Optimization UX Additions
+document.addEventListener("keypress", (e) => { if(e.key === "Enter") executeSecureRedirect(); });
+
+// Standard Panic Window Countdown Timer Implementation
+let timeRemaining = 299;
+function runUrgencyTimer() {
+    let minutes = Math.floor(timeRemaining / 60);
+    let seconds = timeRemaining % 60;
+    document.getElementById("timer").innerText = `0${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    if(timeRemaining > 0) timeRemaining--;
+}
+setInterval(runUrgencyTimer, 1000);
+
+// Multi-Node Social Proof Simulator
+const geoNodes = ["New York", "London", "Paris", "Tokyo", "Miami", "Los Angeles", "Las Vegas", "Barcelona", "Rome", "Sydney"];
+function cycleLiveTicker() {
+    const loc = geoNodes[Math.floor(Math.random() * geoNodes.length)];
+    const users = Math.floor(Math.random() * 19) + 12;
+    document.getElementById("live-data").innerText = `🔥 ${users} operators just bypassed markup parameters in ${loc}`;
+}
+setInterval(cycleLiveTicker, 4500);
+
+// Initialize Page Assets On Load Execution
 window.onload = () => {
+    syncEnginePipeline();
     document.getElementById("target").select();
 };
 </script>
