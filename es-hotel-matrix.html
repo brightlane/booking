@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Reservas de Hoteles Seguras | Matriz de Estancia Global</title>
+    
+    <!-- Hreflang Regional Interlocking Framework -->
+    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/booking/en-matrix.html">
+    <link rel="alternate" hreflang="es" href="https://brightlane.github.io/booking/es-hotel-matrix.html">
+    <link rel="alternate" hreflang="fr" href="https://brightlane.github.io/booking/fr-hotel-matrix.html">
+    <link rel="alternate" hreflang="de" href="https://brightlane.github.io/booking/de-hotel-matrix.html">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+
+    <header class="max-w-4xl mx-auto w-full px-4 py-6 flex justify-between items-center">
+        <span class="font-bold text-lg tracking-tight">Global Stay<span class="text-amber-500">Matrix</span></span>
+        <div class="text-xs bg-slate-900 border border-slate-800 text-emerald-400 px-3 py-1 rounded-full font-mono font-bold">NODO_ES_ACTIVO</div>
+    </header>
+
+    <main class="max-w-xl mx-auto px-4 py-12 text-center">
+        <h1 class="text-3xl md:text-4xl font-black tracking-tight leading-tight uppercase">
+            Portal de Asignación Directa: <br>
+            <span id="target-placeholder" class="text-amber-400">Matriz Global</span>
+        </h1>
+        
+        <p class="text-slate-400 text-sm mt-4 max-w-md mx-auto">
+            Evitando intermediarios secundarios para transferir precios mayoristas y tarifas de promoción directamente a su navegador.
+        </p>
+
+        <div class="mt-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 text-left shadow-2xl">
+            <div class="mb-4 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                Punto de enlace verificado: <span id="pipeline-display" class="text-emerald-400">Tarifas Globales</span>
+            </div>
+            
+            <a id="cta-link" href="https://www.booking.com/searchresults.html?aid=8132800&lang=es" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-lg py-4 px-6 rounded-xl block text-center uppercase tracking-wide transition-all transform active:scale-[0.99] hover:shadow-lg hover:shadow-amber-500/10">
+                Reclamar Tarifas de Asignación Ahora
+            </a>
+            
+            <p class="text-[10px] text-slate-500 text-center mt-3 leading-normal">
+                💡 *Nota: Las asignaciones promocionales se abren de forma segura en una ventana de red separada. Simplemente descarte los avisos emergentes del portal minorista al llegar.*
+            </p>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-[11px] font-mono text-slate-700 border-t border-slate-900">
+        Vulture 10K Global Node Cluster Engine &copy; 2026
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q') || params.get('ss') || params.get('city');
+            if (query) {
+                const cleanQuery = decodeURIComponent(query).replace(/[-+]/g, ' ').trim();
+                const formatted = cleanQuery.replace(/\b\w/g, c => c.toUpperCase());
+                document.getElementById('target-placeholder').innerText = formatted;
+                document.getElementById('pipeline-display').innerText = formatted + " confirmado";
+                
+                const trackingSlug = cleanQuery.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                document.getElementById('cta-link').href = `https://www.booking.com/searchresults.html?aid=8132800&ss=${encodeURIComponent(cleanQuery)}&lang=es&label=v10k-es-${trackingSlug}`;
+            }
+        };
+    </script>
+</body>
+</html>
