@@ -79,6 +79,42 @@
             </div>
         </div>
 
+        <!-- VERIFICATION MATRIX: Top Global Test Destinations -->
+        <div class="mt-8 max-w-xl mx-auto bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 backdrop-blur-sm text-left">
+            <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 text-center md:text-left">
+                🌐 Quick Verification Matrix (Top Global Properties)
+            </h3>
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono font-bold">
+                <button onclick="document.getElementById('target').value='Reservations At The Ritz-Carlton Paris'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 Ritz-Carlton Paris
+                </button>
+                <button onclick="document.getElementById('target').value='Hotel Reservations Marina Bay Sands Singapore'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 Marina Bay Sands
+                </button>
+                <button onclick="document.getElementById('target').value='Book A Room At The Plaza Hotel New York'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 Plaza Hotel NY
+                </button>
+                <button onclick="document.getElementById('target').value='Reservations At Burj Al Arab Dubai'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 Burj Al Arab Dubai
+                </button>
+                <button onclick="document.getElementById('target').value='London Boutique Hotel Hotel Reservations'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 London Boutique
+                </button>
+                <button onclick="document.getElementById('target').value='Secure Room Booking Bellagio Las Vegas'; runSyncPipeline();" 
+                        class="bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 p-2.5 rounded-lg text-left transition-colors cursor-pointer truncate">
+                    📍 Bellagio Las Vegas
+                </button>
+            </div>
+            <p class="text-[10px] text-slate-500 font-medium mt-3 text-center">
+                💡 *Clicking any destination above injects high-intent buyer terms instantly into the DOM engine for rapid live testing.*
+            </p>
+        </div>
+
         <!-- Real-Time Activity Live Tracker -->
         <p id="live-data" class="mt-6 text-xs md:text-sm font-mono text-emerald-400 font-semibold bg-emerald-950/20 border border-emerald-900/30 inline-block px-4 py-1.5 rounded-full">
             🔥 Initializing global node synchronization...
